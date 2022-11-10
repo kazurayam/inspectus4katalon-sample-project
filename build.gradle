@@ -1,0 +1,13 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'com.kazurayam:inspectus-gradle-plugin:0.1.0'
+    }
+}
+
+apply plugin: 'com.kazurayam.inspectus-gradle-plugin'
+
+// to run the plugin, execute
+// $ gradle drivers
