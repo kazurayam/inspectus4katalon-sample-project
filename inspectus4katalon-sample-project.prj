@@ -6,6 +6,7 @@
    <UUID>6b72e427-232a-4445-936e-160d5d776721</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
+   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/inspectus4katalon-sample-project/inspectus4katalon-sample-project.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
