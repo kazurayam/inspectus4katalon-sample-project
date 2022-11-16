@@ -21,40 +21,14 @@ import internal.GlobalVariable
 // check params which should be passed as the arguments of WebUI.callTestCases() call
 Objects.requireNonNull(store)
 Objects.requireNonNull(jobName)
+Objects.requireNonNull(jobTimestamp)
+Objects.requireNonNull(environment)
 
+String executionProfile = environment.toString()
 
-Map<String, Object> intermediates = new LinkedHashMap<>();
+List<Target> targetList = getTargetList(executionProfile)
 
-String profileLeft = "MyAdmin_ProductionEnv"
-JobTimestamp jtLeft = callProcessEnv(profileLeft)
-intermediates.put(Intermediates.KEY_profileLeft, profileLeft)
-intermediates.put(Intermediates.KEY_jobTimestampLeft, jtLeft)
-
-String profileRight = "MyAdmin_DevelopmentEnv" 
-JobTimestamp jtRight = callProcessEnv(profileRight)
-intermediates.put(Intermediates.KEY_profileRight, profileRight)
-intermediates.put(Intermediates.KEY_jobTimestampRight, jtRight)
-
-return intermediates
-
-
-/*
- * 
- */
-JobTimestamp callProcessEnv(String profile) {
-	Path projectDir = Paths.get(RunConfiguration.getProjectDir())
-	// utility class that loads specified Execution Profiles intentionally
-	ExecutionProfilesLoader profilesLoader = new ExecutionProfilesLoader()
-	profilesLoader.loadProfile(profile)
-	Path targetFile = projectDir.resolve(GlobalVariable.CSV)
-	JobTimestamp jobTimestamp = JobTimestamp.now()
-	// utility class to parse CSV file
-	TargetCSVParser parser = TargetCSVParser.newSimpleParser();
-	List<Target> targetList = parser.parse(targetFile)
-									.stream()
-									.map({target -> target.copyWith(["profile": profile])})
-									.collect(Collectors.toList())
-	WebUI.callTestCase(findTestCase("Test Cases/MyAdmin/processEnv"),
+WebUI.callTestCase(findTestCase("Test Cases/MyAdmin/processTargetList"),
 						[
 							"store": store,
 							"jobName": jobName,
@@ -62,6 +36,27 @@ JobTimestamp callProcessEnv(String profile) {
 							"targetList": targetList
 						])
 
-	return jobTimestamp;
-}
+/**
+ * look at the Execution Profile to find a CSV file 
+ * where list of multiple target URLs are written  
+ */
+List<Target> getTargetList(String executionProfile) {
+	
+	// utility class that loads specified Execution Profiles to make the GlobalVariable.CSV accessible
+	ExecutionProfilesLoader profilesLoader = new ExecutionProfilesLoader()
+	profilesLoader.loadProfile(executionProfile)
+	
+	// identify the target CSV file
+	Path targetFile = Paths.get(RunConfiguration.getProjectDir()).resolve(GlobalVariable.CSV)
+	
+	// utility class to parse a CSV file to generate a List<Target>
+	TargetCSVParser parser = TargetCSVParser.newSimpleParser();
 
+	List<Target> targetList = 
+		parser.parse(targetFile).stream()
+				// creates a new instance of Target class while adding an "environment" attribute
+				.map({target -> target.copyWith(["environment": executionProfile])})
+				.collect(Collectors.toList())
+
+	return targetList
+}
