@@ -32,6 +32,7 @@ Parameters p =
 		.jobName(jobName)
 		.jobTimestamp(jobTimestamp)
 		.sortKeys(sortKeys)
+		.threshold(1.0)    // ignore differences less than 1.0%
 		.build();
 
 Inspectus inspectus = new KatalonTwinsDiff("Test Cases/MyAdmin/materialize",
