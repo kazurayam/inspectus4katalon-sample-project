@@ -21,7 +21,7 @@ Path remote = projectDir.resolve("store-backup")
 Store backup = Stores.newInstance(remote)
 StoreCleaner cleaner = StoreCleaner.newInstance(backup)
 
-JobTimestamp olderThan = JobTimestamp.now().minusDays(10)
+JobTimestamp olderThan = JobTimestamp.now().minusDays(7)
 
 List<JobName> jobNames = backup.findAllJobNames()
 for (JobName jobName : jobNames) {

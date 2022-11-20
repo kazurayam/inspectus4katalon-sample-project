@@ -35,7 +35,8 @@ Parameters p =
 		.threshold(1.0)    // ignore differences less than 1.0%
 		.build();
 
-Inspectus inspectus = new KatalonTwinsDiff("Test Cases/MyAdmin/materialize",
-											new Environment("MyAdmin_ProductionEnv"),
-											new Environment("MyAdmin_DevelopmentEnv"))
+Inspectus inspectus = 
+	new KatalonTwinsDiff("Test Cases/MyAdmin/materialize",
+						new Environment("MyAdmin_ProductionEnv"),
+						new Environment("MyAdmin_DevelopmentEnv"))
 inspectus.execute(p)

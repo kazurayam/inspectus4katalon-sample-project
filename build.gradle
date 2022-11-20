@@ -3,7 +3,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.kazurayam:inspectus4katalon:0.1.4'
+        classpath 'com.kazurayam:inspectus4katalon:0.1.5'
     }
 }
 
@@ -13,4 +13,4 @@ apply plugin: 'com.kazurayam.inspectus4katalon'
 // $ gradle drivers
 
 group 'com.kazurayam'
-version '0.1.4'
+version '0.1.5'
