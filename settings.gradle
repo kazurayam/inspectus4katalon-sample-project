@@ -1,0 +1,10 @@
+rootProject.name = 'inspectus4katalon-sample-project'
+
+/*
+pluginManagement {
+  repositories {
+      gradlePluginPortal()
+      mavenLocal()
+  }
+}
+*/
