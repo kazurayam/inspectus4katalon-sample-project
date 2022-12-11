@@ -1,16 +1,9 @@
-buildscript {
-    repositories {
-        mavenLocal()
-    }
-    dependencies {
-        classpath 'com.kazurayam:inspectus4katalon:0.2.0'
-    }
+plugins {
+    id 'com.kazurayam.inspectus4katalon' version "0.2.2"
 }
-
-apply plugin: 'com.kazurayam.inspectus4katalon'
 
 // to run the plugin, execute
 // $ gradle drivers
 
 group 'com.kazurayam'
-version '0.2.0'
+version '0.3.0'

@@ -2,9 +2,7 @@ import java.nio.file.Files
 
 import org.openqa.selenium.WebDriver
 
-import com.kazurayam.materialstore.base.materialize.MaterializingPageFunctions
-import com.kazurayam.materialstore.base.materialize.StorageDirectory
-import com.kazurayam.materialstore.base.materialize.Target
+import com.kazurayam.inspectus.materialize.selenium.WebPageMaterializingFunctions
 import com.kazurayam.materialstore.core.filesystem.Material
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
@@ -18,22 +16,20 @@ WebUI.openBrowser('')
 WebUI.setViewPortSize(1024, 800)
 
 WebDriver driver = DriverFactory.getWebDriver()
-StorageDirectory sd = new StorageDirectory(store, jobName, jobTimestamp)
 
 targetList.eachWithIndex { target, index ->
 	
 	WebUI.navigateToUrl(target.getUrl().toExternalForm())
 	
 	// take and store the entire screenshot using AShot
-	Material screenshot =
-		MaterializingPageFunctions.storeEntirePageScreenshot.accept(target, driver, sd,
-			Collections.singletonMap("step", String.format("%02d", index + 1)))
+	WebPageMaterializingFunctions pmf = new WebPageMaterializingFunctions(store, jobName, jobTimestamp)
+	Map<String, String> attributes = ["step": String.format("%02d", index + 1)]
+	
+	Material screenshot = pmf.storeEntirePageScreenshot.accept(driver, target, attributes)
 	assert Files.exists(screenshot.toPath(store))
 	
 	// take and store the HTML source
-	Material html =
-		MaterializingPageFunctions.storeHTMLSource.accept(target, driver, sd,
-			Collections.singletonMap("step", String.format("%02d", index + 1)))
+	Material html = pmf.storeHTMLSource.accept(driver, target, attributes)
 	assert Files.exists(html.toPath(store))
 }
 
