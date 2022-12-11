@@ -8,14 +8,19 @@ import org.openqa.selenium.WebDriver
 
 import com.kazurayam.ks.globalvariable.ExecutionProfilesLoader
 
-import com.kazurayam.materialstore.base.materialize.MaterializingPageFunctions
-import com.kazurayam.materialstore.base.materialize.StorageDirectory
-import com.kazurayam.materialstore.base.materialize.Target
+import com.kazurayam.inspectus.materialize.selenium.WebPageMaterializingFunctions
+import com.kazurayam.inspectus.materialize.discovery.Target
 import com.kazurayam.materialstore.core.filesystem.Material
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
+
+void takeScreenshot(WebDriver driver, URL url, Map<String,String> attributes, WebPageMaterializingFunctions pmf) {
+	Target target = Target.builder(url).putAll(attributes).build()
+	Material screenshot = pmf.storeEntirePageScreenshot.accept(driver, target, [:])
+	Material html = pmf.storeHTMLSource.accept(driver, target, [:])
+}
 
 /**
  * Test Cases/main/CURA/materialize
@@ -26,7 +31,6 @@ profilesLoader.loadProfile(profile)
 Objects.requireNonNull(GlobalVariable.URL)
 Objects.requireNonNull(GlobalVariable.Username)
 Objects.requireNonNull(GlobalVariable.Password)
-
 Objects.requireNonNull(store)
 Objects.requireNonNull(jobName)
 Objects.requireNonNull(jobTimestamp)
@@ -34,31 +38,19 @@ Objects.requireNonNull(jobTimestamp)
 // -------- setup -----------------------------------------------------
 WebUI.openBrowser('')
 WebUI.setViewPortSize(1024, 800)
-
 WebUI.navigateToUrl(GlobalVariable.URL)
-
 WebDriver driver = DriverFactory.getWebDriver()
-StorageDirectory sd = new StorageDirectory(store, jobName, jobTimestamp)
 
-
+WebPageMaterializingFunctions pmf = new WebPageMaterializingFunctions(store, jobName, jobTimestamp)
 
 // -------- The top page is supposed to be open --------------------------------------
 WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/top/a_Make Appointment'), 5)
 
 // take the screenshot and the page source, save them into the store; using the Katalon keyword
-URL url = new URL(WebUI.getUrl())
-Target target = Target.builder(url).put("step", "01").put("profile", "ProductionEnv").build()
-Material screenshot1 = 
-		MaterializingPageFunctions.storeEntirePageScreenshot
-			.accept(target, driver, sd, Collections.singletonMap("step", "01"))
-Material html1 = 
-		MaterializingPageFunctions.storeHTMLSource
-			.accept(target, driver, sd, Collections.singletonMap("step", "01"))
-
+takeScreenshot(driver, new URL(driver.getCurrentUrl()), ["step": "01", "profile": "ProductionEnv"], pmf)
+	
 // we navigate to the next page (login)
 WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/top/a_Make Appointment'))
-
-
 
 // -------- The login page is supposed to be open ------------------------------------
 WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/login/button_Login'), 5)
@@ -75,6 +67,7 @@ WebUI.setText(findTestObject('CURA/Page_CURA Healthcare Service/login/input_Pass
 
 // we navigate to the next page (appointment)
 WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/login/button_Login'))
+
 
 
 // -------- The appointment page is supposed to be open ------------------------------
@@ -94,11 +87,7 @@ WebUI.sendKeys(findTestObject('CURA/Page_CURA Healthcare Service/appointment/inp
 WebUI.setText(findTestObject('CURA/Page_CURA Healthcare Service/appointment/textarea_Comment_comment'), 'this is a comment')
 
 // take the screenshot and the page source, save them into the store
-url = new URL(WebUI.getUrl())
-Target target2 = Target.builder(url).put("step", "02").put("profile", "ProductionEnv").build()
-Material screenshot2 = 
-		MaterializingPageFunctions.storeEntirePageScreenshot.accept(target2, driver, sd, Collections.singletonMap("step", "02"))
-Material html2 = MaterializingPageFunctions.storeHTMLSource.accept(target2, driver, sd, Collections.singletonMap("step", "02"))
+takeScreenshot(driver, new URL(driver.getCurrentUrl()), ["step": "02", "profile": "ProductionEnv"], pmf)
 
 // we navigate to the next page (summpary)
 WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment'))
@@ -109,10 +98,7 @@ WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/appointment/button
 WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/summary/a_Go to Homepage'), 5)
 
 // take the screenshot and the page source, save them into the store
-url = new URL(WebUI.getUrl())
-Target target3 = Target.builder(url).put("step", "03").put("profile", "ProductionEnv").build()
-Material screenshot3 = MaterializingPageFunctions.storeEntirePageScreenshot.accept(target3, driver, sd, Collections.singletonMap("step", "03"))
-Material html3 = MaterializingPageFunctions.storeHTMLSource.accept(target3, driver, sd, Collections.singletonMap("step", "03"))
+takeScreenshot(driver, new URL(driver.getCurrentUrl()), ["step": "03", "profile": "ProductionEnv"], pmf)
 
 // we navigate to the home page
 WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/summary/a_Go to Homepage'))
@@ -121,3 +107,5 @@ WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/summary/a_Go to Ho
 // --------------------------------------------------------------------
 // we are done
 WebUI.closeBrowser()
+
+

@@ -2,13 +2,11 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.stream.Collectors
 
-import com.kazurayam.inspectus.core.Intermediates
+import com.kazurayam.inspectus.materialize.discovery.Sitemap
+import com.kazurayam.inspectus.materialize.discovery.SitemapLoader
+import com.kazurayam.inspectus.materialize.discovery.Target
 import com.kazurayam.ks.globalvariable.ExecutionProfilesLoader
-import com.kazurayam.materialstore.base.materialize.Target
-import com.kazurayam.materialstore.base.materialize.TargetCSVParser
-import com.kazurayam.materialstore.core.filesystem.JobTimestamp
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
@@ -28,6 +26,8 @@ String executionProfile = environment.toString()
 
 List<Target> targetList = getTargetList(executionProfile)
 
+WebUI.comment("targetList.size()=" + targetList.size())
+
 WebUI.callTestCase(findTestCase("Test Cases/MyAdmin/processTargetList"),
 						[
 							"store": store,
@@ -46,17 +46,22 @@ List<Target> getTargetList(String executionProfile) {
 	ExecutionProfilesLoader profilesLoader = new ExecutionProfilesLoader()
 	profilesLoader.loadProfile(executionProfile)
 	
-	// identify the target CSV file
-	Path targetFile = Paths.get(RunConfiguration.getProjectDir()).resolve(GlobalVariable.CSV)
+	WebUI.comment("GlobalVariable.topPageURL=" + GlobalVariable.topPageURL)
+	WebUI.comment("GlobalVariable.CSV=" + GlobalVariable.CSV)
 	
-	// utility class to parse a CSV file to generate a List<Target>
-	TargetCSVParser parser = TargetCSVParser.newSimpleParser();
-
-	List<Target> targetList = 
-		parser.parse(targetFile).stream()
-				// creates a new instance of Target class while adding an "environment" attribute
-				.map({target -> target.copyWith(["environment": executionProfile])})
-				.collect(Collectors.toList())
-
-	return targetList
+	// identify the URL of the top page
+	Target topPage = Target.builder(GlobalVariable.topPageURL).build()
+	
+	// identify the target CSV file
+	Path csvFile = Paths.get(RunConfiguration.getProjectDir()).resolve(GlobalVariable.CSV)
+	
+	// create an instance of Sitemap
+	SitemapLoader loader = new SitemapLoader(topPage)
+	loader.setWithHeaderRecord(false)
+	Sitemap sitemap = loader.parseCSV(csvFile)
+	WebUI.comment("sitemap.size()=" + sitemap.size())
+	assert sitemap.size() > 0
+	
+	// return the list or targets
+	return sitemap.getBaseTargetList()
 }
