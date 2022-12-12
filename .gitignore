@@ -9,6 +9,12 @@ build
 .project
 .cache
 
+
 Drivers/
+
+# exclude the working store and store-backup directory
 store/
 store-backup/
+# but include the demonstration
+!docs/demo/store/
+!docs/demo/store-backup/
