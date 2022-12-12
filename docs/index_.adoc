@@ -1,0 +1,9 @@
+= inspectus4katalon-sample-project
+
+* back to the link:https://kazurayam.github.io/inspectus4katalon-sample-project/[repository]
+
+== Demonstration
+
+* link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html[the index of demonstrations]
+
+
