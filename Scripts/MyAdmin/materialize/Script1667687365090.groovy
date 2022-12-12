@@ -57,8 +57,9 @@ List<Target> getTargetList(String executionProfile) {
 	
 	// create an instance of Sitemap
 	SitemapLoader loader = new SitemapLoader(topPage)
-	loader.setWithHeaderRecord(false)
+	loader.setWithHeaderRecord(true)
 	Sitemap sitemap = loader.parseCSV(csvFile)
+	
 	WebUI.comment("sitemap.size()=" + sitemap.size())
 	assert sitemap.size() > 0
 	

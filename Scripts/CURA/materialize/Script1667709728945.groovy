@@ -44,7 +44,7 @@ WebDriver driver = DriverFactory.getWebDriver()
 WebPageMaterializingFunctions pmf = new WebPageMaterializingFunctions(store, jobName, jobTimestamp)
 
 // -------- The top page is supposed to be open --------------------------------------
-WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/top/a_Make Appointment'), 5)
+WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/top/a_Make Appointment'), 15)
 
 // take the screenshot and the page source, save them into the store; using the Katalon keyword
 takeScreenshot(driver, new URL(driver.getCurrentUrl()), ["step": "01", "profile": "ProductionEnv"], pmf)
@@ -53,7 +53,7 @@ takeScreenshot(driver, new URL(driver.getCurrentUrl()), ["step": "01", "profile"
 WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/top/a_Make Appointment'))
 
 // -------- The login page is supposed to be open ------------------------------------
-WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/login/button_Login'), 5)
+WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/login/button_Login'), 15)
 
 // type the Username
 assert GlobalVariable.Username != null, "GlobalVariable.Username is not defined"
@@ -71,7 +71,7 @@ WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/login/button_Login
 
 
 // -------- The appointment page is supposed to be open ------------------------------
-WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment'), 5)
+WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment'), 15)
 
 WebUI.selectOptionByValue(findTestObject('CURA/Page_CURA Healthcare Service/appointment/select_Tokyo CURA Healthcare Center'),
 	'Hongkong CURA Healthcare Center', true)
@@ -81,7 +81,7 @@ WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/appointment/input_
 // set the same day in the next week
 def visitDate = LocalDateTime.now().plusWeeks(1)
 def visitDateStr = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(visitDate)
-WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/appointment/input_visit_date'), 10)
+WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/appointment/input_visit_date'), 15)
 WebUI.setText(findTestObject('CURA/Page_CURA Healthcare Service/appointment/input_visit_date'), visitDateStr)
 WebUI.sendKeys(findTestObject('CURA/Page_CURA Healthcare Service/appointment/input_visit_date'), Keys.chord(Keys.ENTER))
 WebUI.setText(findTestObject('CURA/Page_CURA Healthcare Service/appointment/textarea_Comment_comment'), 'this is a comment')
@@ -95,7 +95,7 @@ WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/appointment/button
 
 
 // -------- the summary page is supposed to be open ----------------------------------
-WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/summary/a_Go to Homepage'), 5)
+WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/summary/a_Go to Homepage'), 15)
 
 // take the screenshot and the page source, save them into the store
 takeScreenshot(driver, new URL(driver.getCurrentUrl()), ["step": "03", "profile": "ProductionEnv"], pmf)
