@@ -8,6 +8,10 @@
 
 -   [store/index.html](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
 
+this looks like this:
+
+![store index html](images/store-index-html.png)
+
 ### How "Test Cases/DuckDuckGo" works
 
 -   The Test Case [DuckDuckGo/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/DuckDuckGo/main/Script1667437517277.groovy) visits a single Web site.
@@ -49,7 +53,7 @@ Demo in action:
 
 -   [1st run](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA-20221213_080716.html) --- all pages shows significant difference because there were no "previous" records avaiable.
 
--   [2nd run](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA-20221213_080831.html) --- all pages shows very little difference because just the target web site changes very little after a time gap of just few seconds.
+-   [2nd run](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA-20221213_080831.html) --- all pages shows very little difference because the target web site changed very little, as the demonstration ran the "CURA/main" twice with just a few seconds of intermission.
 
 ![chronos diff](diagrams/out/chronos-diff/chronos-diff.png)
 
@@ -61,7 +65,9 @@ You can run the test case [Test Case/CURA/run\_materialize](https://github.com/k
 
 ### How "Test Cases/MyAdmin" works
 
--   The Test Case [MyAdmin/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/main/Script1667687348266.groovy) visits 2 Web sites. The 2 URLs of the top page have **different hostnames but shares a single sitemap** (file tree). Typically, you would want to compare the Production environment and Development environment of a Web site.
+-   The Test Case [MyAdmin/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/main/Script1667687348266.groovy) visits 2 Web sites.
+
+-   The URLs of the 2 sites have **different hostnames (myadmin.kazurayam.com and devadmin.kazurayam.com) but shares a single sitemap** (file tree). Typically, you would want to compare the Production environment and Development environment of a Web site.
 
 -   It navigates through the site for multiple pages.
 
