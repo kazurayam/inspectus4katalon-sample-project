@@ -30,6 +30,9 @@ Parameters p =
 		.backup(backup)
 		.jobName(jobName)
 		.jobTimestamp(jobTimestamp)
+		.baselinePriorTo(jobTimestamp)  // compare to the last run's result
+		// .baselinePriorTo(jobTimestamp.minusHours(3))        // compare to the previous result before 3 hours from now
+		// .baselinePriorTo(new JobTimestamp("20221203_000000")) //
 		.sortKeys(sortKeys)
 		.threshold(1.0)   // ignore differences less than 1.0%
 		.build();
