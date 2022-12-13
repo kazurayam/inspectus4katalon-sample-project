@@ -1,0 +1,43 @@
+@startuml twins-diff
+actor Tester as tester
+box "My PC"
+participant "Test Cases/\nMyAdmin/main" as main
+participant "Test Cases/\nMyAdmin/materialize" as materialize
+note left of materialize #Yellow : Tester have to develop the\nTest Case "materialize"
+database store
+entity Report as report
+endbox
+database "store-backup" as storebk
+box "External\nnetwork" #LightBlue
+entity "web site X" as siteX
+entity "web site Y" as siteY
+endbox
+
+tester -> main : run main
+main -> materialize : call materialize
+loop : for N pages
+materialize -> siteX : GET http://myadmin.kazurayam.com/XXXX
+materialize <-- siteX
+materialize -> materialize : take screenshot
+materialize -> materialize : save HTML source
+materialize -> store : write file
+end
+main <-- materialize
+
+main -> materialize : call materialize
+loop : for N pages
+materialize -> siteY : GET http://devadmin.kazurayam.com/YYYY
+materialize <-- siteY
+materialize -> materialize : take screenshot
+materialize -> materialize : save HTML source
+materialize -> store : write file
+end
+main <-- materialize
+main -> main : diff current & previous
+main -> report : make HTML report
+main -> store : backup the current result
+store -> storebk
+tester <-- main
+
+
+@enduml
