@@ -2,6 +2,10 @@
 
 -   back to the [repository](https://kazurayam.github.io/inspectus4katalon-sample-project/)
 
-## Demonstration
+## Demonstrationgi
 
--   [the index of demonstrations](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
+-   [store/index.html](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
+
+### Chronos diff
+
+![chronos diff](diagrams/out/chronos-diff/chronos-diff.png)
