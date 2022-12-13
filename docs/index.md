@@ -8,10 +8,14 @@
 
 -   [store/index.html](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
 
-### How Shootings works
+### How "Shootings" works
 
-### How Chronos diff works
+![shootings](diagrams/out/shootings/shootings.png)
+
+### How "ChronosDiff" works
 
 ![chronos diff](diagrams/out/chronos-diff/chronos-diff.png)
 
-### How Twins diff works
+### How "TwinsDiff" works
+
+![twins diff](diagrams/out/twins-diff/twins-diff.png)
