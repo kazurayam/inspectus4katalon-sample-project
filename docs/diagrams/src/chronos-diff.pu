@@ -2,6 +2,7 @@
 actor Tester as tester
 participant "Test Cases/\nCURA/main" as main
 participant "Test Cases/\nCURA/materialize" as materialize
+note left of materialize #AAAAFF : Tester should develop\nTest Case "materialize"
 database store
 entity Report as report
 database "store-backup" as storebk
@@ -10,7 +11,7 @@ entity "web site" as site
 group 1st run
 tester -> main : run
 storebk -> main
-main -> store : restore previous result
+main -> store : restore the previous result
 main -> materialize : call
 loop : for N pages
 materialize -> site : GET http://demoaut-mimic.kazurayam.com/
@@ -21,13 +22,14 @@ end
 main <-- materialize
 main -> main : diff current & previous screenshot
 main -> report : make HTML report
-main -> storebk : backup result
+main -> store
+store -> storebk : backup the current result
 end
 
 group 2nd run
 tester -> main : run
 storebk -> main
-main -> store : restore previous result
+main -> store : restore the previous result
 main -> materialize : call
 loop : for N pages
 materialize -> site : GET http://demoaut-mimic.kazurayam.com/
@@ -38,6 +40,11 @@ end
 main <-- materialize
 main -> main : diff current & previous screenshot
 main -> report : make HTML report
-main -> storebk : backup result
+main -> store
+store -> storebk : backup the current result
+end
+group Nth run
+tester -> main :run
+note over main: do the same above
 end
 @enduml
