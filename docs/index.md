@@ -85,8 +85,18 @@ Demo in action: [click here](https://kazurayam.github.io/inspectus4katalon-sampl
 
 ![twins diff](diagrams/out/twins-diff/twins-diff.png)
 
-The Test Case [MyAdmin/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/main/Script1667687348266.groovy)w sets up the parameters and calls the Test Case [MyAdmin/materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/materialize/Script1667687365090.groovy). The `main` testcase executes `com.kazurayam.inspectus.katalon.KatalonTwinsDiff` object, which performs all diffing and reporting tasks etc behind the scene.
+The Test Case [MyAdmin/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/main/Script1667687348266.groovy) sets up the parameters and calls the Test Case [MyAdmin/materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/materialize/Script1667687365090.groovy). The `main` testcase executes `com.kazurayam.inspectus.katalon.KatalonTwinsDiff` object, which performs all diffing and reporting tasks etc behind the scene.
 
 The Test Case [MyAdmin/materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/materialize/Script1667687365090.groovy) is essentially an ordinary Katalon Studio’s test case. You are totally responsible which URL to open, how to navigate through, how to take screenshots, how to write the files. It is required to write the files into the `store` object. See [materialstore tutorial](https://kazurayam.github.io/materialstore-tutorial/) for more information of the API.
 
 You can run the test case [Test Case/MyAdmin/run\_materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/run_materialize/Script1667687380074.groovy) to test the \` MyAdmin/materialize\` on its own.
+
+## The "store" and "store-backup"
+
+This demo project creates 2 local directory `store` and `store-backup` immediately under the project’s root directory.
+
+Both of them will have `index.html` where most recent updates are listed first.
+
+The `store` directory is should be there on the local disk for ultimate processing speed.
+
+On the other hand, the `store-backup` directory is less frequently accessed. So that you can locate the `store-backup` on a drive-mounted shared file server. Your team can share the folder of the `store-backup` via Windows Explorer. Also you would be able to host the `store-backup` as a `http://` resource shared amongst your organization. Good for reporting the test result to anybody who may concern.
