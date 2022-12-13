@@ -1,0 +1,43 @@
+@startuml chronos-diff
+actor Tester as tester
+participant "Test Cases/\nCURA/main" as main
+participant "Test Cases/\nCURA/materialize" as materialize
+database store
+entity Report as report
+database "store-backup" as storebk
+entity "web site" as site
+
+group 1st run
+tester -> main : run
+storebk -> main
+main -> store : restore previous result
+main -> materialize : call
+loop : for N pages
+materialize -> site : GET http://demoaut-mimic.kazurayam.com/
+materialize <-- site
+materialize -> materialize : take screenshot
+materialize -> store : write file
+end
+main <-- materialize
+main -> main : diff current & previous screenshot
+main -> report : make HTML report
+main -> storebk : backup result
+end
+
+group 2nd run
+tester -> main : run
+storebk -> main
+main -> store : restore previous result
+main -> materialize : call
+loop : for N pages
+materialize -> site : GET http://demoaut-mimic.kazurayam.com/
+materialize <-- site
+materialize -> materialize : take screenshot
+materialize -> store : write file
+end
+main <-- materialize
+main -> main : diff current & previous screenshot
+main -> report : make HTML report
+main -> storebk : backup result
+end
+@enduml
