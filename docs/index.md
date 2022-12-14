@@ -57,9 +57,9 @@ You can run the test case [Test Case/DuckDuckGo/run\_materialize](https://github
 
 -   It compiles a report in HTML where you find multiple sets of **Previous** / **Diff** / **Current** images & HTMLs of the web site taken at different timing.
 
--   The current screenshots are compared to the latest previous set as default. But you can choose the baseline to which the current screenshots are to be compared. You can specify the baseline by a single line of code. For example, you can compare the current to the one that were taken 30 minutes ago; or to the one taken at 3 hours ago; or to the one taken at 18PM last night; or to the one taken last in the last month.
+-   The current screenshots are compared to the latest previous set as default. But you can specify the baseline by a single line of code. For example, you can compare the current to the one that were taken 30 minutes ago; or to the one taken at 3 hours ago; or to the one taken at 18PM last night; or to the one taken last in the last month.
 
--   By Chronos-Diff, you can compare the pages of a single Web site at different timing. By Chronos-diff, you can make sure if the Web site is healthy after a work that involves any
+-   By Chronos-Diff, you can compare the pages of a single Web site at different timing. By Chronos-diff, you can make sure if the Web site is healthy after a work that involves some
     changes in software, database, hardware and/or network.
 
 Demo in action:
@@ -92,7 +92,7 @@ You can run the test case [Test Case/CURA/run\_materialize](https://github.com/k
 
 -   It compiles a report in HTML where you find multiple sets of **Left** / **Diff** / **Right** images & HTMLs.
 
--   By Twins-Diff, you can compare the Production environment and the Development environment. This method is effective to identify any regressions or unexpected changes injected by the continuous development.
+-   By Twins-Diff, you can compare the Production environment and the Development environment. This method is effective to identify any regressions or unexpected changes caused by the development works that continues every day.
 
 Demo in action: [click here](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/MyAdmin-20221213_080556.html)
 
