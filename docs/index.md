@@ -1,12 +1,3 @@
--   <a href="#inspectus4katalon-sample-project" id="toc-inspectus4katalon-sample-project">inspectus4katalon-sample-project</a>
-    -   <a href="#demonstration" id="toc-demonstration">Demonstration</a>
-        -   <a href="#index" id="toc-index">index</a>
-        -   <a href="#shootings-demo-test-casesduckduckgo" id="toc-shootings-demo-test-casesduckduckgo">Shootings demo : "Test Cases/DuckDuckGo"</a>
-        -   <a href="#chronosdiff-demo-test-casescura" id="toc-chronosdiff-demo-test-casescura">ChronosDiff demo: "Test Cases/CURA"</a>
-        -   <a href="#twinsdiff-demo-test-casesmyadmin" id="toc-twinsdiff-demo-test-casesmyadmin">TwinsDiff demo: "Test Cases/MyAdmin"</a>
-    -   <a href="#how-to-share-the-reports-in-the-team" id="toc-how-to-share-the-reports-in-the-team">How to share the reports in the team</a>
-    -   <a href="#applicability-to-mobile-api-testing" id="toc-applicability-to-mobile-api-testing">Applicability to Mobile &amp; API testing</a>
-
 # inspectus4katalon-sample-project
 
 -   @author kazurayam
@@ -116,7 +107,7 @@ On the other hand, the `store-backup` directory is less frequently accessed. So 
 
 Your team can share the remote `store-backup` via Windows Explorer. Also you would be able to host the `store-backup` as a `http://` resource shared amongst your organization. It would be the cheapest solution for reporting the test result to anybody who may concern.
 
-## Applicability to Mobile & API testing
+## Applicability to Mobile and API testing
 
 This sample project demonstrates how to take screenshot out of web browser, do diffing and reporting. But it can be applied to Mobile and API testing as well.
 
