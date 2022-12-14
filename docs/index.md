@@ -1,3 +1,12 @@
+-   <a href="#inspectus4katalon-sample-project" id="toc-inspectus4katalon-sample-project">inspectus4katalon-sample-project</a>
+    -   <a href="#demonstration" id="toc-demonstration">Demonstration</a>
+        -   <a href="#index" id="toc-index">index</a>
+        -   <a href="#shootings-demo-test-casesduckduckgo" id="toc-shootings-demo-test-casesduckduckgo">Shootings demo : "Test Cases/DuckDuckGo"</a>
+        -   <a href="#chronosdiff-demo-test-casescura" id="toc-chronosdiff-demo-test-casescura">ChronosDiff demo: "Test Cases/CURA"</a>
+        -   <a href="#twinsdiff-demo-test-casesmyadmin" id="toc-twinsdiff-demo-test-casesmyadmin">TwinsDiff demo: "Test Cases/MyAdmin"</a>
+    -   <a href="#how-to-share-the-reports-in-the-team" id="toc-how-to-share-the-reports-in-the-team">How to share the reports in the team</a>
+    -   <a href="#applicability-to-mobile-and-api-testing" id="toc-applicability-to-mobile-and-api-testing">Applicability to Mobile and API testing</a>
+
 # inspectus4katalon-sample-project
 
 -   @author kazurayam
@@ -48,7 +57,7 @@ You can run the test case [Test Case/DuckDuckGo/run\_materialize](https://github
 
 -   It compiles a report in HTML where you find multiple sets of **Previous** / **Diff** / **Current** images & HTMLs of the web site taken at different timing.
 
--   The current screenshots are compared to the latest previous set as default. You can choose the baseline to which the current screenshots are to be compared. For example, you can compare the current to the one that were taken 3 hours ago; or to the one taken at 18PM last night; or to the one taken at the end of last month. You can specify the baseline by a single line of code.
+-   The current screenshots are compared to the latest previous set as default. But you can choose the baseline to which the current screenshots are to be compared. You can specify the baseline by a single line of code. For example, you can compare the current to the one that were taken 30 minutes ago; or to the one taken at 3 hours ago; or to the one taken at 18PM last night; or to the one taken last in the last month.
 
 -   By Chronos-Diff, you can compare the pages of a single Web site at different timing. By Chronos-diff, you can make sure if the Web site is healthy after a work that involves any
     changes in software, database, hardware and/or network.
