@@ -12,7 +12,7 @@ this looks like this:
 
 ![store index html](images/store-index-html.png)
 
-### How "Test Cases/DuckDuckGo" works
+### Shootings demo : "Test Cases/DuckDuckGo"
 
 -   The Test Case [DuckDuckGo/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/DuckDuckGo/main/Script1667437517277.groovy) visits a single Web site.
 
@@ -32,7 +32,7 @@ The Test Case [DuckDuckGo/materialize](https://github.com/kazurayam/inspectus4ka
 
 You can run the test case [Test Case/DuckDuckGo/run\_materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/DuckDuckGo/run_materialize/Script1667616595404.groovy) to test the `DuckDuckGo/materialize` on its own.
 
-### How "Test Cases/CURA" works
+### ChronosDiff demo: "Test Cases/CURA"
 
 -   The Test Case [CURA/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/main/Script1667709715867.groovy) visits a single Web site
 
@@ -63,7 +63,7 @@ The Test Case [CURA/materialize](https://github.com/kazurayam/inspectus4katalon-
 
 You can run the test case [Test Case/CURA/run\_materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/run_materialize/Script1667709743309.groovy) to test the `DuckDuckGo/materialize` on its own.
 
-### How "Test Cases/MyAdmin" works
+### TwinsDiff demo: "Test Cases/MyAdmin"
 
 -   The Test Case [MyAdmin/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/main/Script1667687348266.groovy) visits 2 Web sites.
 
@@ -99,7 +99,7 @@ Both of them will have `index.html` where most recent updates are listed first.
 
 The `store` directory should be there on the local disk for ultimate processing speed.
 
-On the other hand, the `store-backup` directory is less frequently accessed. So that you can locate the `store-backup` on a drive-mounted shared file server. Or you may want to mirror the `store-backup` folder on Cloud storage (AWS S3, Google Driver, etc) using some [tools](https://www.expandrive.com/s3-drive-mac-windows/) that map cloud storage to local drive.
+On the other hand, the `store-backup` directory is less frequently accessed. So that you can locate the `store-backup` on a drive-mounted shared file server. Or you may want to mirror the `store-backup` folder on Cloud storage (AWS S3, Google Drive, etc) using some [tools](https://cyberduck.io/s3/) that map cloud storage to local drive.
 
 Your team can share the remote `store-backup` via Windows Explorer. Also you would be able to host the `store-backup` as a `http://` resource shared amongst your organization. It would be the cheapest solution for reporting the test result to anybody who may concern.
 

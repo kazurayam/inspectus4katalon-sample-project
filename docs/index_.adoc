@@ -12,7 +12,7 @@ this looks like this:
 
 image:images/store-index-html.png[]
 
-=== How "Test Cases/DuckDuckGo" works
+=== Shootings demo : "Test Cases/DuckDuckGo"
 
 * The Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/DuckDuckGo/main/Script1667437517277.groovy[DuckDuckGo/main] visits a single Web site.
 * It navigates through the site for a few web pages.
@@ -29,7 +29,7 @@ The Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project
 
 You can run the test case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/DuckDuckGo/run_materialize/Script1667616595404.groovy[Test Case/DuckDuckGo/run_materialize] to test the `DuckDuckGo/materialize` on its own.
 
-=== How "Test Cases/CURA" works
+=== ChronosDiff demo: "Test Cases/CURA"
 
 * The Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/main/Script1667709715867.groovy[CURA/main] visits a single Web site
 * You want to run Test Case "CURA/main" twice. You may wait for some period (some seconds, minutes, hours, days, ...) as long as you want. You should determine how large the chronological gap should be; you are to determine when to run the 2nd time.
@@ -55,7 +55,7 @@ The Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project
 You can run the test case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/run_materialize/Script1667709743309.groovy[Test Case/CURA/run_materialize] to test the `DuckDuckGo/materialize` on its own.
 
 
-=== How "Test Cases/MyAdmin" works
+=== TwinsDiff demo: "Test Cases/MyAdmin"
 
 * The Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/main/Script1667687348266.groovy[MyAdmin/main] visits 2 Web sites.
 * The URLs of the 2 sites have *different hostnames (myadmin.kazurayam.com and devadmin.kazurayam.com) but shares a single sitemap* (file tree). Typically, you would want to compare the  Production environment and Development environment of a Web site.
@@ -86,7 +86,7 @@ Both of them will have `index.html` where most recent updates are listed first.
 
 The `store` directory should be there on the local disk for ultimate processing speed.
 
-On the other hand, the `store-backup` directory is less frequently accessed. So that you can locate the `store-backup` on a drive-mounted shared file server. Or you may want to mirror the `store-backup` folder on Cloud storage (AWS S3, Google Driver, etc) using some link:https://www.expandrive.com/s3-drive-mac-windows/[tools] that map cloud storage to local drive.
+On the other hand, the `store-backup` directory is less frequently accessed. So that you can locate the `store-backup` on a drive-mounted shared file server. Or you may want to mirror the `store-backup` folder on Cloud storage (AWS S3, Google Drive, etc) using some link:https://cyberduck.io/s3/[tools] that map cloud storage to local drive.
 
 Your team can share the remote `store-backup` via Windows Explorer. Also you would be able to host the `store-backup` as a `http://` resource shared amongst your organization. It would be the cheapest solution for reporting the test result to anybody who may concern.
 
