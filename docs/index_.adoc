@@ -40,7 +40,7 @@ You can run the test case link:https://github.com/kazurayam/inspectus4katalon-sa
 * It navigates through the site for a few web pages.
 * It takes screenshots of the pages, save the images in PNG format. It also save the HTML sources.
 * It compiles a report in HTML where you find multiple sets of *Previous* / *Diff* / *Current* images & HTMLs of the web site taken at different timing.
-* You can specify, as the runtime parameter, the baseline to which the current screenshots are to be compared. For example, the very last previous one, or the previous one prior to the current timestamp minus 3 hours.
+* The current screenshots are compared to the latest previous set as default. You can choose the baseline to which the current screenshots are to be compared. For example, you can compare the current to the one that were taken 3 hours ago; or to the one taken at 18PM last night; or to the one taken at the end of last month. You can specify the baseline by a single line of code.
 * By Chronos-Diff, you can compare the pages of a single Web site at different timing. By Chronos-diff, you can make sure if the Web site is healthy after a work that involves any
  changes in software, database, hardware and/or network.
 
