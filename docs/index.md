@@ -113,12 +113,14 @@ The "Visual Inspection" project works on top of 2 external libraries:
 
 -   [com.kazurayam.inspectus](https://github.com/kazurayam/inspectus)
 
-These libraries are NOT dependent on Katalon Studio API at all. These are NOT concerned about the type of Application Under Test. These will accept any type of files regardless how they were created, for example
+These libraries are NOT dependent on neither of [Katalon Studio API](https://api-docs.katalon.com/overview-summary.html) nor [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) API. These will accept any type of files regardless how they were created, for example
 
 -   as screenshot of Web browser
 
 -   as screenshot of Mobile app
 
 -   as files downloaded from RESTful API
+
+So "Visual Inspection" is not limited by the type of Application Under Test.
 
 It is the testers' responsibility to create files in the "materialize" Test Case. The testers can create whatever files by whatever method. The "materialstore" library will quietly accept any files created by their "materialize" test case, and will do diffing and reporting.
