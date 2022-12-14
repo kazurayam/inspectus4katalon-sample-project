@@ -77,7 +77,7 @@ You can run the test case [Test Case/CURA/run\_materialize](https://github.com/k
 
 -   It takes screenshots of the pages, save the images in PNG format. It also save the HTML sources.
 
--   It compiles a report in HTML where you find multiple sets of **Previous** / **Diff** / **Current** images & HTMLs.
+-   It compiles a report in HTML where you find multiple sets of **Left** / **Diff** / **Right** images & HTMLs.
 
 -   By Twins-Diff, you can compare the Production environment and the Development environment. This method is effective to identify any regressions or unexpected changes injected by the continuous development.
 

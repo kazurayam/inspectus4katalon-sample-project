@@ -63,7 +63,7 @@ You can run the test case link:https://github.com/kazurayam/inspectus4katalon-sa
 * It reads link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Include/data/MyAdmin/targetList.csv[a CSV file] to know the sitemap (= list of URLs) to process.
 * It processes 2 Web sites sequentially as soon as possible without putting time gap.
 * It takes screenshots of the pages, save the images in PNG format. It also save the HTML sources.
-* It compiles a report in HTML where you find multiple sets of *Previous* / *Diff* / *Current* images & HTMLs.
+* It compiles a report in HTML where you find multiple sets of *Left* / *Diff* / *Right* images & HTMLs.
 * By Twins-Diff, you can compare the Production environment and the Development environment. This method is effective to identify any regressions or unexpected changes injected by the continuous development.
 
 
