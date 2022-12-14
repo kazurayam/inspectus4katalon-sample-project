@@ -101,4 +101,24 @@ The `store` directory should be there on the local disk for ultimate processing 
 
 On the other hand, the `store-backup` directory is less frequently accessed. So that you can locate the `store-backup` on a drive-mounted shared file server. Or you may want to mirror the `store-backup` folder on Cloud storage (AWS S3, Google Driver, etc) using some [tools](https://www.expandrive.com/s3-drive-mac-windows/) that map cloud storage to local drive.
 
-Your team can share the remote `store-backup` via Windows Explorer. Also you would be able to host the `store-backup` as a `http://` resource shared amongst your organization. It would be a cheapest solution for reporting the test result to anybody who may concern.
+Your team can share the remote `store-backup` via Windows Explorer. Also you would be able to host the `store-backup` as a `http://` resource shared amongst your organization. It would be the cheapest solution for reporting the test result to anybody who may concern.
+
+## Applicability to Mobile & API testing
+
+This sample project demonstrates how to take screenshot out of web browser, do diffing and reporting. But it can be applied to Mobile and API testing as well.
+
+This sample project works on top of 2 external libraries:
+
+-   [com.kazurayam.materialstore](https://github.com/kazurayam/materialstore)
+
+-   [com.kazurayam.inspectus](https://github.com/kazurayam/inspectus)
+
+Those libraries are NOT dependent on the type of Application Under Test. How the files were created. --- it doesn’t matter, for example
+
+-   as screenshot of Web browser
+
+-   as screenshot of Mobile app
+
+-   as files downloaded from RESTful API
+
+It is the testers' responsibility to create files in the "materialize" Test Case. The testers can create whatever files by whatever method. The "materialstore" library will quietly accept any files created by their "materialize" test case, and will do diffing and reporting.
