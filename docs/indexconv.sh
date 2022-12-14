@@ -6,7 +6,7 @@
 # Except ones with `_` as prefix.
 # E.g, `_index.adoc` is NOT processed by this script, will be left unprocessed.
 #
-# How to active this: in the command line, just type 
+# How to active this: in the command line, just type
 # `> ./indexconv.sh`
 #
 # Can generate Table of content in the output *.md file by specifying `-t` option
@@ -42,15 +42,15 @@ find . -iname "*.adoc" -type f -maxdepth 1 -not -name "_*.adoc" | while read fna
     rm -f "$xml"
 done
 
-# if we find a index*.md (or index*.md), 
+# if we find a index*.md (or index*.md),
 # we rename all of them to a single index.md while overwriting,
 # effectively the last wins.
 # E.g, if we have `index_.md`, it will be overwritten into `index.md`
-find . -iname "index*.md" -not -name "index.md" -type f -maxdepth 1 | while read fname; do
-    echo Renaming $fname to index.md
-    mv $fname index.md
+find . -iname "index*_.md" -type f -maxdepth 1 | while read fname; do
+    newname=${fname%_.md}.md
+    echo Renaming $fname to $newname
+    mv $fname $newname
 done
-
 
 # slightly modifies the generated index.md file
 #     - [Solution 1](#_solution_1)
