@@ -1,4 +1,17 @@
+-   <a href="#inspectus4katalon-sample-project" id="toc-inspectus4katalon-sample-project">inspectus4katalon-sample-project</a>
+    -   <a href="#demonstration" id="toc-demonstration">Demonstration</a>
+        -   <a href="#index" id="toc-index">index</a>
+        -   <a href="#shootings-demo-test-casesduckduckgo" id="toc-shootings-demo-test-casesduckduckgo">Shootings demo : "Test Cases/DuckDuckGo"</a>
+        -   <a href="#chronosdiff-demo-test-casescura" id="toc-chronosdiff-demo-test-casescura">ChronosDiff demo: "Test Cases/CURA"</a>
+        -   <a href="#twinsdiff-demo-test-casesmyadmin" id="toc-twinsdiff-demo-test-casesmyadmin">TwinsDiff demo: "Test Cases/MyAdmin"</a>
+    -   <a href="#how-to-share-the-reports-in-the-team" id="toc-how-to-share-the-reports-in-the-team">How to share the reports in the team</a>
+    -   <a href="#applicability-to-mobile-api-testing" id="toc-applicability-to-mobile-api-testing">Applicability to Mobile &amp; API testing</a>
+
 # inspectus4katalon-sample-project
+
+-   @author kazurayam
+
+-   @date Dec 2022
 
 -   back to the [repository](https://github.com/kazurayam/inspectus4katalon-sample-project)
 
@@ -91,7 +104,7 @@ The Test Case [MyAdmin/materialize](https://github.com/kazurayam/inspectus4katal
 
 You can run the test case [Test Case/MyAdmin/run\_materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/run_materialize/Script1667687380074.groovy) to test the \` MyAdmin/materialize\` on its own.
 
-## The "store" and "store-backup"
+## How to share the reports in the team
 
 This demo project creates 2 local directory `store` and `store-backup` immediately under the project’s root directory.
 

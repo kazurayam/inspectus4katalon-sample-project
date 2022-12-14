@@ -1,4 +1,8 @@
 = inspectus4katalon-sample-project
+:toc:
+
+* @author kazurayam
+* @date Dec 2022
 
 * back to the link:https://github.com/kazurayam/inspectus4katalon-sample-project[repository]
 
@@ -78,7 +82,7 @@ The Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project
 You can run the test case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/MyAdmin/run_materialize/Script1667687380074.groovy[Test Case/MyAdmin/run_materialize] to test the ` MyAdmin/materialize` on its own.
 
 
-== The "store" and "store-backup"
+== How to share the reports in the team
 
 This demo project creates 2 local directory `store` and `store-backup` immediately under the project's root directory.
 
