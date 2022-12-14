@@ -107,13 +107,13 @@ Your team can share the remote `store-backup` via Windows Explorer. Also you wou
 
 This sample project demonstrates how to take screenshot out of web browser, do diffing and reporting. But it can be applied to Mobile and API testing as well.
 
-This sample project works on top of 2 external libraries:
+The "Visual Inspection" project works on top of 2 external libraries:
 
 -   [com.kazurayam.materialstore](https://github.com/kazurayam/materialstore)
 
 -   [com.kazurayam.inspectus](https://github.com/kazurayam/inspectus)
 
-Those libraries are NOT dependent on the type of Application Under Test. How the files were created. --- it doesn’t matter, for example
+These libraries are NOT dependent on Katalon Studio API at all. These are NOT concerned about the type of Application Under Test. These will accept any type of files regardless how they were created, for example
 
 -   as screenshot of Web browser
 
