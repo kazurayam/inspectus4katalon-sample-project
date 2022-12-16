@@ -18,3 +18,5 @@ store-backup/
 # but include the demonstration
 !docs/demo/store/
 !docs/demo/store-backup/
+
+build/

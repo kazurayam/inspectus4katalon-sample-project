@@ -5,9 +5,22 @@ plugins {
 // to run the plugin, execute
 // $ gradle drivers
 
-group 'com.kazurayam'
-version '0.3.2'
+group = 'com.kazurayam'
+version = '0.3.2'
 
 inspectus4katalon {
   inspectusVersion = "0.8.0"
+}
+
+
+
+task distributable(type: Zip) {
+    archiveName "distributable.zip"
+    destinationDir(file('build'))
+    from fileTree('.')
+    include 'Include/data/**/*'
+    include 'Object Repository/CURA/**/*'
+    include 'Profiles/**/*'
+    include 'Scripts/**/*'
+    include 'Test Cases/**/*'
 }
