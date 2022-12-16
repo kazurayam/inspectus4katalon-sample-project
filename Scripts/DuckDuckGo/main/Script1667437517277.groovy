@@ -2,6 +2,7 @@ import java.nio.file.Path
 import java.nio.file.Paths
 
 import com.kazurayam.inspectus.core.Inspectus
+import com.kazurayam.inspectus.core.Intermediates
 import com.kazurayam.inspectus.core.Parameters
 import com.kazurayam.inspectus.katalon.KatalonShootings
 import com.kazurayam.materialstore.core.filesystem.JobName
@@ -31,5 +32,4 @@ Parameters p =
 		.build();
 
 Inspectus inspectus = new KatalonShootings("Test Cases/DuckDuckGo/materialize")
-inspectus.execute(p);
-
+Intermediates result = inspectus.execute(p);
