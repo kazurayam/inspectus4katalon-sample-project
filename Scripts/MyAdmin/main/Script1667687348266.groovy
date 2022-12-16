@@ -3,6 +3,7 @@ import java.nio.file.Paths
 
 import com.kazurayam.inspectus.core.Environment
 import com.kazurayam.inspectus.core.Inspectus
+import com.kazurayam.inspectus.core.Intermediates
 import com.kazurayam.inspectus.core.Parameters
 import com.kazurayam.inspectus.katalon.KatalonTwinsDiff
 import com.kazurayam.materialstore.core.filesystem.JobName
@@ -11,6 +12,7 @@ import com.kazurayam.materialstore.core.filesystem.SortKeys
 import com.kazurayam.materialstore.core.filesystem.Store
 import com.kazurayam.materialstore.core.filesystem.Stores
 import com.kms.katalon.core.configuration.RunConfiguration
+import com.kms.katalon.core.util.KeywordUtil
 
 /**
  * Test Cases/MyAdmin/main
@@ -39,4 +41,9 @@ Inspectus inspectus =
 	new KatalonTwinsDiff("Test Cases/MyAdmin/materialize",
 						new Environment("MyAdmin_ProductionEnv"),
 						new Environment("MyAdmin_DevelopmentEnv"))
-inspectus.execute(p)
+Intermediates result = inspectus.execute(p)
+
+if (result.getWarnings() > 0) {
+	//KeywordUtil.markFailed("there found ${result.getWarnings()} warning(s)");
+	KeywordUtil.markWarning("there found ${result.getWarnings()} warning(s)");	
+}
