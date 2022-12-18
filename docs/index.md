@@ -68,6 +68,8 @@ Demo in action:
 
 -   [2nd run](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA-20221213_080831.html) --- all pages shows very little difference because the target web site changed very little, as the demonstration ran the "CURA/main" twice with just a few seconds of intermission.
 
+![activity chronosdiff ja](diagrams/out/activity-chronosdiff-ja/activity-chronosdiff-ja.png)
+
 ![chronos diff](diagrams/out/chronos-diff/chronos-diff.png)
 
 The Test Case [CURA/main](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/main/Script1667709715867.groovy) sets up the parameters and calls the Test Case [CURA/materialize](https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/materialize/Script1667709728945.groovy). The `main` testcase executes `com.kazurayam.inspectus.katalon.KatalonChronosDiff` object, which performs all diffing and reporting tasks etc behind the scene.
@@ -95,6 +97,8 @@ You can run the test case [Test Case/CURA/run\_materialize](https://github.com/k
 -   By Twins-Diff, you can compare the Production environment and the Development environment. This method is effective to identify any regressions or unexpected changes caused by the development works that continues every day.
 
 Demo in action: [click here](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/MyAdmin-20221213_080556.html)
+
+![activity twinsdiff ja](diagrams/out/activity-twinsdiff-ja/activity-twinsdiff-ja.png)
 
 ![twins diff](diagrams/out/twins-diff/twins-diff.png)
 
