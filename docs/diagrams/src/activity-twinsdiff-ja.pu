@@ -1,0 +1,13 @@
+@startuml activity-twinsdiff-ja
+start
+fork
+:環境Pを立ち上げる\nhttp://myadmin.kazurayam.com/;
+:環境Pのページを複数開いて\nスナップショットを取得する;
+fork again
+:環境Dを立ち上げる\nhttp://devadmin.kazurayam.com/;
+:環境Dのページを複数開いて\nスナップショットを取得する;
+end fork
+:環境Pと環境Dのスナップショットをうまく突き合わせて比較する;
+:レポートを生成する;
+stop
+@enduml

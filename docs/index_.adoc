@@ -50,6 +50,8 @@ Demo in action:
 
 * link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA-20221213_080831.html[2nd run] --- all pages shows very little difference because the target web site changed very little, as the demonstration ran the "CURA/main" twice with just a few seconds of intermission.
 
+image::diagrams/out/activity-chronosdiff-ja/activity-chronosdiff-ja.png[]
+
 image::diagrams/out/chronos-diff/chronos-diff.png[]
 
 The Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/main/Script1667709715867.groovy[CURA/main] sets up the parameters and calls the Test Case link:https://github.com/kazurayam/inspectus4katalon-sample-project/tree/master/Scripts/CURA/materialize/Script1667709728945.groovy[CURA/materialize]. The `main` testcase executes `com.kazurayam.inspectus.katalon.KatalonChronosDiff` object, which performs all diffing and reporting tasks etc behind the scene.
@@ -72,6 +74,8 @@ You can run the test case link:https://github.com/kazurayam/inspectus4katalon-sa
 
 
 Demo in action: link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/MyAdmin-20221213_080556.html[click here]
+
+image::diagrams/out/activity-twinsdiff-ja/activity-twinsdiff-ja.png[]
 
 image::diagrams/out/twins-diff/twins-diff.png[]
 
