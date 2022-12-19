@@ -1,4 +1,4 @@
-@startuml chronos-diff
+@startuml sequence-chronosdiff
 actor Tester as tester
 box "My PC"
 participant "Test Cases/\nCURA/main" as main

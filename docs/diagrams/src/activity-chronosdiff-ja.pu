@@ -1,11 +1,11 @@
 @startuml activity-chronosdiff-ja
 start
-:環境Dを立ち上げる\nhttp://devadmin.kazurayam.com/;
-:環境Dのページを複数開いて\nスナップショットを取得する;
+:Webサイトを立ち上げる\nhttp://demoaut-mimic.kazurayam.com/;
+:このサイトのページを複数開いて\nスナップショットを取得する;
 :時間を空けて;
-:ふたたび環境D環境Dを立ち上げる\nhttp://devadmin.kazurayam.com/;
-:環境Dのページを複数開いて\nスナップショットを取得する;
-:環境Dの二つのスナップショット（別のタイミングで\n撮ったもの、同じURLどおし）を比較する;
+:同じWebサイトを立ち上げる\nhttp://demoaut-mimic.kazurayam.com/;
+:このサイトのページを複数開いて\nスナップショットを取得する;
+:二つのスナップショット（別のタイミングで\n撮ったもの、同じURLどおし）を比較する;
 :レポートを生成する;
 stop
 @enduml
