@@ -1,33 +1,10 @@
--   <a href="#_visual_inspection_webサイトの画面確認を自動化しよう" id="toc-_visual_inspection_webサイトの画面確認を自動化しよう">Visual Inspection : Webサイトの画面確認を自動化しよう</a>
-    -   <a href="#_はじめに" id="toc-_はじめに">はじめに</a>
-    -   <a href="#_visual_inspectionが出力するレポートのサンプル" id="toc-_visual_inspectionが出力するレポートのサンプル">Visual Inspectionが出力するレポートのサンプル</a>
-        -   <a href="#_二つの画像の差分" id="toc-_二つの画像の差分">二つの画像の差分</a>
-        -   <a href="#_二つのテキストの差分" id="toc-_二つのテキストの差分">二つのテキストの差分</a>
-        -   <a href="#_diff_ratio_filetype_metadata" id="toc-_diff_ratio_filetype_metadata">diff ratio, FileType, Metadata</a>
-        -   <a href="#_chronos_diff" id="toc-_chronos_diff">Chronos Diff</a>
-        -   <a href="#_twins_diff_webサイトの本番環境と開発環境を比較する" id="toc-_twins_diff_webサイトの本番環境と開発環境を比較する">Twins Diff: Webサイトの本番環境と開発環境を比較する</a>
-        -   <a href="#_shootings" id="toc-_shootings">Shootings</a>
-    -   <a href="#_visual_inspectionを動かしてみよう" id="toc-_visual_inspectionを動かしてみよう">Visual Inspectionを動かしてみよう</a>
-        -   <a href="#_環境を設定する" id="toc-_環境を設定する">環境を設定する</a>
-            -   <a href="#_katalon_studio_standalone_editionをインストールする" id="toc-_katalon_studio_standalone_editionをインストールする">Katalon Studio - Standalone Editionをインストールする。</a>
-            -   <a href="#_プロジェクトを作る" id="toc-_プロジェクトを作る">プロジェクトを作る</a>
-    -   <a href="#_雑談" id="toc-_雑談">雑談</a>
-        -   <a href="#_visual_inspection_とは何か" id="toc-_visual_inspection_とは何か">Visual Inspection とは何か</a>
-        -   <a href="#_visual_inspectionは誰のためのツールか" id="toc-_visual_inspectionは誰のためのツールか">Visual Inspectionは誰のためのツールか</a>
-        -   <a href="#_visual_inspectionと商用製品サービスとの違い" id="toc-_visual_inspectionと商用製品サービスとの違い">Visual Inspectionと商用製品・サービスとの違い</a>
-            -   <a href="#_自社のデータを社外に出すことの是非" id="toc-_自社のデータを社外に出すことの是非">自社のデータを社外に出すことの是非</a>
-            -   <a href="#_データ転送にかかる時間" id="toc-_データ転送にかかる時間">データ転送にかかる時間</a>
-            -   <a href="#_chronos_diffはよそにもあるがtwins_diffはここだけ" id="toc-_chronos_diffはよそにもあるがtwins_diffはここだけ">Chronos DiffはよそにもあるがTwins Diffはここだけ</a>
-        -   <a href="#_オープンソース無償利用可能であること" id="toc-_オープンソース無償利用可能であること">オープンソース、無償利用可能であること</a>
-        -   <a href="#_katalon_studioが必須ではない" id="toc-_katalon_studioが必須ではない">Katalon Studioが必須ではない</a>
-
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
 ## はじめに
 
 わたしはWebアプリケーションのUIをテストとする作業をソフトウェアで自動化する技術に関心があります。わたしは2018年9月に下記の記事をQiitaに投稿しました。
 
--   "[Katalon StudioでVisual Testingを実現した](https://qiita.com/kazurayam/items/bcf72a03f50fc5db4373)"
+-   [Katalon StudioでVisual Testingを実現した](https://qiita.com/kazurayam/items/bcf72a03f50fc5db4373)
 
 このとき実装したコードにいろいろ不満があった。わたしは開発を続けました。ようやく実用レベルのツールを仕上げることができたのでここで紹介します。このツールを *Visual Inspection* と称します。
 
@@ -47,21 +24,11 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 あるWebページのスクリーンショットを撮り、数秒後にもう一度スクリーンショットを撮った。二つの画像をピクセル単位で比較した結果の画像を生成した。食い違っている箇所のピクセルを赤色に塗ることで相違点を見やすくした。
 
--   スクリーンショットその１
+![Left Diff Right](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Left-Diff-Right.png)
 
-![6e1a55c9011dc14568a62666af0c2ee3de760754](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080643/objects/6e1a55c9011dc14568a62666af0c2ee3de760754.png)
+サンプルとして使ったWebページ <http://demoaut-mimic.kazurayam.com/> には秒単位の時刻が表示される。間隔をおいて問い合わせれば秒の箇所が変化するので、差分画像の中にわずかながら赤い塗りつぶしが必ず生じる。
 
--   差分のスクリーンショット
-
-![ce2bd44179ab158abdcfddb807bcc4184b8ad02c](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080831/objects/ce2bd44179ab158abdcfddb807bcc4184b8ad02c.png)
-
--   スクリーンショットその２
-
-![1e87e1c9a49d009c4823796ac196a4999acda7e7](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080806/objects/1e87e1c9a49d009c4823796ac196a4999acda7e7.png)
-
-サンプルとして使ったWebページ <http://demoaut-mimic.kazurayam.com/> には秒単位の時刻が表示される。間隔をおいて問い合わせれば秒の箇所が必ず変化するので、差分画像の中に赤い塗りつぶしが生じる。
-
-あなたのWebサイトをVisual Inspectionしらどのページのどの箇所が赤くなるか？ --- それはやってみなければわかりません。ぜひ自分で試してみてください。
+あなたのWebサイトをVisual Inspectionしたら、どのページのどの箇所が赤くなるだろうか？ --- それはやってみなければわかりません。ぜひ自分で試してみてください。
 
 ### 二つのテキストの差分
 
@@ -115,7 +82,7 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/
 
 Twins Diffは指定されたURLのホスト名とCSVファイルから読み取ったパス文字列を合成してURLを特定します。そしてそのURLをブラウザで開いてスクリーンショットを撮ります。URLのパス文字列が一致する画像どおしを比較して差分を求めレポートを作成します。
 
-!\[activity twins\](<https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/activity-twinsdiff-ja/activity-twinsdiff-ja.png>)
+[activity twins](https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/activity-twinsdiff-ja/activity-twinsdiff-ja.png!)
 
 ### Shootings
 
@@ -157,23 +124,23 @@ Standalone Edition
 
 しかし Visual Inspection をGoogle検索しても何も出てきません。無理もない。わたしが「画面確認の自動化」をアルファベットで表記するために作った造語だから。
 
-*Testing*　とはあらかじめ条件を特定しておき対象となるソフトウェアが期待通りに動作するかどうかを確認することと定義しましょう。いっぽう *Inspection 検査* とはWebシステムが提供する画面をできるだけたくさん眺める。そして「おや、これは何だ？」と不審な箇所を発見することを目指します。InspectionはTestingとは違う目的を持っています。
+*Testing* とはあらかじめ条件を特定しておき対象となるソフトウェアが期待通りに動作するかどうかを確認することと定義しましょう。いっぽう *Inspection 検査* とはWebシステムが提供する画面をできるだけたくさん眺める。そして「おや、これは何だ？」と不審な箇所を発見することを目指します。InspectionはTestingとは違う目的を持っています。
 
 ### Visual Inspectionは誰のためのツールか
 
-\[Qiita\]([https://qiita.com/)の読者の大半は現役プログラマでソフトウエア開発を本職としている人たちでしょう。Visual](https://qiita.com/)の読者の大半は現役プログラマでソフトウエア開発を本職としている人たちでしょう。Visual) Inspectionは彼らプロのためのツールではありません。IT系じゃない一般企業に就職した新人君が、上司から
+[Qiita](https://qiita.com/)の読者の大半は現役プログラマであり、ソフトウエアの開発を本職としている人たちでしょう。Visual Inspectionは彼らプロのためのツールではありません。IT系じゃない一般企業に就職した新人君が、上司から
 
 &gt;「ウチのこのWebサイトにおかしなところが無いかどうか、全部のページを目で見て確認してくれ。」
 
 といわれた。そういう新人君は毎年何千人もいるだろう。Visual Inspectionはこうした新人君の作業を楽にするためのツールです。
 
-新人君はまだプログラミングの訓練を受けていない、Webサイトを実現しているIT技術のこと（ReactとかSpringとか…​）はわからない。新人君が配属された部署は、SIerが開発して納品したソフトウェアを受け取って、できるかぎり動作確認して、稼働環境に投入して、自社のWebサービスを継続的に運転していく責任がある。本番としてリリースした画面に問題があってサイト利用者から指摘されたら、さあ大変。新人君はそうならないように画面確認作業を繰り返す。しかし画面確認は正直いって面倒くさいし面白くない。せめて注目すべき箇所を見つけ出すぐらいのことは自動化したい。・・・　Visual Inspectionはこの新人君のためのツールです。
+新人君はまだプログラミングの訓練を受けていない、Webサイトを実現しているIT技術のこと（ReactとかSpringとか…​）はわからない。新人君が配属された部署は、SIerが開発して納品したソフトウェアを受け取って、できるかぎり動作確認して、稼働環境に投入して、自社のWebサービスを継続的に運転していく責任がある。本番としてリリースした画面に問題があってサイト利用者から指摘されたら、さあ大変。新人君はそうならないように画面確認作業を繰り返す。しかし画面確認は正直いって面倒くさいし面白くない。せめて注目すべき箇所を見つけ出すぐらいのことは自動化したい。・・・Visual Inspectionはこの新人君のためのツールです。
 
 ### Visual Inspectionと商用製品・サービスとの違い
 
 #### 自社のデータを社外に出すことの是非
 
-Katalon Studioにも\[Visual Testing\]([https://katalon.com/visual-testing)のサービスが組み込まれています。このサービスはテストが生成したファイルをインターネット経由でKatalon社のサービスへ出力しサーバサイドで画像比較とレポート出力をするという形を取ります。わたしが各社のwebサイトの説明を読んだかぎりApplitoolsをはじめとするVisual](https://katalon.com/visual-testing)のサービスが組み込まれています。このサービスはテストが生成したファイルをインターネット経由でKatalon社のサービスへ出力しサーバサイドで画像比較とレポート出力をするという形を取ります。わたしが各社のwebサイトの説明を読んだかぎりApplitoolsをはじめとするVisual) Testingサービスは皆同じでした。ユーザーが所属する企業が社内情報が漏洩するリスクを嫌って自社データを社外に出力することを禁止している場合、商用のVisual Testingサービスを導入するのは無理です。
+Katalon Studioにも [Visual Testing](https://katalon.com/visual-testing) のサービスが組み込まれています。このサービスはテストが生成したファイルをインターネット経由でKatalon社のサービスへ出力しサーバサイドで画像比較とレポート出力をするという形を取ります。わたしが各社のwebサイトの説明を読んだかぎりApplitoolsをはじめとするVisual Testingサービスは皆同じでした。ユーザーが所属する企業が社内情報が漏洩するリスクを嫌って自社データを社外に出力することを禁止している場合、商用のVisual Testingサービスを導入するのは無理です。
 
 いっぽうわたしの開発したVisual Inspecton for Katalon StudioはあなたのPCの上で完結します。結果として生成したファイルをローカルディスクに出力するにとどまります。テストが生成したファイルをインターネット経由で他社が管理するクラウドストレージに出力することを必須としません。だから企業の情報セキュリティの壁を崩す心配がありません。
 
@@ -187,11 +154,11 @@ Katalon Studioにも\[Visual Testing\]([https://katalon.com/visual-testing)の�
 
 Chronos Diffとは、一つのURLについて時間間隔をおいて二度スナップショットを撮ったものを比較します。あなたのwebシステムの本番環境のスナップショットを午後１５時に取得し、入替等の作業をしてから、午後１６時にもう一度同じ環境のスナップショットをとる、そして作業の前後を比較して不慮のミスを犯していないかどうかを確認するような使い方ができます。
 
-!\[activity ChronosDiff\](<https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/activity-chronosdiff-ja/activity-chronosdiff-ja.png>)
+![activity ChronosDiff](https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/activity-chronosdiff-ja/activity-chronosdiff-ja.png)
 
-いっぽうTwins Diffとはあなたのwebシステムが２つの環境を持っていてトップページのURLのホスト名だけが違っているとして、２つの環境のスナップショットをほぼ同じタイミングで取得し、二つのスナップショット画像をうまく突き合わせて比較する、という目的に向いています。例えば 本番環境 `myadmin.kazurayam.com` と 開発環境 `devadmin.kazurayam.com` を比較することができます。元となるURLのホスト名が同一ではないスナップショットを\*うまく突き合わせ\*て組にするためのルールを組み立てる必要があって、ちょっと複雑にならざるを得ないのですが、わたしのツールはサポートしています。
+いっぽうTwins Diffとはあなたのwebシステムが2つの環境を持っていてトップページのURLのホスト名だけが違っているとして、2つの環境のスナップショットをほぼ同じタイミングで取得し、二つのスナップショット画像をうまく突き合わせて比較する、という目的に向いています。例えば 本番環境 `myadmin.kazurayam.com` と 開発環境 `devadmin.kazurayam.com` を比較することができます。元となるURLのホスト名が同一ではないスナップショットを\*うまく突き合わせ\*て組にするためのルールを組み立てる必要があって、ちょっと複雑にならざるを得ないのですが、わたしのツールはサポートしています。
 
-!\[activity TwinsDiff\](<https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/activity-twinsdiff-ja/activity-twinsdiff-ja.png>)
+![activity TwinsDiff](https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/activity-twinsdiff-ja/activity-twinsdiff-ja.png)()
 
 世の中のVisual Testing製品が実現しているのは、わたしのツールがChronos Diffと呼んでいるものだけです。**Twins Diffを実現している製品はわたしの見るところ他にありません。**
 
@@ -199,16 +166,16 @@ Chronos Diffとは、一つのURLについて時間間隔をおいて二度ス�
 
 Visual Inspectionはわたしが開発したオープンソースのソフトウェアライブラリ2つによって実装されています。
 
-1.  \[kazurayam/materialstore\](<https://github.com/kazurayam/materialstore>)
+1.  [kazurayam/materialstore](https://github.com/kazurayam/materialstore)
 
-2.  \[kazurayam/inspectus\](<https://github.com/kazurayam/inspectus>)
+2.  [kazurayam/inspectus](https://github.com/kazurayam/inspectus)
 
 これらはApache2ライセンスを適用しており無償で利用可能です。従ってVisual Inspectionもオープンソースであり無償で利用可能です。
 
 ### Katalon Studioが必須ではない
 
-今回紹介したデモは\[Katalon Studio\]([https://katalon.com/download)を環境として作成しました。しかし上記に示した２つのライブラリ(materialstoreとinspectus)はKatalon](https://katalon.com/download)を環境として作成しました。しかし上記に示した２つのライブラリ(materialstoreとinspectus)はKatalon) StudioのAPIに全く依存していません。だからKatalon Studio無しでVisual Inspectionのプロジェクトを構成することができます。Java8 + Gradle + Selenium WebDriver で構成したVisual Inspectionプロジェクトの例が下記にあります。
+今回紹介したデモは [Katalon Studio](https://katalon.com/download)を使って、Katalon Studioのプロジェクトとして作成しました。しかし上記に示したライブラリ(materialstoreとinspectus)はKatalon StudioのAPIにまったく依存していません。だからKatalon Studio無しでVisual Inspectionのプロジェクトを構成することができます。Java8 + Gradle + Selenium WebDriver で構成したVisual Inspectionプロジェクトの例が下記にあります。
 
 1.  <https://github.com/kazurayam/inspectus4selenium-sample-project>
 
-長くなるので説明は省略します。
+こちらのプロジェクトを説明するのはまた別の機会に。
