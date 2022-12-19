@@ -6,7 +6,7 @@
 
 -   [Katalon StudioでVisual Testingを実現した](https://qiita.com/kazurayam/items/bcf72a03f50fc5db4373)
 
-このとき実装したコードにいろいろ不満があった。わたしは開発を続けました。ようやく実用レベルのツールを仕上げることができたのでここで紹介します。このツールを *Visual Inspection* と称します。
+このとき実装したコードにいろいろ不満があった。わたしは開発を続けました。もう４年も経った。ようやく実用レベルのツールを仕上げることができたのでここで紹介します。このツールを *Visual Inspection* と名付けます。
 
 ## Visual Inspectionが出力するレポートのサンプル
 
@@ -14,23 +14,25 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 -   [store/index](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
 
-このサンプルをブラウザで開いてあちこちページをめくって眺める様子を動画にしてみました。
+このサンプルをブラウザで開きあちこち眺める様子を動画にしてみました。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 このレポートの見方をざっと説明しましょう。
 
 ### 二つの画像の差分
 
-あるWebページのスクリーンショットを撮り、数秒後にもう一度スクリーンショットを撮った。二つの画像をピクセル単位で比較した結果の画像を生成した。食い違っている箇所のピクセルを赤色に塗ることで相違点を見やすくした。
+上記URLが見せるサンプルの一つは、あるWebページのスクリーンショットを撮り、数秒後にもう一度スクリーンショットを撮って、二つの画像をピクセル単位で比較した結果の画像を見せている。食い違っているピクセルが赤色に塗られてハイライトされている。
 
 ![Left Diff Right](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Left-Diff-Right.png)
 
-サンプルとして使ったWebページ <http://demoaut-mimic.kazurayam.com/> には秒単位の時刻が表示される。間隔をおいて問い合わせれば秒の箇所が変化するので、差分画像の中にわずかながら赤い塗りつぶしが必ず生じる。
+題材にしたWebページ <http://demoaut-mimic.kazurayam.com/> にはリクエストした時点の現在時刻が秒単位で表示されている。適当に間隔をおいて2回目のリクエストをすれば秒が変化するので差分画像の中にわずかながら赤い塗りつぶしが必ず生じる。その様子をデモしている。
 
-あなたのWebサイトをVisual Inspectionしたら、どのページのどの箇所が赤くなるだろうか？ --- それはやってみなければわかりません。ぜひ自分で試してみてください。
+あなたのWebサイトを標的としてVisual Inspectionを実施したら、どのページのどの箇所が赤くなるだろうか？ --- それはやってみなければわからない。ぜひ自分で試してみてください。
 
 ### 二つのテキストの差分
+
+![HTMLsource diff](https://kazurayam.github.io/inspectus4katalon-sample-project/images/HTMLsource_diff.png)
 
 ### diff ratio, FileType, Metadata
 
