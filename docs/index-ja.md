@@ -1,3 +1,26 @@
+-   <a href="#_visual_inspection_webサイトの画面確認を自動化しよう" id="toc-_visual_inspection_webサイトの画面確認を自動化しよう">Visual Inspection : Webサイトの画面確認を自動化しよう</a>
+    -   <a href="#_はじめに" id="toc-_はじめに">はじめに</a>
+    -   <a href="#_visual_inspectionが出力するレポートのサンプル" id="toc-_visual_inspectionが出力するレポートのサンプル">Visual Inspectionが出力するレポートのサンプル</a>
+        -   <a href="#_二つの画像の差分" id="toc-_二つの画像の差分">二つの画像の差分</a>
+        -   <a href="#_二つのテキストの差分" id="toc-_二つのテキストの差分">二つのテキストの差分</a>
+        -   <a href="#_diff_ratio_filetype_metadata" id="toc-_diff_ratio_filetype_metadata">diff ratio, FileType, Metadata</a>
+        -   <a href="#_chronos_diff" id="toc-_chronos_diff">Chronos Diff</a>
+        -   <a href="#_twins_diff_webサイトの本番環境と開発環境を比較する" id="toc-_twins_diff_webサイトの本番環境と開発環境を比較する">Twins Diff: Webサイトの本番環境と開発環境を比較する</a>
+        -   <a href="#_shootings" id="toc-_shootings">Shootings</a>
+    -   <a href="#_visual_inspectionを動かしてみよう" id="toc-_visual_inspectionを動かしてみよう">Visual Inspectionを動かしてみよう</a>
+        -   <a href="#_環境を設定する" id="toc-_環境を設定する">環境を設定する</a>
+            -   <a href="#_katalon_studio_standalone_editionをインストールする" id="toc-_katalon_studio_standalone_editionをインストールする">Katalon Studio - Standalone Editionをインストールする。</a>
+            -   <a href="#_プロジェクトを作る" id="toc-_プロジェクトを作る">プロジェクトを作る</a>
+    -   <a href="#_雑談" id="toc-_雑談">雑談</a>
+        -   <a href="#_visual_inspection_とは何か" id="toc-_visual_inspection_とは何か">Visual Inspection とは何か</a>
+        -   <a href="#_visual_inspectionは誰のためのツールか" id="toc-_visual_inspectionは誰のためのツールか">Visual Inspectionは誰のためのツールか</a>
+        -   <a href="#_visual_inspectionと商用製品サービスとの違い" id="toc-_visual_inspectionと商用製品サービスとの違い">Visual Inspectionと商用製品・サービスとの違い</a>
+            -   <a href="#_自社のデータを社外に出すことの是非" id="toc-_自社のデータを社外に出すことの是非">自社のデータを社外に出すことの是非</a>
+            -   <a href="#_データ転送にかかる時間" id="toc-_データ転送にかかる時間">データ転送にかかる時間</a>
+            -   <a href="#_chronos_diffはよそにもあるがtwins_diffはここだけ" id="toc-_chronos_diffはよそにもあるがtwins_diffはここだけ">Chronos DiffはよそにもあるがTwins Diffはここだけ</a>
+        -   <a href="#_オープンソース無償利用可能であること" id="toc-_オープンソース無償利用可能であること">オープンソース、無償利用可能であること</a>
+        -   <a href="#_katalon_studioが必須ではない" id="toc-_katalon_studioが必須ではない">Katalon Studioが必須ではない</a>
+
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
 ## はじめに
@@ -26,15 +49,15 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 -   スクリーンショットその１
 
-![6e1a55c9011dc14568a62666af0c2ee3de760754](./demo/store/CURA/20221213_080643/objects/6e1a55c9011dc14568a62666af0c2ee3de760754.png)
+![6e1a55c9011dc14568a62666af0c2ee3de760754](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080643/objects/6e1a55c9011dc14568a62666af0c2ee3de760754.png)
 
 -   差分のスクリーンショット
 
-![ce2bd44179ab158abdcfddb807bcc4184b8ad02c](./demo/store/CURA/20221213_080831/objects/ce2bd44179ab158abdcfddb807bcc4184b8ad02c.png)
+![ce2bd44179ab158abdcfddb807bcc4184b8ad02c](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080831/objects/ce2bd44179ab158abdcfddb807bcc4184b8ad02c.png)
 
 -   スクリーンショットその２
 
-![1e87e1c9a49d009c4823796ac196a4999acda7e7](./demo/store/CURA/20221213_080806/objects/1e87e1c9a49d009c4823796ac196a4999acda7e7.png)
+![1e87e1c9a49d009c4823796ac196a4999acda7e7](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080806/objects/1e87e1c9a49d009c4823796ac196a4999acda7e7.png)
 
 サンプルとして使ったWebページ <http://demoaut-mimic.kazurayam.com/> には秒単位の時刻が表示される。間隔をおいて問い合わせれば秒の箇所が必ず変化するので、差分画像の中に赤い塗りつぶしが生じる。
 
@@ -46,7 +69,7 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 二つのファイルと差分ファイルをまとめた組のことを [MaterialProduct](https://github.com/kazurayam/materialstore/blob/main/src/main/java/com/kazurayam/materialstore/base/reduce/zipper/MaterialProduct.java) というclassで表します。レポートの中に下記のような表示がありますが、これは Material Product の属性情報です。
 
-![diffratio fileType metadata](images/diffratio-fileType-metadata.png)
+![diffratio fileType metadata](https://kazurayam.github.io/inspectus4katalon-sample-project/images/diffratio-fileType-metadata.png)
 
 左上の `0.14%` という数字を **diff ratio** と呼びます。画面の四角形全体の大きさを100.00%として、赤く塗られた差分箇所が何パーセントを占めているかを表しています。"0.14%"という例は "完全に同じではない、ちょっとだけ違っている" と読める。diff ratioがが 96.0% とか大きな値になることもあり得ます。きっと何かエラーが発生した印でしょう。
 

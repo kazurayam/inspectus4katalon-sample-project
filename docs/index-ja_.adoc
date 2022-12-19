@@ -27,15 +27,15 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 * スクリーンショットその１
 
-image:./demo/store/CURA/20221213_080643/objects/6e1a55c9011dc14568a62666af0c2ee3de760754.png[width=50%]
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080643/objects/6e1a55c9011dc14568a62666af0c2ee3de760754.png[width=50%]
 
 * 差分のスクリーンショット
 
-image:./demo/store/CURA/20221213_080831/objects/ce2bd44179ab158abdcfddb807bcc4184b8ad02c.png[width=50%]
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080831/objects/ce2bd44179ab158abdcfddb807bcc4184b8ad02c.png[width=50%]
 
 * スクリーンショットその２
 
-image:./demo/store/CURA/20221213_080806/objects/1e87e1c9a49d009c4823796ac196a4999acda7e7.png[width=50%]
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/CURA/20221213_080806/objects/1e87e1c9a49d009c4823796ac196a4999acda7e7.png[width=50%]
 
 サンプルとして使ったWebページ http://demoaut-mimic.kazurayam.com/ には秒単位の時刻が表示される。間隔をおいて問い合わせれば秒の箇所が必ず変化するので、差分画像の中に赤い塗りつぶしが生じる。
 
@@ -47,7 +47,7 @@ image:./demo/store/CURA/20221213_080806/objects/1e87e1c9a49d009c4823796ac196a499
 
 二つのファイルと差分ファイルをまとめた組のことを link:https://github.com/kazurayam/materialstore/blob/main/src/main/java/com/kazurayam/materialstore/base/reduce/zipper/MaterialProduct.java[MaterialProduct] というclassで表します。レポートの中に下記のような表示がありますが、これは Material Product の属性情報です。
 
-image:images/diffratio-fileType-metadata.png[]
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/diffratio-fileType-metadata.png[]
 
 左上の `0.14%` という数字を **diff ratio** と呼びます。画面の四角形全体の大きさを100.00%として、赤く塗られた差分箇所が何パーセントを占めているかを表しています。"0.14%"という例は "完全に同じではない、ちょっとだけ違っている" と読める。diff ratioがが 96.0% とか大きな値になることもあり得ます。きっと何かエラーが発生した印でしょう。
 

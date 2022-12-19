@@ -1,3 +1,12 @@
+-   <a href="#inspectus4katalon-sample-project" id="toc-inspectus4katalon-sample-project">inspectus4katalon-sample-project</a>
+    -   <a href="#demonstration" id="toc-demonstration">Demonstration</a>
+        -   <a href="#index" id="toc-index">index</a>
+        -   <a href="#shootings-demo-test-casesduckduckgo" id="toc-shootings-demo-test-casesduckduckgo">Shootings demo : "Test Cases/DuckDuckGo"</a>
+        -   <a href="#chronosdiff-demo-test-casescura" id="toc-chronosdiff-demo-test-casescura">ChronosDiff demo: "Test Cases/CURA"</a>
+        -   <a href="#twinsdiff-demo-test-casesmyadmin" id="toc-twinsdiff-demo-test-casesmyadmin">TwinsDiff demo: "Test Cases/MyAdmin"</a>
+    -   <a href="#how-to-share-the-reports-in-the-team" id="toc-how-to-share-the-reports-in-the-team">How to share the reports in the team</a>
+    -   <a href="#applicability-to-mobile-and-api-testing" id="toc-applicability-to-mobile-and-api-testing">Applicability to Mobile and API testing</a>
+
 # inspectus4katalon-sample-project
 
 -   @author kazurayam
