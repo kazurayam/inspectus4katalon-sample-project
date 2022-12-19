@@ -34,7 +34,11 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Left-D
 
 === 二つのテキストの差分
 
+題材にしたWebページ <http://demoaut-mimic.kazurayam.com/> のスクリーンショットで赤い塗り潰しを見つけて「おや？これはどうしたことか」と気づいたら、テスト担当者は次にWebページのHTMLソースコードのどこがどのように変化したのかを確かめたくなるだろう。そこでデモはWebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
+
 image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/HTMLsource_diff.png[]
+
+ブラウザに表示されたWebページのHTMLソースコードを事例として示したが他の形式のテキストも差分検査の対象とすることができる。JSON、XML、CSVといったデータ記述向きのテキストはもちろん、`.js` や `.css` のようなプログラム・コードもテキストに過ぎないのでInspectionの対象とすることができる。Webサイトからテキストファイルをダウンロードしていったんディスクに保存する、それを二度やって、後で二つのファイルを比較して差分を検査することができる。
 
 === diff ratio, FileType, Metadata
 
