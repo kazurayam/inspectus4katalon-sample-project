@@ -16,7 +16,7 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 このサンプルをブラウザで開いてあちこちページをめくって眺める様子を動画にしてみました。
 
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 このレポートの見方をざっと説明しましょう。
 
