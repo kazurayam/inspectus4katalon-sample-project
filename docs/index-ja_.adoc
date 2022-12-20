@@ -56,7 +56,34 @@ image:images/DuckDuckGo_small.png[]
 
 === Katalon Studioを準備する
 
-==== Katalon Studio - Standalone Edition をインストールする
+==== Katalon Studioをインストールする
+
+"Katalon Studio - Standalone Edition"の配布用zipファイルを下記URLからダウンロードすることができます。Standalone Editionは無償で利用できます。わたしの環境ではダウンロードに７分ほどかかりました。
+
+* link:https://katalon.com/download[]
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Katalon-Studio-Free-Download-Katalon.png[Katalon Download page]
+
+"Katalon Studio - Platform Edition" はGUIつきフル機能搭載の製品で有償です。"Katalon Runtime Engine" はCI/CD環境用でコマンドラインでGUI無しに実行するためのバイナリで有償です。これら三種類の製品どれでも Visual Inspection を動かすことができますが、Visual Inspectionのために有償版は必要ありません。
+
+DOWNLOADボタンを押すと "Create a Katalon account" つまりKatalonユーザとしてあなた個人用のアカウントを登録しろと案内されます。
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Sign-up-Katalon-Software-Quality-Management-Platform.png[]
+
+無償版を使う場合には Full name と Email と Password に適当な文字を入力すればOK。後で必要になるのでメモしておきましょう。別のデータベースと照合して認証するような手の込んだことはしていないようです。有償版を使う場合にはEmailアドレスについて一定の条件を満たすよう求められますがここでは述べません。
+
+
+Standalone EditionのzipファイルをPCにダウンロードしたらダブルクリックして `Katalon_Studio_Windows_64-x.x.x` フォルダを展開しましょう。どこに配置するかに注意が必要です。あなたのWindowsユーザがフルにWRITE権限を持っているフォルダの下に配置することが必要です。たとえば `C:\Users\あなたのWindowsユーザ名\Katalon_Studio_Windows_64-x.x.x` フォルダを作るのが良いでしょう。しかし `C:\Program Files` フォルダの下に置くとWRITE権限が足りなくてエラーが発生するかもしれない。避けるべきです。`C:\Users\あなたのWindowsユーザ名\Documents` フォルダはひょっとしたら OneDrive と連携して自動バックアップをとる構成になっているかもしれなくて、そこに大きなバイナリを置くのは避けたほうがいいでしょう。
+
+==== Katalon StudioのGUIを起動してユーザー登録をする
+
+展開したフォルダの中に `katalon.exe` がある。これをダブルクリックしてKatalon StudioのGUIを起動します。
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/katalonexe.png[katalon.exe]
+
+初めて起動したとき「SmartScanが」どうこうとか、「Defenderファイアウオールでブロックされています」とかセキュリティに絡む忠告をされるかもしれないが、あまり気にせず許可してしまいましょう。
+
+Katalon Studioを起動した時、一度だけ、先ほど登録したKatalonユーザとしてのFull nameとEmailとPasswordの入力を求められます。先ほどメモした文字をタイプすればそれでおしまい。有償版だと自社が購入したライセンスの上限の範囲内にユーザ数が収まっているかどうかのチェックがこの段階で作動します。
 
 ==== Katalon Studioを設定する
 
