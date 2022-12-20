@@ -1,25 +1,29 @@
--   <a href="#_visual_inspection_webサイトの画面確認を自動化しよう" id="toc-_visual_inspection_webサイトの画面確認を自動化しよう">Visual Inspection : Webサイトの画面確認を自動化しよう</a>
-    -   <a href="#_はじめに" id="toc-_はじめに">はじめに</a>
-    -   <a href="#_visual_inspectionが出力するレポートのサンプル" id="toc-_visual_inspectionが出力するレポートのサンプル">Visual Inspectionが出力するレポートのサンプル</a>
-        -   <a href="#_二つの画像の差分" id="toc-_二つの画像の差分">二つの画像の差分</a>
-        -   <a href="#_二つのテキストの差分" id="toc-_二つのテキストの差分">二つのテキストの差分</a>
-        -   <a href="#_diff_ratio_filetype_metadata" id="toc-_diff_ratio_filetype_metadata">diff ratio, FileType, Metadata</a>
-        -   <a href="#_chronos_diff" id="toc-_chronos_diff">Chronos Diff</a>
-        -   <a href="#_twins_diff_webサイトの本番環境と開発環境を比較する" id="toc-_twins_diff_webサイトの本番環境と開発環境を比較する">Twins Diff: Webサイトの本番環境と開発環境を比較する</a>
-        -   <a href="#_shootings" id="toc-_shootings">Shootings</a>
-    -   <a href="#_visual_inspectionを動かしてみよう" id="toc-_visual_inspectionを動かしてみよう">Visual Inspectionを動かしてみよう</a>
-        -   <a href="#_環境を設定する" id="toc-_環境を設定する">環境を設定する</a>
-            -   <a href="#_katalon_studio_standalone_editionをインストールする" id="toc-_katalon_studio_standalone_editionをインストールする">Katalon Studio - Standalone Editionをインストールする。</a>
-            -   <a href="#_プロジェクトを作る" id="toc-_プロジェクトを作る">プロジェクトを作る</a>
-    -   <a href="#_雑談" id="toc-_雑談">雑談</a>
-        -   <a href="#_visual_inspection_とは何か" id="toc-_visual_inspection_とは何か">Visual Inspection とは何か</a>
-        -   <a href="#_visual_inspectionは誰のためのツールか" id="toc-_visual_inspectionは誰のためのツールか">Visual Inspectionは誰のためのツールか</a>
-        -   <a href="#_visual_inspectionと商用製品サービスとの違い" id="toc-_visual_inspectionと商用製品サービスとの違い">Visual Inspectionと商用製品・サービスとの違い</a>
-            -   <a href="#_自社のデータを社外に出すことの是非" id="toc-_自社のデータを社外に出すことの是非">自社のデータを社外に出すことの是非</a>
-            -   <a href="#_データ転送にかかる時間" id="toc-_データ転送にかかる時間">データ転送にかかる時間</a>
-            -   <a href="#_chronos_diffはよそにもあるがtwins_diffはここだけ" id="toc-_chronos_diffはよそにもあるがtwins_diffはここだけ">Chronos DiffはよそにもあるがTwins Diffはここだけ</a>
-        -   <a href="#_オープンソース無償利用可能であること" id="toc-_オープンソース無償利用可能であること">オープンソース、無償利用可能であること</a>
-        -   <a href="#_katalon_studioが必須ではない" id="toc-_katalon_studioが必須ではない">Katalon Studioが必須ではない</a>
+-   <a href="#visual-inspection-webサイトの画面確認を自動化しよう" id="toc-visual-inspection-webサイトの画面確認を自動化しよう">Visual Inspection : Webサイトの画面確認を自動化しよう</a>
+    -   <a href="#はじめに" id="toc-はじめに">はじめに</a>
+    -   <a href="#visual-inspectionが出力するレポートのサンプル" id="toc-visual-inspectionが出力するレポートのサンプル">Visual Inspectionが出力するレポートのサンプル</a>
+    -   <a href="#サンプルの説明" id="toc-サンプルの説明">サンプルの説明</a>
+        -   <a href="#二つの画像の差分" id="toc-二つの画像の差分">二つの画像の差分</a>
+        -   <a href="#二つのテキストの差分" id="toc-二つのテキストの差分">二つのテキストの差分</a>
+        -   <a href="#materialクラス" id="toc-materialクラス">Materialクラス</a>
+        -   <a href="#diff-ratio-filetype-metadata" id="toc-diff-ratio-filetype-metadata">diff ratio, FileType, Metadata</a>
+        -   <a href="#chronos-diff" id="toc-chronos-diff">Chronos Diff</a>
+        -   <a href="#twins-diff-webサイトの本番環境と開発環境を比較する" id="toc-twins-diff-webサイトの本番環境と開発環境を比較する">Twins Diff: Webサイトの本番環境と開発環境を比較する</a>
+        -   <a href="#shootings" id="toc-shootings">Shootings</a>
+    -   <a href="#visual-inspectionを動かしてみよう" id="toc-visual-inspectionを動かしてみよう">Visual Inspectionを動かしてみよう</a>
+        -   <a href="#環境を設定する" id="toc-環境を設定する">環境を設定する</a>
+            -   <a href="#katalon-studio-standalone-editionをインストールする" id="toc-katalon-studio-standalone-editionをインストールする">Katalon Studio - Standalone Editionをインストールする。</a>
+            -   <a href="#プロジェクトを作る" id="toc-プロジェクトを作る">プロジェクトを作る</a>
+    -   <a href="#雑談" id="toc-雑談">雑談</a>
+        -   <a href="#visual-inspection-とは何か" id="toc-visual-inspection-とは何か">Visual Inspection とは何か</a>
+        -   <a href="#visual-inspectionは誰のためのツールか" id="toc-visual-inspectionは誰のためのツールか">Visual Inspectionは誰のためのツールか</a>
+        -   <a href="#visual-inspectionと商用製品サービスとの違い" id="toc-visual-inspectionと商用製品サービスとの違い">Visual Inspectionと商用製品・サービスとの違い</a>
+            -   <a href="#自社のデータを社外に出すことの是非" id="toc-自社のデータを社外に出すことの是非">自社のデータを社外に出すことの是非</a>
+            -   <a href="#データ転送にかかる時間" id="toc-データ転送にかかる時間">データ転送にかかる時間</a>
+            -   <a href="#chronos-diffはよそにもあるがtwins-diffはここだけ" id="toc-chronos-diffはよそにもあるがtwins-diffはここだけ">Chronos DiffはよそにもあるがTwins Diffはここだけ</a>
+        -   <a href="#オープンソース無償利用可能であること" id="toc-オープンソース無償利用可能であること">オープンソース、無償利用可能であること</a>
+        -   <a href="#katalon-studioが必須ではない" id="toc-katalon-studioが必須ではない">Katalon Studioが必須ではない</a>
+    -   <a href="#ご挨拶" id="toc-ご挨拶">ご挨拶</a>
+    -   <a href="#greetings" id="toc-greetings">Greetings</a>
 
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
@@ -41,6 +45,8 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
+## サンプルの説明
+
 このレポートの見方をざっと説明しましょう。
 
 ### 二つの画像の差分
@@ -55,11 +61,13 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 ### 二つのテキストの差分
 
-題材にしたWebページ <http://demoaut-mimic.kazurayam.com/> のスクリーンショットで赤い塗り潰しを見つけて「おや？これはどうしたことか」と気づいたら、テスト担当者は次にWebページのHTMLソースコードのどこがどのように変化したのかを確かめたくなるだろう。そこでデモはWebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
+題材にしたWebページ <http://demoaut-mimic.kazurayam.com/> のスクリーンショットで赤い塗り潰しを見つけて「おや？これはどうしたことか」と異常に気づいたら、テスト担当者は次にWebページのHTMLソースコードのどこがどのように変化したのかを確かめたくなるだろう。そこでデモはWebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
 
 ![HTMLsource diff](https://kazurayam.github.io/inspectus4katalon-sample-project/images/HTMLsource_diff.png)
 
-ブラウザに表示されたWebページのHTMLソースコードを事例として示したが他の形式のテキストも差分検査の対象とすることができる。JSON、XML、CSVといったデータ記述向きのテキストはもちろん、`.js` や `.css` のようなプログラム・コードもテキストに過ぎないのでInspectionの対象とすることができる。Webサイトからテキストファイルをダウンロードしていったんディスクに保存する、それを二度やって、後で二つのファイルを比較して差分を検査することができる。
+ブラウザに表示されたWebページのHTMLソースコードを事例として示したが、他の形式のテキストも差分検査の対象とすることができる。JSON、XML、CSVといったデータ記述向きのテキストはもちろん、`.js` や `.css` のようなプログラム・コードもテキストに過ぎないのでInspectionの対象とすることができる。Webサイトからテキストファイルをダウンロードしていったんディスクに保存する、それを二度やって、後で二つのファイルを比較して差分を検査することができる。
+
+### Materialクラス
 
 ### diff ratio, FileType, Metadata
 
@@ -208,3 +216,11 @@ Visual Inspectionはわたしが開発したオープンソースのソフトウ
 1.  <https://github.com/kazurayam/inspectus4selenium-sample-project>
 
 こちらのプロジェクトを説明するのはまた別の機会に。
+
+## ご挨拶
+
+こんにちは
+
+## Greetings
+
+Здравствуйте!

@@ -59,3 +59,9 @@ done
 cat index.md > temp.md
 java -jar MarkdownUtils-0.2.0.jar ./temp.md ./index.md
 rm temp.md
+
+# FIXME
+# See https://github.com/kazurayam/MarkdownUtils/issues/8
+cat index-ja.md > temp-ja.md
+java -jar MarkdownUtils-0.2.0.jar ./temp-ja.md ./index-ja.md
+rm temp-ja.md
