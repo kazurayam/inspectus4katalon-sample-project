@@ -160,7 +160,7 @@ Project &gt; Settings &gt; Execution
 
 ##### TestOpsをintegrateしない
 
-Katalon社が提供する [TestOps](https://katalon.com/testops)というサービスがあります。Katalon StudioとTestOpsのサーバと通信させていろいろやる。デフォルトではTestOpsとの連携が ON になっています。Visual InspectionをするためにTest Opsとの連携は不要。少し動作が遅くなるデメリットもあります。OFFにしましょう。
+Katalon社が提供する [TestOps](https://katalon.com/testops)というサービスがあります。Katalon StudioとTestOpsのサーバと通信させていろいろやる。デフォルトではTestOpsとの連携が ON になっています。Visual InspectionをするためにTest Opsとの連携は不要。テストの実行が遅くなるし。OFFにしましょう。
 
 Project &gt; Settings &gt; Katalon TestOps
 
@@ -176,7 +176,7 @@ Project &gt; Settings &gt; Katalon TestCloud
 
 ##### Smart Waitを使わない
 
-Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitは場合によって悪さをします。テストがやたらと遅くなって３０秒で終わるはずなのに２０分経過しても終わらないというようなを発症します。ところがデフォルトの設定でONになっています。迷惑なのでOFFにしましょう。
+Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitは場合によって悪さをします。テストがやたらと遅くなって３０秒で終わるはずのテストが２０分経過しても終わらないというような症状を発症します。ところがデフォルトの設定がこれをONにしています。迷惑なのでOFFにしましょう。
 
 Project &gt; Settings &gt; Execution &gt; WebUI
 
@@ -188,7 +188,7 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 ![Log Viewer](https://kazurayam.github.io/inspectus4katalon-sample-project/images/LogViewer.png)
 
-まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFしてテーブル形式の表示を選択します。Tree表示はCPU負荷が大きく遅延の原因になります。
+まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。![tree view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png) これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFして、テーブル形式の表示を選びましょう。Tree表示はCPU負荷が大きく処理遅延の原因になります。
 
 ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ALL,Info,Passed,Failed,Error,Warning,Not Runというラベルがついたボタンが。デフォルトでは All がONになっています。AllをONにすると "START" "END" という行が爆発的に出力されます。このログは無意味です。しかもあまりに行すうが多いためCPU負荷を圧迫してしまう。だからAllを選択してはいけない。AllをOFFにすべきです。
 
