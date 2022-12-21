@@ -108,10 +108,25 @@ Visual Inspectionを実装するにはScript viewでGroovy言語でコードを�
 
 Katalon Studio GUIのツールバー Window > Katalon Studio Preferences > Katalon > Test Case
 
-image:https://kazurayam.github.io/inspectus4katalon-sample-project/Manual_view_Script_view.png[Manual view Script view]
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Manual_view_Script_view.png[Manual view Script view]
 
 
-==== プロジェクトを作り、プロジェクトを設定する
+==== プロジェクトを作る
+
+さて、Katalon Studioの中でプロジェクトを作りましょう。
+
+File > New > Project
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/NewProject.png[New Project]
+
+ダイアログが開きます。プロジェクトの名前とプロジェクトを作るフォルダを指定します。
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/NewProject_dialog.png[New Project dialog]
+
+これでOKすると `C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject` フォルダが作られ、そのなかに初期状態のフォルダとファイル群が自動生成されます。
+
+
+==== プロジェクトを設定する
 
 . ブラウザの種類を選ぶ
 . Log Viewerを設定する
