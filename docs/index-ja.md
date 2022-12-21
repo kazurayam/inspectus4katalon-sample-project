@@ -190,13 +190,25 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。![tree view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png) これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFして、テーブル形式の表示を選びましょう。Tree表示はCPU負荷が大きく処理遅延の原因になります。
 
-ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ALL,Info,Passed,Failed,Error,Warning,Not Runというラベルがついたボタンが。デフォルトでは All がONになっています。AllをONにすると "START" "END" という行が爆発的に出力されます。このログは無意味です。しかもあまりに行すうが多いためCPU負荷を圧迫してしまう。だからAllを選択してはいけない。AllをOFFにすべきです。
+ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが "ALL" "Info" "Passed" "Failed" "Error" "Warning" "Not Run"となっている。デフォルトでは All がONになっています。Allを必ずOFFに変更しましょう。AllがONだと "START" "END" というログが爆発的に出力されます。このログは無意味ですし、あまりに行数が多い性でCPU負荷を圧迫します。
+
+これでひとまずKatalon Studioとプロジェクトの設定が出来ました。
 
 #### 初めてのTest Caseを作って動かしてみる
 
-`openBrowser_navigateToUrl_closeBrowser`
+ではごく単純なテストを作って実行してみましょう。
 
-これでひとまずKatalon Studioの設定が出来ました。
+`Test Cases/sample/47news`
+
+を作りました。
+
+    include:../Scripts/sample/47news/Script1671633521969.groovy[]
+
+これを実行するにはウインドウの上部に配置された緑色や矢印のボタン ![run button](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png)を押します。
+
+Test Caseを実行する操作を動画にしてみました。
+
+…​
 
 ### サンプル・プロジェクトを準備する
 
