@@ -15,6 +15,11 @@
                 -   <a href="#scrip-viewを使うmanual-viewを使わない" id="toc-scrip-viewを使うmanual-viewを使わない">Scrip viewを使う、Manual viewを使わない</a>
             -   <a href="#プロジェクトを作る" id="toc-プロジェクトを作る">プロジェクトを作る</a>
             -   <a href="#プロジェクトを設定する" id="toc-プロジェクトを設定する">プロジェクトを設定する</a>
+                -   <a href="#ブラウザの種類を選ぶ" id="toc-ブラウザの種類を選ぶ">ブラウザの種類を選ぶ</a>
+                -   <a href="#testopsをintegrateしない" id="toc-testopsをintegrateしない">TestOpsをintegrateしない</a>
+                -   <a href="#testcloudをintegrateしない" id="toc-testcloudをintegrateしない">TestCloudをintegrateしない</a>
+                -   <a href="#smart-waitを使わない" id="toc-smart-waitを使わない">Smart Waitを使わない</a>
+                -   <a href="#log-viewerを軽量化する" id="toc-log-viewerを軽量化する">Log Viewerを軽量化する</a>
             -   <a href="#初めてのtest-caseを作って動かしてみる" id="toc-初めてのtest-caseを作って動かしてみる">初めてのTest Caseを作って動かしてみる</a>
         -   <a href="#サンプルプロジェクトを準備する" id="toc-サンプルプロジェクトを準備する">サンプル・プロジェクトを準備する</a>
         -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
@@ -111,7 +116,7 @@ Katalon Studioを起動した時、一度だけ、先ほど登録したKatalon�
 
 ##### WebDriverをアップデートする
 
-Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するために WebDriver と呼ばれる外部モジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを同梱していますが、ブラウザが頻繁にバージョン・アップするのでどうしてもzipに格納されたWebDriverモジュールは古くなってしまいます。だからユーは自PC上でWebDriverを最新にアップデートしなければなりません。この手間仕事を助けるためにKatalon Studioはツールバーに "Update WebDriver" というGUIメニューを備えています。これでWebDriverモジュールをワンクリックで更新することができます。操作については下記ドキュメントを参照のこと。
+Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するために WebDriver と呼ばれる外部モジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを同梱していますが、ブラウザが頻繁にバージョン・アップするのでどうしてもzipに格納されたWebDriverモジュールは古くなってしまいます。だからユーザーは自PC上でWebDriverを最新版に更新しなければなりません。この手間仕事を助けるためにKatalon Studioはツールバーに "Update WebDriver" というGUIメニューを備えています。これでWebDriverモジュールをt手早く更新することができます。操作については下記ドキュメントを参照のこと。
 
 -   [Upgrade or downgradle WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
 
@@ -141,15 +146,51 @@ File &gt; New &gt; Project
 
 #### プロジェクトを設定する
 
-1.  ブラウザの種類を選ぶ
+上記で作ったプロジェクトの属性をいくつかカスタマイズしておきます。
 
-2.  Log Viewerを設定する
+##### ブラウザの種類を選ぶ
 
-3.  TestOpsをintegrateしない
+テストスクリプトがどのWebブラウザを開くかをテスト実行時に選択することができます。ただしデフォルトとしてどれを起動するかを設定しておくことができます。
 
-4.  TestCloudをintegrateしない
+Project &gt; Settings &gt; Execution
 
-5.  Smart Waitを使わない
+![browser default](https://kazurayam.github.io/inspectus4katalon-sample-project/images/browser_default.png)
+
+この例ではChromeブラウザをHeadlessモードで起動することをデフォルトとして選択しています。
+
+##### TestOpsをintegrateしない
+
+Katalon社が提供する [TestOps](https://katalon.com/testops)というサービスがあります。Katalon StudioとTestOpsのサーバと通信させていろいろやる。デフォルトではTestOpsとの連携が ON になっています。Visual InspectionをするためにTest Opsとの連携は不要。少し動作が遅くなるデメリットもあります。OFFにしましょう。
+
+Project &gt; Settings &gt; Katalon TestOps
+
+![TestOps](https://kazurayam.github.io/inspectus4katalon-sample-project/images/TestOps_integration.png)
+
+##### TestCloudをintegrateしない
+
+TestCloudというサービスとの連携もデフォルトがONになっています。Visual Inspectionするのに不要。OFFにしましょう。
+
+Project &gt; Settings &gt; Katalon TestCloud
+
+![TestCloud](https://kazurayam.github.io/inspectus4katalon-sample-project/images/TestCloud_integration.png)
+
+##### Smart Waitを使わない
+
+Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitは場合によって悪さをします。テストがやたらと遅くなって３０秒で終わるはずなのに２０分経過しても終わらないというようなを発症します。ところがデフォルトの設定でONになっています。迷惑なのでOFFにしましょう。
+
+Project &gt; Settings &gt; Execution &gt; WebUI
+
+![SmartWait](https://kazurayam.github.io/inspectus4katalon-sample-project/images/SmartWait.png)
+
+##### Log Viewerを軽量化する
+
+Katalon StudioのGUIの下部にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくといいことがあります。というのもKatalon Studioは実行時のログを大量に吐き出すから。大量のログをLog Viewerに表示しようとするのだが、画面表示の処理が重すぎてテストの開始から終了までの所要時間を長くする原因になる。だからLog Viewerに表示するログを絞り込むのが得策です。
+
+![Log Viewer](https://kazurayam.github.io/inspectus4katalon-sample-project/images/LogViewer.png)
+
+まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFしてテーブル形式の表示を選択します。Tree表示はCPU負荷が大きく遅延の原因になります。
+
+ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ALL,Info,Passed,Failed,Error,Warning,Not Runというラベルがついたボタンが。デフォルトでは All がONになっています。AllをONにすると "START" "END" という行が爆発的に出力されます。このログは無意味です。しかもあまりに行すうが多いためCPU負荷を圧迫してしまう。だからAllを選択してはいけない。AllをOFFにすべきです。
 
 #### 初めてのTest Caseを作って動かしてみる
 
