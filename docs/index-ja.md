@@ -21,7 +21,7 @@
                 -   <a href="#smart-waitを使わない" id="toc-smart-waitを使わない">Smart Waitを使わない</a>
                 -   <a href="#log-viewerを軽量化する" id="toc-log-viewerを軽量化する">Log Viewerを軽量化する</a>
             -   <a href="#初めてのtest-caseを作って動かしてみる" id="toc-初めてのtest-caseを作って動かしてみる">初めてのTest Caseを作って動かしてみる</a>
-        -   <a href="#サンプルプロジェクトを準備する" id="toc-サンプルプロジェクトを準備する">サンプル・プロジェクトを準備する</a>
+        -   <a href="#visual-inspectionのサンプルコードをダウンロードする" id="toc-visual-inspectionのサンプルコードをダウンロードする">Visual Inspectionのサンプル・コードをダウンロードする</a>
         -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
 
 # Visual Inspection : Webサイトの画面確認を自動化しよう
@@ -190,7 +190,7 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。![tree view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png) これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFして、テーブル形式の表示を選びましょう。Tree表示はCPU負荷が大きく処理遅延の原因になります。
 
-ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが "ALL" "Info" "Passed" "Failed" "Error" "Warning" "Not Run"となっている。デフォルトでは All がONになっています。Allを必ずOFFに変更しましょう。AllがONだと "START" "END" というログが爆発的に出力されます。このログは無意味ですし、あまりに行数が多い性でCPU負荷を圧迫します。
+ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが "ALL" "Info" "Passed" "Failed" "Error" "Warning" "Not Run"となっている。デフォルトでは All がONになっています。Allを必ずOFFに変更しましょう。AllがONだと "START" "END" というログが爆発的に出力されます。このログは無意味ですし、あまりに行数が多いのでCPUを圧迫します。
 
 これでひとまずKatalon Studioとプロジェクトの設定が出来ました。
 
@@ -202,15 +202,20 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 を作りました。
 
-    include:../Scripts/sample/47news/Script1671633521969.groovy[]
+    import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+    WebUI.openBrowser('')
+    WebUI.navigateToUrl('https://www.47news.jp/')
+    WebUI.delay(3)   // stay still for 3 seconds
+    WebUI.closeBrowser()
 
 これを実行するにはウインドウの上部に配置された緑色や矢印のボタン ![run button](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png)を押します。
 
-Test Caseを実行する操作を動画にしてみました。
+このTest Caseを開いて実行するまでの操作を動画にしてみました。
 
 …​
 
-### サンプル・プロジェクトを準備する
+### Visual Inspectionのサンプル・コードをダウンロードする
 
 Visual Inspectionを実装したKatalon Studioプロジェクトのサンプルが下記のGitHubレポジトリにあります。
 
