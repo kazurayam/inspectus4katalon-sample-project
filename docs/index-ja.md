@@ -10,6 +10,9 @@
             -   <a href="#katalon-studioをインストールする" id="toc-katalon-studioをインストールする">Katalon Studioをインストールする</a>
             -   <a href="#katalon-studioのguiを起動してユーザー登録をする" id="toc-katalon-studioのguiを起動してユーザー登録をする">Katalon StudioのGUIを起動してユーザー登録をする</a>
             -   <a href="#katalon-studioを設定する" id="toc-katalon-studioを設定する">Katalon Studioを設定する</a>
+                -   <a href="#proxyを設定する" id="toc-proxyを設定する">Proxyを設定する</a>
+                -   <a href="#webdriverをアップデートする" id="toc-webdriverをアップデートする">WebDriverをアップデートする</a>
+                -   <a href="#scrip-viewを使うmanual-viewを使わない" id="toc-scrip-viewを使うmanual-viewを使わない">Scrip viewを使う、Manual viewを使わない</a>
             -   <a href="#初めてのプロジェクトを作りプロジェクトを設定する" id="toc-初めてのプロジェクトを作りプロジェクトを設定する">初めてのプロジェクトを作り、プロジェクトを設定する</a>
             -   <a href="#初めてのtest-caseを作って動かしてみる" id="toc-初めてのtest-caseを作って動かしてみる">初めてのTest Caseを作って動かしてみる</a>
         -   <a href="#サンプルプロジェクトを準備する" id="toc-サンプルプロジェクトを準備する">サンプル・プロジェクトを準備する</a>
@@ -107,11 +110,19 @@ Katalon Studioを起動した時、一度だけ、先ほど登録したKatalon�
 
 ##### WebDriverをアップデートする
 
-Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するためには WebDriver と呼ばれるモジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを格納していますが、ブラウザが頻繁にバージョン・アップするので、zipに格納されたWebDriverモジュールはどうしても古いバージョンになってしまいます。そこでKatalon Studioは "Update WebDriver" というGUIメニューを備えています。これによってWebDriverモジュールを最新に更新することができます。操作については下記ドキュメントを参照のこと。
+Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するために WebDriver と呼ばれる外部モジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを同梱していますが、ブラウザが頻繁にバージョン・アップするのでどうしてもzipに格納されたWebDriverモジュールは古くなってしまいます。だからユーは自PC上でWebDriverを最新にアップデートしなければなりません。この手間仕事を助けるためにKatalon Studioはツールバーに "Update WebDriver" というGUIメニューを備えています。これでWebDriverモジュールをワンクリックで更新することができます。操作については下記ドキュメントを参照のこと。
 
 -   [Upgrade or downgradle WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
 
-    1.  Scripモードを使う、Manualモードを使わない
+##### Scrip viewを使う、Manual viewを使わない
+
+UIテストを実行する手順を記述したスクリプトのことをKatalon Studioの用語で Test Case といいます。Test Caseを編集するエディタが装備されているのですが、Test Caseエディタは二つの見た目を備えています。**Manual view** と **Script view** です。Manual viewはぶっちゃけプログラミングのできない人向けのGUIで、Script viewはテキストエディタです。
+
+Visual Inspectionを実装するにはScript viewでGroovy言語でコードを書く必要があります。Manual viewは使いません。ところがKatalon Studioの初期設定ではTest Caseをエディタで開いた時にManual viewを優先して表示します。だからScript viewで開くように設定を変更しましょう。
+
+Katalon Studio GUIのツールバー Window &gt; Katalon Studio Preferences &gt; Katalon &gt; Test Case
+
+![Manual view Script view](https://kazurayam.github.io/inspectus4katalon-sample-project/Manual_view_Script_view.png)
 
 #### 初めてのプロジェクトを作り、プロジェクトを設定する
 
