@@ -19,11 +19,11 @@
 
 ## はじめに
 
-わたしはWebアプリケーションのUIをテストとする作業をソフトウェアで自動化する技術に関心があります。わたしは2018年9月に下記の記事をQiitaに投稿しました。
+わたしはWebアプリケーションのUIをテストとする作業をソフトウェアで自動化する技術に関心があります。わたしは2018年9月に [Katalon Studio](https://katalon.com/katalon-studio)というUIテスト自動化ツールの体験記をQiitaに投稿しました。
 
 -   [Katalon StudioでVisual Testingを実現した](https://qiita.com/kazurayam/items/bcf72a03f50fc5db4373)
 
-このとき実装したプロジェクトは [Katalon Studio](https://duckduckgo.com/?q=Katalon+Studio&atb=v314-1&ia=web)をベースにGroovy言語でスクリプトを書いて作った。この時の成果物にわたしは満足していませんでした。わたしは開発を続けて、ようやく使い物になるツールに仕立てることができた。このツールを *Visual Inspection* と名付けました。ここでVisual Inspectionを紹介します。
+この成果物にはいろいろ不満がありました。わたしはその後も開発を続けて、ようやく使い物になるツールに仕立てることができた。このツールを *Visual Inspection* と名付けました。ここでVisual Inspectionを紹介します。
 
 ## Visual Inspectionが出力するレポートのサンプル
 
@@ -99,11 +99,19 @@ Katalon Studioを起動した時、一度だけ、先ほど登録したKatalon�
 
 #### Katalon Studioを設定する
 
-1.  Proxyを設定する（必要ならば）
+##### Proxyを設定する
 
-2.  WebDriverをアップデートする
+あなたが会社で仕事で使うPCがプライベートな組織内ネットワークに収容されていて、インターネットにアクセスするのにイントラネットとインターネットの結節点としてのProxyサーバを通過しなければならない環境にあるかもしれない。その場合、Katalon Studioに自社のProxyサーバのアドレス等を設定してやる必要があります。下記のドキュメントを参照のこと。
 
-3.  Scripモードを使う、Manualモードを使わない
+-   [Set Proxy Preferences in Katalon Studio](https://docs.katalon.com/docs/get-started/set-up-your-workspace/katalon-studio-preferences/set-proxy-preferences-in-katalon-studio)
+
+##### WebDriverをアップデートする
+
+Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するためには WebDriver と呼ばれるモジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを格納していますが、ブラウザが頻繁にバージョン・アップするので、zipに格納されたWebDriverモジュールはどうしても古いバージョンになってしまいます。そこでKatalon Studioは "Update WebDriver" というGUIメニューを備えています。これによってWebDriverモジュールを最新に更新することができます。操作については下記ドキュメントを参照のこと。
+
+-   [Upgrade or downgradle WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
+
+    1.  Scripモードを使う、Manualモードを使わない
 
 #### 初めてのプロジェクトを作り、プロジェクトを設定する
 
