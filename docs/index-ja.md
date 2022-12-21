@@ -13,7 +13,8 @@
                 -   <a href="#proxyを設定する" id="toc-proxyを設定する">Proxyを設定する</a>
                 -   <a href="#webdriverをアップデートする" id="toc-webdriverをアップデートする">WebDriverをアップデートする</a>
                 -   <a href="#scrip-viewを使うmanual-viewを使わない" id="toc-scrip-viewを使うmanual-viewを使わない">Scrip viewを使う、Manual viewを使わない</a>
-            -   <a href="#初めてのプロジェクトを作りプロジェクトを設定する" id="toc-初めてのプロジェクトを作りプロジェクトを設定する">初めてのプロジェクトを作り、プロジェクトを設定する</a>
+            -   <a href="#プロジェクトを作る" id="toc-プロジェクトを作る">プロジェクトを作る</a>
+            -   <a href="#プロジェクトを設定する" id="toc-プロジェクトを設定する">プロジェクトを設定する</a>
             -   <a href="#初めてのtest-caseを作って動かしてみる" id="toc-初めてのtest-caseを作って動かしてみる">初めてのTest Caseを作って動かしてみる</a>
         -   <a href="#サンプルプロジェクトを準備する" id="toc-サンプルプロジェクトを準備する">サンプル・プロジェクトを準備する</a>
         -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
@@ -122,9 +123,23 @@ Visual Inspectionを実装するにはScript viewでGroovy言語でコードを�
 
 Katalon Studio GUIのツールバー Window &gt; Katalon Studio Preferences &gt; Katalon &gt; Test Case
 
-![Manual view Script view](https://kazurayam.github.io/inspectus4katalon-sample-project/Manual_view_Script_view.png)
+![Manual view Script view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Manual_view_Script_view.png)
 
-#### 初めてのプロジェクトを作り、プロジェクトを設定する
+#### プロジェクトを作る
+
+さて、Katalon Studioの中でプロジェクトを作りましょう。
+
+File &gt; New &gt; Project
+
+![New Project](https://kazurayam.github.io/inspectus4katalon-sample-project/images/NewProject.png)
+
+ダイアログが開きます。プロジェクトの名前とプロジェクトを作るフォルダを指定します。
+
+![New Project dialog](https://kazurayam.github.io/inspectus4katalon-sample-project/images/NewProject_dialog.png)
+
+これでOKすると `C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject` フォルダが作られ、そのなかに初期状態のフォルダとファイル群が自動生成されます。
+
+#### プロジェクトを設定する
 
 1.  ブラウザの種類を選ぶ
 
