@@ -3,12 +3,12 @@
 
 == はじめに
 
-わたしはWebアプリケーションのUIをテストとする作業をソフトウェアで自動化する技術に関心があります。わたしは2018年9月に下記の記事をQiitaに投稿しました。
+わたしはWebアプリケーションのUIをテストとする作業をソフトウェアで自動化する技術に関心があります。わたしは2018年9月に link:https://katalon.com/katalon-studio[Katalon Studio]というUIテスト自動化ツールの体験記をQiitaに投稿しました。
 
 
 * link:https://qiita.com/kazurayam/items/bcf72a03f50fc5db4373[Katalon StudioでVisual Testingを実現した]
 
-このとき実装したプロジェクトは link:https://duckduckgo.com/?q=Katalon+Studio&atb=v314-1&ia=web[Katalon Studio]をベースにGroovy言語でスクリプトを書いて作った。この時の成果物にわたしは満足していませんでした。わたしは開発を続けて、ようやく使い物になるツールに仕立てることができた。このツールを _Visual Inspection_ と名付けました。ここでVisual Inspectionを紹介します。
+この成果物にはいろいろ不満がありました。わたしはその後も開発を続けて、ようやく使い物になるツールに仕立てることができた。このツールを _Visual Inspection_ と名付けました。ここでVisual Inspectionを紹介します。
 
 == Visual Inspectionが出力するレポートのサンプル
 
@@ -56,12 +56,50 @@ image:images/DuckDuckGo_small.png[]
 
 === Katalon Studioを準備する
 
-==== Katalon Studio - Standalone Edition をインストールする
+==== Katalon Studioをインストールする
+
+"Katalon Studio - Standalone Edition"の配布用zipファイルを下記URLからダウンロードすることができます。Standalone Editionは無償で利用できます。わたしの環境ではダウンロードに７分ほどかかりました。
+
+* link:https://katalon.com/download[]
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Katalon-Studio-Free-Download-Katalon.png[Katalon Download page]
+
+"Katalon Studio - Platform Edition" はGUIつきフル機能搭載の製品で有償です。"Katalon Runtime Engine" はCI/CD環境用でコマンドラインでGUI無しに実行するためのバイナリで有償です。これら三種類の製品どれでも Visual Inspection を動かすことができますが、Visual Inspectionのために有償版は必要ありません。
+
+DOWNLOADボタンを押すと "Create a Katalon account" つまりKatalonユーザとしてあなた個人用のアカウントを登録しろと案内されます。
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Sign-up-Katalon-Software-Quality-Management-Platform.png[]
+
+無償版を使う場合には Full name と Email と Password に適当な文字を入力すればOK。後で必要になるのでメモしておきましょう。別のデータベースと照合して認証するような手の込んだことはしていないようです。有償版を使う場合にはEmailアドレスについて一定の条件を満たすよう求められますがここでは述べません。
+
+
+Standalone EditionのzipファイルをPCにダウンロードしたらダブルクリックして `Katalon_Studio_Windows_64-x.x.x` フォルダを展開しましょう。どこに配置するかに注意が必要です。あなたのWindowsユーザがフルにWRITE権限を持っているフォルダの下に配置することが必要です。たとえば `C:\Users\あなたのWindowsユーザ名\Katalon_Studio_Windows_64-x.x.x` フォルダを作るのが良いでしょう。しかし `C:\Program Files` フォルダの下に置くとWRITE権限が足りなくてエラーが発生するかもしれない。避けるべきです。`C:\Users\あなたのWindowsユーザ名\Documents` フォルダはひょっとしたら OneDrive と連携して自動バックアップをとる構成になっているかもしれなくて、そこに大きなバイナリを置くのは避けたほうがいいでしょう。
+
+==== Katalon StudioのGUIを起動してユーザー登録をする
+
+展開したフォルダの中に `katalon.exe` がある。これをダブルクリックしてKatalon StudioのGUIを起動します。
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/katalonexe.png[katalon.exe]
+
+初めて起動したとき「SmartScanが」どうこうとか、「Defenderファイアウオールでブロックされています」とかセキュリティに絡む忠告をされるかもしれないが、あまり気にせず許可してしまいましょう。
+
+Katalon Studioを起動した時、一度だけ、先ほど登録したKatalonユーザとしてのFull nameとEmailとPasswordの入力を求められます。先ほどメモした文字をタイプすればそれでおしまい。有償版だと自社が購入したライセンスの上限の範囲内にユーザ数が収まっているかどうかのチェックがこの段階で作動します。
 
 ==== Katalon Studioを設定する
 
-. Proxyを設定する（必要ならば）
-. WebDriverをアップデートする
+===== Proxyを設定する
+
+あなたが会社で仕事で使うPCがプライベートな組織内ネットワークに収容されていて、インターネットにアクセスするのにイントラネットとインターネットの結節点としてのProxyサーバを通過しなければならない環境にあるかもしれない。その場合、Katalon Studioに自社のProxyサーバのアドレス等を設定してやる必要があります。下記のドキュメントを参照のこと。
+
+* link:https://docs.katalon.com/docs/get-started/set-up-your-workspace/katalon-studio-preferences/set-proxy-preferences-in-katalon-studio[Set Proxy Preferences in Katalon Studio]
+
+===== WebDriverをアップデートする
+
+Katalon Studioは link:https://www.selenium.dev/documentation/webdriver/[Selenium WebDriver] を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するためには WebDriver と呼ばれるモジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを格納していますが、ブラウザが頻繁にバージョン・アップするので、zipに格納されたWebDriverモジュールはどうしても古いバージョンになってしまいます。そこでKatalon Studioは "Update WebDriver" というGUIメニューを備えています。これによってWebDriverモジュールを最新に更新することができます。操作については下記ドキュメントを参照のこと。
+
+* link:https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers[Upgrade or downgradle WebDrivers]
+
+
 . Scripモードを使う、Manualモードを使わない
 
 ==== 初めてのプロジェクトを作り、プロジェクトを設定する
