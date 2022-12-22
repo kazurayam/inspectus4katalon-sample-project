@@ -29,6 +29,7 @@
         -   <a href="#gradle-deploy-visual-inspection-sample-for-katalonタスク" id="toc-gradle-deploy-visual-inspection-sample-for-katalonタスク">gradle deploy-visual-inspection-sample-for-katalonタスク</a>
         -   <a href="#gradle-driversタスク" id="toc-gradle-driversタスク">gradle driversタスク</a>
     -   <a href="#visual-inspectionのテストコードを実行してみる" id="toc-visual-inspectionのテストコードを実行してみる">Visual Inspectionのテストコードを実行してみる</a>
+    -   <a href="#結論" id="toc-結論">結論</a>
 
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
@@ -463,3 +464,7 @@ Katalon Studioを一旦停止してください。
 -   [store/index](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
 
 にほかなりません。
+
+## 結論
+
+Webサイトの画面確認を自動化するツール Visual Inspection を紹介しました。読者がVisual Inspectionを応用して自分の興味あるWebサイトの画面確認を自動化するツールを構築することがきます。本記事では、環境を準備する手順とサンプルコードを動かす手順を説明した。読者が自分の仕事に役立つツールを構築するには、サンプルを参照しつつGroovy言語でプログラムコードを書く必要があります。本記事ではプログラミングの詳細までは説明しません。別の記事で述べようと思います。
