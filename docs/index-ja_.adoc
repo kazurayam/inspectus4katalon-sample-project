@@ -465,3 +465,6 @@ link:https://kazurayam.github.io/inspectus4katalon-sample-project/images/store_i
 
 にほかなりません。
 
+== 結論
+
+Webサイトの画面確認を自動化するツール Visual Inspection を紹介しました。読者がVisual Inspectionを応用して自分の興味あるWebサイトの画面確認を自動化するツールを構築することがきます。本記事では、環境を準備する手順とサンプルコードを動かす手順を説明した。読者が自分の仕事に役立つツールを構築するには、サンプルを参照しつつGroovy言語でプログラムコードを書く必要があります。本記事ではプログラミングの詳細までは説明しません。別の記事で述べようと思います。
