@@ -1,3 +1,23 @@
+-   <a href="#_概念" id="toc-_概念">概念</a>
+    -   <a href="#_materialクラス" id="toc-_materialクラス">Materialクラス</a>
+    -   <a href="#_diff_ratio_filetype_metadata" id="toc-_diff_ratio_filetype_metadata">diff ratio, FileType, Metadata</a>
+    -   <a href="#_chronos_diff" id="toc-_chronos_diff">Chronos Diff</a>
+    -   <a href="#_twins_diff_webサイトの本番環境と開発環境を比較する" id="toc-_twins_diff_webサイトの本番環境と開発環境を比較する">Twins Diff: Webサイトの本番環境と開発環境を比較する</a>
+    -   <a href="#_shootings" id="toc-_shootings">Shootings</a>
+-   <a href="#_visual_inspectionを動かしてみよう" id="toc-_visual_inspectionを動かしてみよう">Visual Inspectionを動かしてみよう</a>
+    -   <a href="#_環境を設定する" id="toc-_環境を設定する">環境を設定する</a>
+        -   <a href="#_katalon_studio_standalone_editionをインストールする" id="toc-_katalon_studio_standalone_editionをインストールする">Katalon Studio - Standalone Editionをインストールする。</a>
+        -   <a href="#_プロジェクトを作る" id="toc-_プロジェクトを作る">プロジェクトを作る</a>
+-   <a href="#_雑談" id="toc-_雑談">雑談</a>
+    -   <a href="#_visual_inspection_とは何か" id="toc-_visual_inspection_とは何か">Visual Inspection とは何か</a>
+    -   <a href="#_visual_inspectionは誰のためのツールか" id="toc-_visual_inspectionは誰のためのツールか">Visual Inspectionは誰のためのツールか</a>
+    -   <a href="#_visual_inspectionと商用製品サービスとの違い" id="toc-_visual_inspectionと商用製品サービスとの違い">Visual Inspectionと商用製品・サービスとの違い</a>
+        -   <a href="#_自社のデータを社外に出すことの是非" id="toc-_自社のデータを社外に出すことの是非">自社のデータを社外に出すことの是非</a>
+        -   <a href="#_データ転送にかかる時間" id="toc-_データ転送にかかる時間">データ転送にかかる時間</a>
+        -   <a href="#_chronos_diffはよそにもあるがtwins_diffはここだけ" id="toc-_chronos_diffはよそにもあるがtwins_diffはここだけ">Chronos DiffはよそにもあるがTwins Diffはここだけ</a>
+    -   <a href="#_オープンソース無償利用可能であること" id="toc-_オープンソース無償利用可能であること">オープンソース、無償利用可能であること</a>
+    -   <a href="#_katalon_studioが必須ではない" id="toc-_katalon_studioが必須ではない">Katalon Studioが必須ではない</a>
+
 Selenium WebDriverは Webブラウザに表示された画面 view port のスクリーンショットを撮ってファイルに保存するクラスとメソッドを提供しています。たとえば [Guru99](https://www.guru99.com/take-screenshot-selenium-webdriver.html) の記事を参照のこと。Katalon Studioも [WebUI.takeFullPageScreenshot](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/keywords/web-ui-keywords/webui-take-full-page-screenshot#takefullpagescreenshot) キーワードを提供しているが、これは実はSelenium WebDriverのクラスとメソッドを利用したラッパです。これらのメソッドを使えばたしかにWebサイトのページをキャプチャしてPNG画像ファイルにすることはできます。
 
 ところが実際に自分のwebシステムを標的にしてたくさんキャプチャして一覧する資料を作りたいと望んでコードを書き始めたとたん、とても難しいということがわかる。Katalon Studioのプロジェクトで `WebUI.takeFullPageScreenshot` を

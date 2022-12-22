@@ -1,3 +1,29 @@
+-   <a href="#visual-inspection-webサイトの画面確認を自動化しよう" id="toc-visual-inspection-webサイトの画面確認を自動化しよう">Visual Inspection : Webサイトの画面確認を自動化しよう</a>
+    -   <a href="#はじめに" id="toc-はじめに">はじめに</a>
+    -   <a href="#visual-inspectionが出力するレポートのサンプル" id="toc-visual-inspectionが出力するレポートのサンプル">Visual Inspectionが出力するレポートのサンプル</a>
+    -   <a href="#サンプルの説明" id="toc-サンプルの説明">サンプルの説明</a>
+        -   <a href="#二つの画像の差分" id="toc-二つの画像の差分">二つの画像の差分</a>
+        -   <a href="#二つのテキストの差分" id="toc-二つのテキストの差分">二つのテキストの差分</a>
+        -   <a href="#スクリーンショットの一覧" id="toc-スクリーンショットの一覧">スクリーンショットの一覧</a>
+    -   <a href="#visual-inspectionのサンプルプロジェクトを動かしてみる" id="toc-visual-inspectionのサンプルプロジェクトを動かしてみる">Visual Inspectionのサンプル・プロジェクトを動かしてみる</a>
+        -   <a href="#katalon-studioを準備する" id="toc-katalon-studioを準備する">Katalon Studioを準備する</a>
+            -   <a href="#katalon-studioをインストールする" id="toc-katalon-studioをインストールする">Katalon Studioをインストールする</a>
+            -   <a href="#katalon-studioのguiを起動してユーザー登録をする" id="toc-katalon-studioのguiを起動してユーザー登録をする">Katalon StudioのGUIを起動してユーザー登録をする</a>
+            -   <a href="#katalon-studioを設定する" id="toc-katalon-studioを設定する">Katalon Studioを設定する</a>
+                -   <a href="#proxyを設定する" id="toc-proxyを設定する">Proxyを設定する</a>
+                -   <a href="#webdriverをアップデートする" id="toc-webdriverをアップデートする">WebDriverをアップデートする</a>
+                -   <a href="#scrip-viewを使うmanual-viewを使わない" id="toc-scrip-viewを使うmanual-viewを使わない">Scrip viewを使う、Manual viewを使わない</a>
+            -   <a href="#プロジェクトを作る" id="toc-プロジェクトを作る">プロジェクトを作る</a>
+            -   <a href="#プロジェクトを設定する" id="toc-プロジェクトを設定する">プロジェクトを設定する</a>
+                -   <a href="#ブラウザの種類を選ぶ" id="toc-ブラウザの種類を選ぶ">ブラウザの種類を選ぶ</a>
+                -   <a href="#testopsをintegrateしない" id="toc-testopsをintegrateしない">TestOpsをintegrateしない</a>
+                -   <a href="#testcloudをintegrateしない" id="toc-testcloudをintegrateしない">TestCloudをintegrateしない</a>
+                -   <a href="#smart-waitを使わない" id="toc-smart-waitを使わない">Smart Waitを使わない</a>
+                -   <a href="#log-viewerを軽量化する" id="toc-log-viewerを軽量化する">Log Viewerを軽量化する</a>
+            -   <a href="#初めてのtest-caseを作って動かしてみる" id="toc-初めてのtest-caseを作って動かしてみる">初めてのTest Caseを作って動かしてみる</a>
+        -   <a href="#visual-inspectionのサンプルコードをダウンロードする" id="toc-visual-inspectionのサンプルコードをダウンロードする">Visual Inspectionのサンプル・コードをダウンロードする</a>
+        -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
+
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
 ## はじめに
@@ -189,7 +215,7 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 <https://youtu.be/4jT6pgDmxmc>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ### Visual Inspectionのサンプル・コードをダウンロードする
 
