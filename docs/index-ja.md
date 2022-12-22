@@ -22,6 +22,10 @@
         -   <a href="#katalon-studioで初めてのtest-caseを作って動かしてみる" id="toc-katalon-studioで初めてのtest-caseを作って動かしてみる">Katalon Studioで初めてのTest Caseを作って動かしてみる</a>
     -   <a href="#自作したkatalonプロジェクトをvisual-inspectionに仕立てる" id="toc-自作したkatalonプロジェクトをvisual-inspectionに仕立てる">自作したKatalonプロジェクトをVisual Inspectionに仕立てる</a>
         -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
+        -   <a href="#sdkmanをインストールする" id="toc-sdkmanをインストールする">SDKMAN!をインストールする</a>
+        -   <a href="#javaをインストールする" id="toc-javaをインストールする">Javaをインストールする</a>
+        -   <a href="#gradleをインストールする" id="toc-gradleをインストールする">Gradleをインストールする</a>
+    -   <a href="#あなたが自作したkatalonプロジェクトにvisual-inspectionを組み込む" id="toc-あなたが自作したkatalonプロジェクトにvisual-inspectionを組み込む">あなたが自作したKatalonプロジェクトにVisual Inspectionを組み込む</a>
 
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
@@ -224,11 +228,11 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 ## 自作したKatalonプロジェクトをVisual Inspectionに仕立てる
 
-Visual Inspectionを実行できるようにコードを作り込んだプロジェクトのサンプルが下記のGitHubレポジトリにあります。
+Visual Inspectionを実行できるようにコードを作り込んだプロジェクトのサンプルが下記のGitHubレポジトリにあります。わたくしkazurayamが作りました。
 
 -   <https://github.com/kazurayam/inspectus4katalon-sample-project>
 
-[Qiita](https//qiita.com/)の読者ならこのGitHubプロジェクトを `git clone` してWindows PC上のKatalon Studioで動かすことができるでしょう。その方法だと応用が効きません。あなたが狙ったwebサイトをVisual Inspectionするのに役立たない。ここでは `git clone` するのではなく別の方法を紹介します。ビルドツール [Gradle](https://gradle.org/) を使います。
+[Qiita](https//qiita.com/)の読者ならこのGitHubプロジェクトを `git clone` してWindows PC上のKatalon Studioで動かすことができるでしょう。その方法だと応用が効きません。あなたがKatalonプロジェクトを作り、自分のwebサイトを画面確認する作業を自動化するのに役立たない。ここでは `git clone` するのではなく別の方法を紹介します。ビルドツール [Gradle](https://gradle.org/) を使います。
 
 少し長い準備が必要です。道筋を先に説明しましょう。
 
@@ -242,21 +246,81 @@ Visual Inspectionを実行できるようにコードを作り込んだプロジ
 
 5.  SDKMAN!をインストールするには [curl](https://curl.se/) コマンドを使う。
 
-6.  残念ながらcurlコマンドはWindowsにあらかじめ組み込まれていない。curlを使える環境をWindows上に作る必要がある。そこで [Git for Windows](https://gitforwindows.org/) をインストールする。Git for Windowsをインストールするとオマケとして Git Bash というWindowぷプログラムもインストールされる。
+6.  残念ながらcurlコマンドはWindowsにあらかじめ組み込まれていない。curlを使える環境をWindows上に作る必要がある。そこで [Git for Windows](https://gitforwindows.org/) をインストールする。Git for Windowsをインストールするとオマケとして Git Bash というWindowsプログラムがインストールされる。
 
 7.  Git Bashを起動し、curlコマンドでSDKMAN!をインストールし、SDKMANでJavaとGradleをインストールする。
 
 8.  最後にあなたのKatalonプロジェクトに `build.gradle` ファイルを作り数行のコードを記述したら、gradleタスクを2回実行する。するとライブラリとサンプルコードがプロジェクトに組み込まれる。
 
-以上が作業全体のつながりです。ではひとつひとつ、やっていきましょう。
+以上が作業全体の流れです。ではひとつひとつ、やっていきましょう。
 
 ### Git for Windowsをインストールする
 
 -   [Git for Windows](https://gitforwindows.org/)
 
-このサイトのdownloadボタンを押します。インストーラーがダウンロードできます。インストーラーを実行してください。すべてデフォルトの設定を選択するのでいい。インストールが完了すると `Git Bash` が使えるようになります。Git Bashを開いてください。
+このサイトのdownloadボタンを押します。インストーラーがダウンロードできます。インストーラーを実行してください。すべてデフォルトの設定を選択するのでいい。インストールが完了すると `Git Bash` が使えるようになります。
 
-===
+![Git Bash](https://kazurayam.github.io/inspectus4katalon-sample-project/images/git_bash.png)
+
+### SDKMAN!をインストールする
+
+SDKMAN!のページ　[SDKMAN!](https://sdkman.io/) をみると、terminalでこのコマンドを実行しろ！と書いてあります。
+
+    curl -s "https://get.sdkman.io" | bash
+
+Git Bashのウインドウを開いてこのコマンドを実行してください。
+
+![curl get sdkman](https://kazurayam.github.io/inspectus4katalon-sample-project/images/curl_get_sdkman.png)
+
+ダーーっとメッセージが出力されてインストールが完了するでしょう。うまく行ったかどうかを確認するために、バージョンを表示してみましょう。
+
+    $ sdk version
+
+    SDKMAN 5.xx.xx
+
+というような表示がされればOKです。
+
+SDKMAN!のコマンドについてはドキュメント [SDKMAN! usage](https://sdkman.io/usage) を参照のこと。
+
+### Javaをインストールする
+
+ではSDKMAN!を使ってJavaをインストールしましょう。Git Bashのコマンドラインで下記のコマンドを実行します。
+
+    ---
+    $ sdk install java
+    ---
+
+だー〜っとメッセージが出力されて終了したらJavaの最新安定版がインストールされているはず。javaコマンドを動かしてみましょう。
+
+    $ java --verison
+    openjdk 17.0.5 2022-10-18
+    OpenJDK Runtime Environment Temurin-17.0.5+8 (build 17.0.5+8)
+    OpenJDK 64-BIt Server VM Temurin-17.0.5+8 (build 17.0.5+8, mixed mode, sharing)
+
+こんな感じの応答があれば大丈夫。別バージョンでもかまいません。
+
+### Gradleをインストールする
+
+続けてSDKMAN!を使ってGradleをインストールしましょう。Git Bashのコマンドラインで下記のコマンドを実行します。
+
+    ---
+    $ sdk install gradle
+    ---
+
+だー〜っとメッセージが出力されて終了したらGradleの最新安定版がインストールされているはず。gradleコマンドを動かしてみましょう。
+
+    $ gradle --version
+
+    ----------------------------------------------------------
+    Gradle 7.6
+    ----------------------------------------------------------
+    ...
+
+こんな感じの応答があれば大丈夫。別バージョンでもかまいません。
+
+さあ、ようやく準備が整いました。
+
+## あなたが自作したKatalonプロジェクトにVisual Inspectionを組み込む
 
 `MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがある（はずです）。build.gradleを下記のように書き換えます。
 
