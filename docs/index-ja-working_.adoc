@@ -1,7 +1,7 @@
 
-Selenium WebDriverは Webブラウザに表示された画面 view port のスクリーンショットを撮ってファイルに保存するクラスとメソッドを提供しています。たとえば link:https://www.guru99.com/take-screenshot-selenium-webdriver.html[Guru99] の記事を参照のこと。Katalon Studioも link:https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/keywords/web-ui-keywords/webui-take-full-page-screenshot#takefullpagescreenshot[WebUI.takeFullPageScreenshot] キーワードを提供しているが、これは実はSelenium WebDriverのクラスとメソッドを利用したラッパです。これらのメソッドを使えばたしかにWebサイトのページをキャプチャしてPNG画像ファイルにすることはできます。
+Selenium WebDriverは Webブラウザに表示された画面 view port のスクリーンショットを撮ってファイルに保存するクラスとメソッドを提供しています。たとえば link:https://www.guru99.com/take-screenshot-selenium-webdriver.html[Guru99] の記事を参照のこと。Katalon Studioも link:https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/keywords/web-ui-keywords/webui-take-full-page-screenshot#takefullpagescreenshot[WebUI.takeFullPageScreenshot] キーワードを提供しているが、これは実はSelenium WebDriverのクラスとメソッドを利用したラッパーです。これらのメソッドを使えばたしかにWebサイトのページをキャプチャしてPNG画像ファイルにすることはできます。
 
-ところが実際に自分のwebシステムを標的にしてたくさんキャプチャして一覧する資料を作りたいと望んでコードを書き始めたとたん、とても難しいということがわかる。Katalon Studioのプロジェクトで `WebUI.takeFullPageScreenshot` を
+ところが実際に自分のwebシステムを標的にしてたくさんキャプチャして一覧する資料を作りたいと望んでコードを書き始めたとたん面倒だとわかる。Katalon Studioのプロジェクトで `WebUI.takeFullPageScreenshot` を
 呼び出すコードは例えば下記のようなものです。
 
 [source,java]
@@ -111,23 +111,6 @@ link:https://kazurayam.github.io/inspectus4katalon-sample-project/diagrams/out/a
 
 
 == Visual Inspectionを動かしてみよう
-
-=== 環境を設定する
-
-==== Katalon Studio - Standalone Editionをインストールする。
-
-下記URLからKatalon Studioのバイナリをダウンロードすることができます。
-
-* https://katalon.com/download
-
-Standalone Editionは無償利用が可能ですから、わたしはStandalone Editionをお勧めします。
-
-ダウンロードしたバイナリからKatalon Studioをどのフォルダにインストールするかに少し注意が必要です。あなたのWindowsログインユーザがREAD/WRITE権限をフルに持っているフォルダならどこでもOKです。たとえば `C:\Users\youName\Documents` フォルダの下とか。`C:\Program Files` の下にインストールすると場合によってはWRITE権限が不足なためエラーが起きる場合があります。
-
-==== プロジェクトを作る
-
-Standalone Edition
-
 
 == 雑談
 

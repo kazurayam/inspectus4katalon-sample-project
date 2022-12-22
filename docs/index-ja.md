@@ -5,23 +5,22 @@
         -   <a href="#二つの画像の差分" id="toc-二つの画像の差分">二つの画像の差分</a>
         -   <a href="#二つのテキストの差分" id="toc-二つのテキストの差分">二つのテキストの差分</a>
         -   <a href="#スクリーンショットの一覧" id="toc-スクリーンショットの一覧">スクリーンショットの一覧</a>
-    -   <a href="#visual-inspectionのサンプルプロジェクトを動かしてみる" id="toc-visual-inspectionのサンプルプロジェクトを動かしてみる">Visual Inspectionのサンプル・プロジェクトを動かしてみる</a>
-        -   <a href="#katalon-studioを準備する" id="toc-katalon-studioを準備する">Katalon Studioを準備する</a>
-            -   <a href="#katalon-studioをインストールする" id="toc-katalon-studioをインストールする">Katalon Studioをインストールする</a>
-            -   <a href="#katalon-studioのguiを起動してユーザー登録をする" id="toc-katalon-studioのguiを起動してユーザー登録をする">Katalon StudioのGUIを起動してユーザー登録をする</a>
-            -   <a href="#katalon-studioを設定する" id="toc-katalon-studioを設定する">Katalon Studioを設定する</a>
-                -   <a href="#proxyを設定する" id="toc-proxyを設定する">Proxyを設定する</a>
-                -   <a href="#webdriverをアップデートする" id="toc-webdriverをアップデートする">WebDriverをアップデートする</a>
-                -   <a href="#scrip-viewを使うmanual-viewを使わない" id="toc-scrip-viewを使うmanual-viewを使わない">Scrip viewを使う、Manual viewを使わない</a>
-            -   <a href="#プロジェクトを作る" id="toc-プロジェクトを作る">プロジェクトを作る</a>
-            -   <a href="#プロジェクトを設定する" id="toc-プロジェクトを設定する">プロジェクトを設定する</a>
-                -   <a href="#ブラウザの種類を選ぶ" id="toc-ブラウザの種類を選ぶ">ブラウザの種類を選ぶ</a>
-                -   <a href="#testopsをintegrateしない" id="toc-testopsをintegrateしない">TestOpsをintegrateしない</a>
-                -   <a href="#testcloudをintegrateしない" id="toc-testcloudをintegrateしない">TestCloudをintegrateしない</a>
-                -   <a href="#smart-waitを使わない" id="toc-smart-waitを使わない">Smart Waitを使わない</a>
-                -   <a href="#log-viewerを軽量化する" id="toc-log-viewerを軽量化する">Log Viewerを軽量化する</a>
-            -   <a href="#初めてのtest-caseを作って動かしてみる" id="toc-初めてのtest-caseを作って動かしてみる">初めてのTest Caseを作って動かしてみる</a>
-        -   <a href="#visual-inspectionのサンプルコードをダウンロードする" id="toc-visual-inspectionのサンプルコードをダウンロードする">Visual Inspectionのサンプル・コードをダウンロードする</a>
+    -   <a href="#katalon-studioを準備する" id="toc-katalon-studioを準備する">Katalon Studioを準備する</a>
+        -   <a href="#katalon-studioをインストールする" id="toc-katalon-studioをインストールする">Katalon Studioをインストールする</a>
+        -   <a href="#katalon-studioのguiを起動してユーザー登録をする" id="toc-katalon-studioのguiを起動してユーザー登録をする">Katalon StudioのGUIを起動してユーザー登録をする</a>
+        -   <a href="#katalon-studio全体にわたる設定をする" id="toc-katalon-studio全体にわたる設定をする">Katalon Studio全体にわたる設定をする</a>
+            -   <a href="#proxyを設定する" id="toc-proxyを設定する">Proxyを設定する</a>
+            -   <a href="#webdriverをアップデートする" id="toc-webdriverをアップデートする">WebDriverをアップデートする</a>
+            -   <a href="#scrip-viewを使うmanual-viewを使わない" id="toc-scrip-viewを使うmanual-viewを使わない">Scrip viewを使う、Manual viewを使わない</a>
+        -   <a href="#プロジェクトを作る" id="toc-プロジェクトを作る">プロジェクトを作る</a>
+        -   <a href="#プロジェクトを設定する" id="toc-プロジェクトを設定する">プロジェクトを設定する</a>
+            -   <a href="#ブラウザの種類を選ぶ" id="toc-ブラウザの種類を選ぶ">ブラウザの種類を選ぶ</a>
+            -   <a href="#testopsを使わない" id="toc-testopsを使わない">TestOpsを使わない</a>
+            -   <a href="#testcloudを使わない" id="toc-testcloudを使わない">TestCloudを使わない</a>
+            -   <a href="#smart-waitを使わない" id="toc-smart-waitを使わない">Smart Waitを使わない</a>
+            -   <a href="#log-viewerを軽量化する" id="toc-log-viewerを軽量化する">Log Viewerを軽量化する</a>
+        -   <a href="#katalon-studioで初めてのtest-caseを作って動かしてみる" id="toc-katalon-studioで初めてのtest-caseを作って動かしてみる">Katalon Studioで初めてのTest Caseを作って動かしてみる</a>
+    -   <a href="#自作したkatalonプロジェクトをvisual-inspectionに仕立てる" id="toc-自作したkatalonプロジェクトをvisual-inspectionに仕立てる">自作したKatalonプロジェクトをVisual Inspectionに仕立てる</a>
         -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
 
 # Visual Inspection : Webサイトの画面確認を自動化しよう
@@ -72,13 +71,11 @@ HTMLソースコードだけでなく他のさまざまな形式のテキスト�
 
 ![DuckDuckGo small](images/DuckDuckGo_small.png)
 
-## Visual Inspectionのサンプル・プロジェクトを動かしてみる
+## Katalon Studioを準備する
 
 前に紹介したサンプルを出力するプロジェクトをあなたのPCで動かしてみましょう。環境を準備することから始めましょう。あなたが Windows10 のPCを持っていてインターネットに接続可能であると前提します。ツール類を未だインストールしていないと前提して一から説明します。
 
-### Katalon Studioを準備する
-
-#### Katalon Studioをインストールする
+### Katalon Studioをインストールする
 
 "Katalon Studio - Standalone Edition"の配布用zipファイルを下記URLからダウンロードすることができます。Standalone Editionは無償で利用できます。わたしの環境ではダウンロードに７分ほどかかりました。
 
@@ -96,7 +93,7 @@ DOWNLOADボタンを押すと "Create a Katalon account" つまりKatalonユー�
 
 Standalone EditionのzipファイルをPCにダウンロードしたらダブルクリックして `Katalon_Studio_Windows_64-x.x.x` フォルダを展開しましょう。どこに配置するかに注意が必要です。あなたのWindowsユーザがフルにWRITE権限を持っているフォルダの下に配置することが必要です。たとえば `C:\Users\あなたのWindowsユーザ名\Katalon_Studio_Windows_64-x.x.x` フォルダを作るのが良いでしょう。しかし `C:\Program Files` フォルダの下に置くとWRITE権限が足りなくてエラーが発生するかもしれない。避けるべきです。`C:\Users\あなたのWindowsユーザ名\Documents` フォルダはひょっとしたら OneDrive と連携して自動バックアップをとる構成になっているかもしれなくて、そこに大きなバイナリを置くのは避けたほうがいいでしょう。
 
-#### Katalon StudioのGUIを起動してユーザー登録をする
+### Katalon StudioのGUIを起動してユーザー登録をする
 
 展開したフォルダの中に `katalon.exe` がある。これをダブルクリックしてKatalon StudioのGUIを起動します。
 
@@ -106,21 +103,21 @@ Standalone EditionのzipファイルをPCにダウンロードしたらダブル
 
 Katalon Studioを起動した時、一度だけ、先ほど登録したKatalonユーザとしてのFull nameとEmailとPasswordの入力を求められます。先ほどメモした文字をタイプすればそれでおしまい。有償版だと自社が購入したライセンスの上限の範囲内にユーザ数が収まっているかどうかのチェックがこの段階で作動します。
 
-#### Katalon Studioを設定する
+### Katalon Studio全体にわたる設定をする
 
-##### Proxyを設定する
+#### Proxyを設定する
 
 あなたが会社で仕事で使うPCがプライベートな組織内ネットワークに収容されていて、インターネットにアクセスするのにイントラネットとインターネットの結節点としてのProxyサーバを通過しなければならない環境にあるかもしれない。その場合、Katalon Studioに自社のProxyサーバのアドレス等を設定してやる必要があります。下記のドキュメントを参照のこと。
 
 -   [Set Proxy Preferences in Katalon Studio](https://docs.katalon.com/docs/get-started/set-up-your-workspace/katalon-studio-preferences/set-proxy-preferences-in-katalon-studio)
 
-##### WebDriverをアップデートする
+#### WebDriverをアップデートする
 
 Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するために WebDriver と呼ばれる外部モジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを同梱していますが、ブラウザが頻繁にバージョン・アップするのでどうしてもzipに格納されたWebDriverモジュールは古くなってしまいます。だからユーザーは自PC上でWebDriverを最新版に更新しなければなりません。この手間仕事を助けるためにKatalon Studioはツールバーに "Update WebDriver" というGUIメニューを備えています。これでWebDriverモジュールをt手早く更新することができます。操作については下記ドキュメントを参照のこと。
 
 -   [Upgrade or downgradle WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
 
-##### Scrip viewを使う、Manual viewを使わない
+#### Scrip viewを使う、Manual viewを使わない
 
 UIテストを実行する手順を記述したスクリプトのことをKatalon Studioの用語で Test Case といいます。Test Caseを編集するエディタが装備されているのですが、Test Caseエディタは二つの見た目を備えています。**Manual view** と **Script view** です。Manual viewはぶっちゃけプログラミングのできない人向けのGUIで、Script viewはテキストエディタです。
 
@@ -130,7 +127,7 @@ Katalon Studio GUIのツールバー Window &gt; Katalon Studio Preferences &gt;
 
 ![Manual view Script view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Manual_view_Script_view.png)
 
-#### プロジェクトを作る
+### プロジェクトを作る
 
 さて、Katalon Studioの中でプロジェクトを作りましょう。
 
@@ -144,11 +141,11 @@ File &gt; New &gt; Project
 
 これでOKすると `C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject` フォルダが作られ、そのなかに初期状態のフォルダとファイル群が自動生成されます。
 
-#### プロジェクトを設定する
+### プロジェクトを設定する
 
 上記で作ったプロジェクトの属性をいくつかカスタマイズしておきます。
 
-##### ブラウザの種類を選ぶ
+#### ブラウザの種類を選ぶ
 
 テストスクリプトがどのWebブラウザを開くかをテスト実行時に選択することができます。ただしデフォルトとしてどれを起動するかを設定しておくことができます。
 
@@ -158,7 +155,7 @@ Project &gt; Settings &gt; Execution
 
 この例ではChromeブラウザをHeadlessモードで起動することをデフォルトとして選択しています。
 
-##### TestOpsをintegrateしない
+#### TestOpsを使わない
 
 Katalon社が提供する [TestOps](https://katalon.com/testops)というサービスがあります。Katalon StudioとTestOpsのサーバと通信させていろいろやる。デフォルトではTestOpsとの連携が ON になっています。Visual InspectionをするためにTest Opsとの連携は不要。テストの実行が遅くなるし。OFFにしましょう。
 
@@ -166,7 +163,7 @@ Project &gt; Settings &gt; Katalon TestOps
 
 ![TestOps](https://kazurayam.github.io/inspectus4katalon-sample-project/images/TestOps_integration.png)
 
-##### TestCloudをintegrateしない
+#### TestCloudを使わない
 
 TestCloudというサービスとの連携もデフォルトがONになっています。Visual Inspectionするのに不要。OFFにしましょう。
 
@@ -174,15 +171,15 @@ Project &gt; Settings &gt; Katalon TestCloud
 
 ![TestCloud](https://kazurayam.github.io/inspectus4katalon-sample-project/images/TestCloud_integration.png)
 
-##### Smart Waitを使わない
+#### Smart Waitを使わない
 
-Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitは場合によって悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過してまだ終わらないなんてことが起きる。ところがデフォルトの設定がSmart WaitをONにしています。OFFにしましょう。
+Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitは場合によって悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過してまだ終わらないなんてことがたまに起きる。困ったことにSmart WaitがデフォルトでONになっています。ぜひOFFにしましょう。
 
 Project &gt; Settings &gt; Execution &gt; WebUI
 
 ![SmartWait](https://kazurayam.github.io/inspectus4katalon-sample-project/images/SmartWait.png)
 
-##### Log Viewerを軽量化する
+#### Log Viewerを軽量化する
 
 Katalon StudioのGUIの下部にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくといいことがあります。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示しようとするのだが、画面表示の処理が重すぎてテストの開始から終了までの所要時間を長くする原因になる。だからLog Viewerに表示するログを絞り込むのが得策です。
 
@@ -190,17 +187,23 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。![tree view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png) これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFして、テーブル形式の表示を選びましょう。Tree表示はCPU負荷が大きく処理遅延の原因になります。
 
-ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが ALL、Info、Passed、Failed、Error、Warning、Not Run となっている。デフォルトでは ALL がONになっています。ALLを必ずOFFに変更しましょう。ALLがONだと "START" "END" というログが爆発的に出力されます。このログは無意味ですし、あまりに行数が多いのでCPUを圧迫します。
+ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが ALL、Info、Passed、Failed、Error、Warning、Not Run となっている。デフォルトでは ALLボタン がONになっています。ALLがONだと "START" "END" というログがたくさん出力される。このログは役に立たないし、あまりにたくさん出力されるのでCPUを圧迫します。ALLを必ずOFFにしましょう。
 
 以上でKatalon Studioとプロジェクトの設定が出来ました。
 
-#### 初めてのTest Caseを作って動かしてみる
+### Katalon Studioで初めてのTest Caseを作って動かしてみる
 
-ではKatalon Studiのプロジェクトのなかにごく単純なTest Caseスクリプトを一つ作って実行してみましょう。
+では　Katalon Studioのプロジェクトのなかにごく単純なTest Caseスクリプトを作って実行してみましょう。わたしは `Test Cases/sample/47news` を作りました。内容は下記の通り。
 
-`Test Cases/sample/47news`
+1.  Webブラウザを開き
 
-を作りました。
+2.  あるURLを表示して
+
+3.  ちょっと待って
+
+4.  ブラウザを閉じる
+
+<!-- -->
 
     import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
@@ -209,7 +212,7 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
     WebUI.delay(3)   // stay still for 3 seconds
     WebUI.closeBrowser()
 
-これを実行するにはウインドウの上部に配置された緑色や矢印のボタン ![run button](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png)を押します。
+このスクリプト実行するには、Katalon Studioのウインドウの上部に配置された緑色の矢印のボタン ![run button](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png)を押します。
 
 このTest Caseを開いて実行するまでの操作を動画にしてみました。
 
@@ -217,13 +220,35 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
-### Visual Inspectionのサンプル・コードをダウンロードする
+以上で、Katalon Studioでプロジェクトを作りテストスクリプトを作って動かすことができました。
 
-Visual Inspectionを実装したKatalon Studioプロジェクトのサンプルが下記のGitHubレポジトリにあります。
+## 自作したKatalonプロジェクトをVisual Inspectionに仕立てる
+
+Visual Inspectionを実行できるようにコードを作り込んだプロジェクトのサンプルが下記のGitHubレポジトリにあります。
 
 -   <https://github.com/kazurayam/inspectus4katalon-sample-project>
 
-[Qiita](https//qiita.com/)の読者ならこのGitHubプロジェクトをgit cloneしてWindows PCで動かすことなど説明されるまでもなくできるでしょう。それでもいいのですが、ここではgitコマンドを使わないで、別の方法を紹介します。ビルドツール [Gradle](https://gradle.org/) を使います。ただしそのやり方を実行するにはいくつか追加の準備が必要です。少し長いですが、やっていきましょう。
+[Qiita](https//qiita.com/)の読者ならこのGitHubプロジェクトを `git clone` してWindows PC上のKatalon Studioで動かすことができるでしょう。その方法だと応用が効きません。あなたが狙ったwebサイトをVisual Inspectionするのに役立たない。ここでは `git clone` するのではなく別の方法を紹介します。ビルドツール [Gradle](https://gradle.org/) を使います。
+
+少し長い準備が必要です。道筋を先に説明しましょう。
+
+1.  あなたはKatalon Studioでプロジェクトを一つ自作する。Visual Inspectionを実行するのに必要なライブラリ一式とサンプルコードを某所からダウンロードしてあなたのプロジェクトに組み込みたい。
+
+2.  ダウンロードと組み込みの処理をJavaのビルドツール [Gradle](https://gradle.org/) を使って行う。だからあなたのWindows PCにGradleをインストールしたい。
+
+3.  Gradleを動かすためにはJava実行環境が必要。だからJavaもインストールしなければならない。
+
+4.  Windows PCにJavaとGradleをインストールするには [SDKMAN!](https://sdkman.io/) を使うのが良い。だからあなたのWindows PCにSDKMAN!をインストールしたい。
+
+5.  SDKMAN!をインストールするには [curl](https://curl.se/) コマンドを使う。
+
+6.  残念ながらcurlコマンドはWindowsにあらかじめ組み込まれていない。curlを使える環境をWindows上に作る必要がある。そこで [Git for Windows](https://gitforwindows.org/) をインストールする。Git for Windowsをインストールするとオマケとして Git Bash というWindowぷプログラムもインストールされる。
+
+7.  Git Bashを起動し、curlコマンドでSDKMAN!をインストールし、SDKMANでJavaとGradleをインストールする。
+
+8.  最後にあなたのKatalonプロジェクトに `build.gradle` ファイルを作り数行のコードを記述したら、gradleタスクを2回実行する。するとライブラリとサンプルコードがプロジェクトに組み込まれる。
+
+以上が作業全体のつながりです。ではひとつひとつ、やっていきましょう。
 
 ### Git for Windowsをインストールする
 

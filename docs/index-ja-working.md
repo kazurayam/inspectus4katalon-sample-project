@@ -5,9 +5,6 @@
     -   <a href="#_twins_diff_webサイトの本番環境と開発環境を比較する" id="toc-_twins_diff_webサイトの本番環境と開発環境を比較する">Twins Diff: Webサイトの本番環境と開発環境を比較する</a>
     -   <a href="#_shootings" id="toc-_shootings">Shootings</a>
 -   <a href="#_visual_inspectionを動かしてみよう" id="toc-_visual_inspectionを動かしてみよう">Visual Inspectionを動かしてみよう</a>
-    -   <a href="#_環境を設定する" id="toc-_環境を設定する">環境を設定する</a>
-        -   <a href="#_katalon_studio_standalone_editionをインストールする" id="toc-_katalon_studio_standalone_editionをインストールする">Katalon Studio - Standalone Editionをインストールする。</a>
-        -   <a href="#_プロジェクトを作る" id="toc-_プロジェクトを作る">プロジェクトを作る</a>
 -   <a href="#_雑談" id="toc-_雑談">雑談</a>
     -   <a href="#_visual_inspection_とは何か" id="toc-_visual_inspection_とは何か">Visual Inspection とは何か</a>
     -   <a href="#_visual_inspectionは誰のためのツールか" id="toc-_visual_inspectionは誰のためのツールか">Visual Inspectionは誰のためのツールか</a>
@@ -18,9 +15,9 @@
     -   <a href="#_オープンソース無償利用可能であること" id="toc-_オープンソース無償利用可能であること">オープンソース、無償利用可能であること</a>
     -   <a href="#_katalon_studioが必須ではない" id="toc-_katalon_studioが必須ではない">Katalon Studioが必須ではない</a>
 
-Selenium WebDriverは Webブラウザに表示された画面 view port のスクリーンショットを撮ってファイルに保存するクラスとメソッドを提供しています。たとえば [Guru99](https://www.guru99.com/take-screenshot-selenium-webdriver.html) の記事を参照のこと。Katalon Studioも [WebUI.takeFullPageScreenshot](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/keywords/web-ui-keywords/webui-take-full-page-screenshot#takefullpagescreenshot) キーワードを提供しているが、これは実はSelenium WebDriverのクラスとメソッドを利用したラッパです。これらのメソッドを使えばたしかにWebサイトのページをキャプチャしてPNG画像ファイルにすることはできます。
+Selenium WebDriverは Webブラウザに表示された画面 view port のスクリーンショットを撮ってファイルに保存するクラスとメソッドを提供しています。たとえば [Guru99](https://www.guru99.com/take-screenshot-selenium-webdriver.html) の記事を参照のこと。Katalon Studioも [WebUI.takeFullPageScreenshot](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/keywords/web-ui-keywords/webui-take-full-page-screenshot#takefullpagescreenshot) キーワードを提供しているが、これは実はSelenium WebDriverのクラスとメソッドを利用したラッパーです。これらのメソッドを使えばたしかにWebサイトのページをキャプチャしてPNG画像ファイルにすることはできます。
 
-ところが実際に自分のwebシステムを標的にしてたくさんキャプチャして一覧する資料を作りたいと望んでコードを書き始めたとたん、とても難しいということがわかる。Katalon Studioのプロジェクトで `WebUI.takeFullPageScreenshot` を
+ところが実際に自分のwebシステムを標的にしてたくさんキャプチャして一覧する資料を作りたいと望んでコードを書き始めたとたん面倒だとわかる。Katalon Studioのプロジェクトで `WebUI.takeFullPageScreenshot` を
 呼び出すコードは例えば下記のようなものです。
 
     WebUI.takeFullPageScreenshot('C:\\Users\\kazurayam\\tmp\\screenshots\\page1.png')
@@ -112,22 +109,6 @@ Twins Diffは指定されたURLのホスト名とCSVファイルから読み取�
 検索サービス [DuckDuckGo](https://duckduckgo.com/) をブラウザで開き、キーワードとして "selenium" を指定して、関連するサイトの一覧を求める。web画面のスクリーンショットを取得してPNG画像としてローカルディスクに保存し、ついでにweb画面のHTMLソースコードも保存する。各画面のURLなどのメタ情報も記録する。ファイルの一覧を表示するHTMLを生成しました。
 
 # Visual Inspectionを動かしてみよう
-
-## 環境を設定する
-
-### Katalon Studio - Standalone Editionをインストールする。
-
-下記URLからKatalon Studioのバイナリをダウンロードすることができます。
-
--   <https://katalon.com/download>
-
-Standalone Editionは無償利用が可能ですから、わたしはStandalone Editionをお勧めします。
-
-ダウンロードしたバイナリからKatalon Studioをどのフォルダにインストールするかに少し注意が必要です。あなたのWindowsログインユーザがREAD/WRITE権限をフルに持っているフォルダならどこでもOKです。たとえば `C:\Users\youName\Documents` フォルダの下とか。`C:\Program Files` の下にインストールすると場合によってはWRITE権限が不足なためエラーが起きる場合があります。
-
-### プロジェクトを作る
-
-Standalone Edition
 
 # 雑談
 
