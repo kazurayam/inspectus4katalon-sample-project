@@ -345,7 +345,53 @@ $ gradle deploy-visual-inspection-sample-for-katalon
 すると次のようなメッセージが出力されコマンドか完了するはず。
 [source, text]
 ----
+Starting a Gradle Daemon (subsequent builds will be faster)
 
+> Task :deploy-visual-inspection-sample-for-katalon
+Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\uraya\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
+... Include/data/MyAdmin/targetList.csv
+... Object Repository/CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Apply for hospital readmission.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Medicaid_programs.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_visit_date.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/appointment/select_Tokyo CURA Healthcare Center.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/appointment/textarea_Comment_comment.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/login/button_Login.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/login/input_Password_password.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/login/input_Username_username.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/summary/a_Go to Homepage.rs
+... Object Repository/CURA/Page_CURA Healthcare Service/top/a_Make Appointment.rs
+... Profiles/CURA_DevelopmentEnv.glbl
+... Profiles/MyAdmin_DevelopmentEnv.glbl
+... Profiles/MyAdmin_ProductionEnv.glbl
+... Scripts/common/BackupAll/Script1668394619253.groovy
+... Scripts/common/Scavenge/Script1668394684813.groovy
+... Scripts/CURA/main/Script1667709715867.groovy
+... Scripts/CURA/materialize/Script1667709728945.groovy
+... Scripts/CURA/run_materialize/Script1667709743309.groovy
+... Scripts/DuckDuckGo/main/Script1667437517277.groovy
+... Scripts/DuckDuckGo/materialize/Script1667437527092.groovy
+... Scripts/DuckDuckGo/run_materialize/Script1667616595404.groovy
+... Scripts/MyAdmin/main/Script1667687348266.groovy
+... Scripts/MyAdmin/materialize/Script1667687365090.groovy
+... Scripts/MyAdmin/processTargetList/Script1668563538525.groovy
+... Scripts/MyAdmin/run_materialize/Script1667687380074.groovy
+... Test Cases/common/BackupAll.tc
+... Test Cases/common/Scavenge.tc
+... Test Cases/CURA/main.tc
+... Test Cases/CURA/materialize.tc
+... Test Cases/CURA/run_materialize.tc
+... Test Cases/DuckDuckGo/main.tc
+... Test Cases/DuckDuckGo/materialize.tc
+... Test Cases/DuckDuckGo/run_materialize.tc
+... Test Cases/MyAdmin/main.tc
+... Test Cases/MyAdmin/materialize.tc
+... Test Cases/MyAdmin/processTargetList.tc
+... Test Cases/MyAdmin/run_materialize.tc
+deployed the sample project v0.3.4
+
+BUILD SUCCESSFUL in 16s
+1 actionable task: 1 executed
 ----
 
 `deploy-visual-inspection-sample-for-katalon` タスクが何をやっているか? link:https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4[inspectus4katalon-sample-projectレポジトリのReleasesページ] に `distributable.zip` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
