@@ -159,7 +159,7 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/TestCl
 
 ===== Smart Waitを使わない
 
-Katalon Studioは link:https://katalon.com/resources-center/blog/handle-selenium-wait[Smart Wait] という小技を備えています。Smart Waitは場合によって悪さをします。テストがやたらと遅くなって３０秒で終わるはずのテストが２０分経過しても終わらないというような症状を発症します。ところがデフォルトの設定がこれをONにしています。迷惑なのでOFFにしましょう。
+Katalon Studioは link:https://katalon.com/resources-center/blog/handle-selenium-wait[Smart Wait] という小技を備えています。Smart Waitは場合によって悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過してまだ終わらないなんてことが起きる。ところがデフォルトの設定がSmart WaitをONにしています。OFFにしましょう。
 
 Project > Settings > Execution > WebUI
 
@@ -168,19 +168,19 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/SmartW
 
 ===== Log Viewerを軽量化する
 
-Katalon StudioのGUIの下部にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくといいことがあります。というのもKatalon Studioは実行時のログを大量に吐き出すから。大量のログをLog Viewerに表示しようとするのだが、画面表示の処理が重すぎてテストの開始から終了までの所要時間を長くする原因になる。だからLog Viewerに表示するログを絞り込むのが得策です。
+Katalon StudioのGUIの下部にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくといいことがあります。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示しようとするのだが、画面表示の処理が重すぎてテストの開始から終了までの所要時間を長くする原因になる。だからLog Viewerに表示するログを絞り込むのが得策です。
 
 image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/LogViewer.png[Log Viewer]
 
 まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png[tree view] これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFして、テーブル形式の表示を選びましょう。Tree表示はCPU負荷が大きく処理遅延の原因になります。
 
-ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが "ALL" "Info" "Passed" "Failed" "Error" "Warning" "Not Run"となっている。デフォルトでは All がONになっています。Allを必ずOFFに変更しましょう。AllがONだと "START" "END" というログが爆発的に出力されます。このログは無意味ですし、あまりに行数が多いのでCPUを圧迫します。
+ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが ALL、Info、Passed、Failed、Error、Warning、Not Run となっている。デフォルトでは ALL がONになっています。ALLを必ずOFFに変更しましょう。ALLがONだと "START" "END" というログが爆発的に出力されます。このログは無意味ですし、あまりに行数が多いのでCPUを圧迫します。
 
-これでひとまずKatalon Studioとプロジェクトの設定が出来ました。
+以上でKatalon Studioとプロジェクトの設定が出来ました。
 
 ==== 初めてのTest Caseを作って動かしてみる
 
-ではごく単純なテストを作って実行してみましょう。
+ではKatalon Studiのプロジェクトのなかにごく単純なTest Caseスクリプトを一つ作って実行してみましょう。
 
 `Test Cases/sample/47news`
 
@@ -188,14 +188,23 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/LogVie
 
 [source,text]
 ----
-include::../Scripts/sample/47news/Script1671633521969.groovy[]
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+WebUI.openBrowser('')
+WebUI.navigateToUrl('https://www.47news.jp/')
+WebUI.delay(3)   // stay still for 3 seconds
+WebUI.closeBrowser()
 ----
 
 これを実行するにはウインドウの上部に配置された緑色や矢印のボタン image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png[run button]を押します。
 
 このTest Caseを開いて実行するまでの操作を動画にしてみました。
 
-...
+https://youtu.be/4jT6pgDmxmc
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 
