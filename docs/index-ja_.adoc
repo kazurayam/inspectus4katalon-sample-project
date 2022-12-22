@@ -207,19 +207,20 @@ https://youtu.be/4jT6pgDmxmc
 
 以上で、Katalon Studioでプロジェクトを作りテストスクリプトを作って動かすことができました。
 
-== 自作したKatalonプロジェクトをVisual Inspectionに仕立てる
+== ビルドツール Gradle を準備する
 
 Visual Inspectionを実行できるようにコードを作り込んだプロジェクトのサンプルが下記のGitHubレポジトリにあります。わたくしkazurayamが作りました。
 
 - link:https://github.com/kazurayam/inspectus4katalon-sample-project[]
 
-link:https//qiita.com/[Qiita]の読者ならこのGitHubプロジェクトを `git clone` してWindows PC上のKatalon Studioで動かすことができるでしょう。その方法だと応用が効きません。あなたがKatalonプロジェクトを作り、自分のwebサイトを画面確認する作業を自動化するのに役立たない。ここでは `git clone` するのではなく別の方法を紹介します。ビルドツール link:https://gradle.org/[Gradle] を使います。
+link:https//qiita.com/[Qiita]の読者ならこのGitHubプロジェクトを `git clone` してWindows PC上のKatalon Studioで動かすことができるでしょう。その方法だと応用が効きません。あなたがWindows10 PCでKatalonプロジェクトを作り、自分のwebサイトを画面確認する作業を自動化するのに役立たない。ここでは `git clone` するのではなく、別の方法を紹介します。ビルドツール link:https://gradle.org/[Gradle] を使います。
 
-少し長い準備が必要です。道筋を先に説明しましょう。
+Gradleを使うために準備が必要です。道筋を先に説明しましょう。
 
-. あなたはKatalon Studioでプロジェクトを一つ自作する。Visual Inspectionを実行するのに必要なライブラリ一式とサンプルコードを某所からダウンロードしてあなたのプロジェクトに組み込みたい。
+. あなたはKatalon Studioでプロジェクトを一つ自作する。
+. kazurayamはVisual Inspectionを実行するのに必要なライブラリ一式とサンプルコードを某所からダウンロードしてあなたのプロジェクトに組み込むことができる仕組みを準備しました。
 . ダウンロードと組み込みの処理をJavaのビルドツール link:https://gradle.org/[Gradle] を使って行う。だからあなたのWindows PCにGradleをインストールしたい。
-. Gradleを動かすためにはJava実行環境が必要。だからJavaもインストールしなければならない。
+. Gradleを動かすためにはJava実行環境が必要です。だからJavaもインストールしなければならない。
 . Windows PCにJavaとGradleをインストールするには link:https://sdkman.io/[SDKMAN!] を使うのが良い。だからあなたのWindows PCにSDKMAN!をインストールしたい。
 . SDKMAN!をインストールするには link:https://curl.se/[curl] コマンドを使う。
 . 残念ながらcurlコマンドはWindowsにあらかじめ組み込まれていない。curlを使える環境をWindows上に作る必要がある。そこで link:https://gitforwindows.org/[Git for Windows] をインストールする。Git for Windowsをインストールするとオマケとして Git Bash というWindowsプログラムがインストールされる。
@@ -293,24 +294,30 @@ $ sdk install gradle
 
 だー〜っとメッセージが出力されて終了したらGradleの最新安定版がインストールされているはず。gradleコマンドを動かしてみましょう。
 
-```
+[source, text]
+----
 $ gradle --version
 
 ----------------------------------------------------------
 Gradle 7.6
 ----------------------------------------------------------
 ...
-```
+----
 
 こんな感じの応答があれば大丈夫。別バージョンでもかまいません。
 
-さあ、ようやく準備が整いました。
+さて、ようやくビルドツール Gradle を使える環境が整いました。
 
-== あなたが自作したKatalonプロジェクトにVisual Inspectionを組み込む
+== 自作のKatalonプロジェクトにVisual Inspectionを組み込む
+
+あなたが某webサイトを画面確認する仕事を自動化したいと思ったとします。Katalon Studioをインストールし、ビルドツール Gradle を動かす準備もできました。ではKatalon Studioでプロジェクトを作りましょう。
+
+Katalonプロジェクトの作り方は前に説明しました。以下では `C:\Users\あなたのWindowsユーザ名\katalon-project` フォルダのなかに `MyVisualInspectionProject` という名前のプロジェクトを作ったと仮定して説明します。
+
+`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成した。ただし実際のところKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし、書き換えてもKatalon Studio本体の動きには影響しません。
 
 
-
-`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがある（はずです）。build.gradleを下記のように書き換えます。
+build.gradleファイルをテキストエディタで下記のように書きかえて保存します。
 
 [source, text]
 ----
@@ -319,16 +326,30 @@ plugins {
 }
 ----
 
-そしてKatalon Studioを一旦止めます。そしてコマンドラインで下記のようにコマンドを２つ、実行します。
+そしてKatalon Studioを一旦停止します。
+
+そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。
 
 [source, text]
 ----
-$ cd MyVisualInspectionProject
-$ gradle drivers
-...
-$ gradle deploy-visual-inspection-sample-for-katalon
-...
+$ cd ~/katalon-projects/MyVisualInspectionProject
 ----
+
+では、サンプルコードをダウンロードして組み込みましょう。Git Bashのコマンドラインで次のコマンドを実行してください。
+
+[source, text]
+----
+$ gradle deploy-visual-inspection-sample-for-katalon
+----
+
+すると次のようなメッセージが出力されコマンドか完了するはず。
+[source, text]
+----
+
+----
+
+`deploy-visual-inspection-sample-for-katalon`タスクが何をやっているかというと、link:https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4[inspectus4katalon-sample-projectレポジトリのReleasesページ] に `distributable.zip` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
+
 
 このコマンドにより必要なサンプルコードが一揃いインターネット上のレポジトリからダウンロードされる。
 
