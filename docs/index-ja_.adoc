@@ -348,7 +348,7 @@ $ gradle deploy-visual-inspection-sample-for-katalon
 
 ----
 
-`deploy-visual-inspection-sample-for-katalon`タスクが何をやっているかというと、link:https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4[inspectus4katalon-sample-projectレポジトリのReleasesページ] に `distributable.zip` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
+`deploy-visual-inspection-sample-for-katalon` タスクが何をやっているか? link:https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4[inspectus4katalon-sample-projectレポジトリのReleasesページ] に `distributable.zip` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
 
 
 このコマンドにより必要なサンプルコードが一揃いインターネット上のレポジトリからダウンロードされる。
