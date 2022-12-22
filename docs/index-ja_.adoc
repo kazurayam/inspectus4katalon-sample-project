@@ -397,11 +397,34 @@ BUILD SUCCESSFUL in 16s
 `deploy-visual-inspection-sample-for-katalon`タスクが何をやっているかというと、link:https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4[inspectus4katalon-sample-projectレポジトリのReleasesページ] に `distributable.zip` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
 
 
-このコマンドにより必要なサンプルコードが一揃いインターネット上のレポジトリからダウンロードされる。
-
-Katalon Studioを再び起動してMayVisualInspectionプロジェクトを開くと、プロジェクトの中に新しいフォルダができて、中にスクリプトが入っている　。。。
 
 
+uraya@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
+$ gradle drivers
 
+> Task :drivers
+inspectus-0.8.2.jar
+ExecutionProfilesLoader-1.2.1.jar
+materialstore-0.14.3.jar
+ashot-1.5.4.jar
+commons-csv-1.9.0.jar
+jsoup-1.14.3.jar
+freemarker-2.3.31.jar
+java-diff-utils-4.11.jar
 
+BUILD SUCCESSFUL in 7s
+1 actionable task: 1 executed
 
+uraya@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
+$ ls -la ./Drivers
+total 2696
+drwxr-xr-x 1 uraya 197609       0 12月 22 23:09 ./
+drwxr-xr-x 1 uraya 197609       0 12月 22 22:54 ../
+-rw-r--r-- 1 uraya 197609   54351 12月 22 23:09 AUTOIMPORTED_ashot-1.5.4.jar
+-rw-r--r-- 1 uraya 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
+-rw-r--r-- 1 uraya 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
+-rw-r--r-- 1 uraya 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
+-rw-r--r-- 1 uraya 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
+-rw-r--r-- 1 uraya 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
+-rw-r--r-- 1 uraya 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
+-rw-r--r-- 1 uraya 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
