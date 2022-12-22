@@ -20,12 +20,16 @@
             -   <a href="#smart-waitを使わない" id="toc-smart-waitを使わない">Smart Waitを使わない</a>
             -   <a href="#log-viewerを軽量化する" id="toc-log-viewerを軽量化する">Log Viewerを軽量化する</a>
         -   <a href="#katalon-studioで初めてのtest-caseを作って動かしてみる" id="toc-katalon-studioで初めてのtest-caseを作って動かしてみる">Katalon Studioで初めてのTest Caseを作って動かしてみる</a>
-    -   <a href="#自作したkatalonプロジェクトをvisual-inspectionに仕立てる" id="toc-自作したkatalonプロジェクトをvisual-inspectionに仕立てる">自作したKatalonプロジェクトをVisual Inspectionに仕立てる</a>
+    -   <a href="#ビルドツール-gradle-を準備する" id="toc-ビルドツール-gradle-を準備する">ビルドツール Gradle を準備する</a>
         -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
         -   <a href="#sdkmanをインストールする" id="toc-sdkmanをインストールする">SDKMAN!をインストールする</a>
         -   <a href="#javaをインストールする" id="toc-javaをインストールする">Javaをインストールする</a>
         -   <a href="#gradleをインストールする" id="toc-gradleをインストールする">Gradleをインストールする</a>
-    -   <a href="#あなたが自作したkatalonプロジェクトにvisual-inspectionを組み込む" id="toc-あなたが自作したkatalonプロジェクトにvisual-inspectionを組み込む">あなたが自作したKatalonプロジェクトにVisual Inspectionを組み込む</a>
+    -   <a href="#自作のkatalonプロジェクトにvisual-inspectionを組み込む" id="toc-自作のkatalonプロジェクトにvisual-inspectionを組み込む">自作のKatalonプロジェクトにVisual Inspectionを組み込む</a>
+        -   <a href="#gradle-deploy-visual-inspection-sample-for-katalonタスク" id="toc-gradle-deploy-visual-inspection-sample-for-katalonタスク">gradle deploy-visual-inspection-sample-for-katalonタスク</a>
+        -   <a href="#gradle-driversタスク" id="toc-gradle-driversタスク">gradle driversタスク</a>
+    -   <a href="#visual-inspectionのテストコードを実行してみる" id="toc-visual-inspectionのテストコードを実行してみる">Visual Inspectionのテストコードを実行してみる</a>
+    -   <a href="#結論" id="toc-結論">結論</a>
 
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
@@ -226,31 +230,33 @@ Katalon StudioのGUIの下部にログを表示するエリアがあります。
 
 以上で、Katalon Studioでプロジェクトを作りテストスクリプトを作って動かすことができました。
 
-## 自作したKatalonプロジェクトをVisual Inspectionに仕立てる
+## ビルドツール Gradle を準備する
 
 Visual Inspectionを実行できるようにコードを作り込んだプロジェクトのサンプルが下記のGitHubレポジトリにあります。わたくしkazurayamが作りました。
 
 -   <https://github.com/kazurayam/inspectus4katalon-sample-project>
 
-[Qiita](https//qiita.com/)の読者ならこのGitHubプロジェクトを `git clone` してWindows PC上のKatalon Studioで動かすことができるでしょう。その方法だと応用が効きません。あなたがKatalonプロジェクトを作り、自分のwebサイトを画面確認する作業を自動化するのに役立たない。ここでは `git clone` するのではなく別の方法を紹介します。ビルドツール [Gradle](https://gradle.org/) を使います。
+[Qiita](https//qiita.com/)の読者ならこのGitHubプロジェクトを `git clone` してWindows PC上のKatalon Studioで動かすことができるでしょう。その方法だと応用が効きません。あなたがWindows10 PCでKatalonプロジェクトを作り、自分のwebサイトを画面確認する作業を自動化するのに役立たない。ここでは `git clone` するのではなく、別の方法を紹介します。ビルドツール [Gradle](https://gradle.org/) を使います。
 
-少し長い準備が必要です。道筋を先に説明しましょう。
+Gradleを使うために準備が必要です。道筋を先に説明しましょう。
 
-1.  あなたはKatalon Studioでプロジェクトを一つ自作する。Visual Inspectionを実行するのに必要なライブラリ一式とサンプルコードを某所からダウンロードしてあなたのプロジェクトに組み込みたい。
+1.  あなたはKatalon Studioでプロジェクトを一つ自作する。
 
-2.  ダウンロードと組み込みの処理をJavaのビルドツール [Gradle](https://gradle.org/) を使って行う。だからあなたのWindows PCにGradleをインストールしたい。
+2.  kazurayamはVisual Inspectionを実行するのに必要なライブラリ一式とサンプルコードを某所からダウンロードしてあなたのプロジェクトに組み込むことができる仕組みを準備しました。
 
-3.  Gradleを動かすためにはJava実行環境が必要。だからJavaもインストールしなければならない。
+3.  ダウンロードと組み込みの処理をJavaのビルドツール [Gradle](https://gradle.org/) を使って行う。だからあなたのWindows PCにGradleをインストールしたい。
 
-4.  Windows PCにJavaとGradleをインストールするには [SDKMAN!](https://sdkman.io/) を使うのが良い。だからあなたのWindows PCにSDKMAN!をインストールしたい。
+4.  Gradleを動かすためにはJava実行環境が必要です。だからJavaもインストールしなければならない。
 
-5.  SDKMAN!をインストールするには [curl](https://curl.se/) コマンドを使う。
+5.  Windows PCにJavaとGradleをインストールするには [SDKMAN!](https://sdkman.io/) を使うのが良い。だからあなたのWindows PCにSDKMAN!をインストールしたい。
 
-6.  残念ながらcurlコマンドはWindowsにあらかじめ組み込まれていない。curlを使える環境をWindows上に作る必要がある。そこで [Git for Windows](https://gitforwindows.org/) をインストールする。Git for Windowsをインストールするとオマケとして Git Bash というWindowsプログラムがインストールされる。
+6.  SDKMAN!をインストールするには [curl](https://curl.se/) コマンドを使う。
 
-7.  Git Bashを起動し、curlコマンドでSDKMAN!をインストールし、SDKMANでJavaとGradleをインストールする。
+7.  残念ながらcurlコマンドはWindowsにあらかじめ組み込まれていない。curlを使える環境をWindows上に作る必要がある。そこで [Git for Windows](https://gitforwindows.org/) をインストールする。Git for Windowsをインストールするとオマケとして Git Bash というWindowsプログラムがインストールされる。
 
-8.  最後にあなたのKatalonプロジェクトに `build.gradle` ファイルを作り数行のコードを記述したら、gradleタスクを2回実行する。するとライブラリとサンプルコードがプロジェクトに組み込まれる。
+8.  Git Bashを起動し、curlコマンドでSDKMAN!をインストールし、SDKMANでJavaとGradleをインストールする。
+
+9.  最後にあなたのKatalonプロジェクトに `build.gradle` ファイルを作り数行のコードを記述したら、gradleタスクを2回実行する。するとライブラリとサンプルコードがプロジェクトに組み込まれる。
 
 以上が作業全体の流れです。ではひとつひとつ、やっていきましょう。
 
@@ -318,24 +324,147 @@ SDKMAN!のコマンドについてはドキュメント [SDKMAN! usage](https://
 
 こんな感じの応答があれば大丈夫。別バージョンでもかまいません。
 
-さあ、ようやく準備が整いました。
+さて、ようやくビルドツール Gradle を使える環境が整いました。
 
-## あなたが自作したKatalonプロジェクトにVisual Inspectionを組み込む
+## 自作のKatalonプロジェクトにVisual Inspectionを組み込む
 
-`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがある（はずです）。build.gradleを下記のように書き換えます。
+あなたが某webサイトを画面確認する仕事を自動化したいと思ったとします。Katalon Studioをインストールし、ビルドツール Gradle を動かす準備もできました。ではKatalon Studioでプロジェクトを作りましょう。
+
+Katalonプロジェクトの作り方は前に説明しました。以下では `C:\Users\あなたのWindowsユーザ名\katalon-project` フォルダのなかに `MyVisualInspectionProject` という名前のプロジェクトを作ったと仮定して説明します。
+
+`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成した。ただし実際のところKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし、書き換えてもKatalon Studio本体の動きには影響しません。
+
+build.gradleファイルをテキストエディタで下記のように書きかえて保存します。
 
     plugins {
       id 'com.kazurayam.inspectus4katalon' version "0.3.4"
     }
 
-そしてKatalon Studioを一旦止めます。そしてコマンドラインで下記のようにコマンドを２つ、実行します。
+`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
 
-    $ cd MyVisualInspectionProject
-    $ gradle drivers
-    ...
+Katalon Studioを一旦停止してください。
+
+そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。
+
+    $ cd ~/katalon-projects/MyVisualInspectionProject
+
+### gradle deploy-visual-inspection-sample-for-katalonタスク
+
+では、サンプルコードをダウンロードして組み込みましょう。Git Bashのコマンドラインで次のコマンドを実行してください。
+
     $ gradle deploy-visual-inspection-sample-for-katalon
-    ...
 
-このコマンドにより必要なサンプルコードが一揃いインターネット上のレポジトリからダウンロードされる。
+すると次のようなメッセージが出力されコマンドか完了するはず。
 
-Katalon Studioを再び起動してMayVisualInspectionプロジェクトを開くと、プロジェクトの中に新しいフォルダができて、中にスクリプトが入っている　。。。
+    Starting a Gradle Daemon (subsequent builds will be faster)
+
+    > Task :deploy-visual-inspection-sample-for-katalon
+    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\uraya\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
+    ... Include/data/MyAdmin/targetList.csv
+    ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Apply for hospital readmission.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Medicaid_programs.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_visit_date.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/select_Tokyo CURA Healthcare Center.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/textarea_Comment_comment.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/login/button_Login.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/login/input_Password_password.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/login/input_Username_username.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/summary/a_Go to Homepage.rs
+    ... Object Repository/CURA/Page_CURA Healthcare Service/top/a_Make Appointment.rs
+    ... Profiles/CURA_DevelopmentEnv.glbl
+    ... Profiles/MyAdmin_DevelopmentEnv.glbl
+    ... Profiles/MyAdmin_ProductionEnv.glbl
+    ... Scripts/common/BackupAll/Script1668394619253.groovy
+    ... Scripts/common/Scavenge/Script1668394684813.groovy
+    ... Scripts/CURA/main/Script1667709715867.groovy
+    ... Scripts/CURA/materialize/Script1667709728945.groovy
+    ... Scripts/CURA/run_materialize/Script1667709743309.groovy
+    ... Scripts/DuckDuckGo/main/Script1667437517277.groovy
+    ... Scripts/DuckDuckGo/materialize/Script1667437527092.groovy
+    ... Scripts/DuckDuckGo/run_materialize/Script1667616595404.groovy
+    ... Scripts/MyAdmin/main/Script1667687348266.groovy
+    ... Scripts/MyAdmin/materialize/Script1667687365090.groovy
+    ... Scripts/MyAdmin/processTargetList/Script1668563538525.groovy
+    ... Scripts/MyAdmin/run_materialize/Script1667687380074.groovy
+    ... Test Cases/common/BackupAll.tc
+    ... Test Cases/common/Scavenge.tc
+    ... Test Cases/CURA/main.tc
+    ... Test Cases/CURA/materialize.tc
+    ... Test Cases/CURA/run_materialize.tc
+    ... Test Cases/DuckDuckGo/main.tc
+    ... Test Cases/DuckDuckGo/materialize.tc
+    ... Test Cases/DuckDuckGo/run_materialize.tc
+    ... Test Cases/MyAdmin/main.tc
+    ... Test Cases/MyAdmin/materialize.tc
+    ... Test Cases/MyAdmin/processTargetList.tc
+    ... Test Cases/MyAdmin/run_materialize.tc
+    deployed the sample project v0.3.4
+
+    BUILD SUCCESSFUL in 16s
+    1 actionable task: 1 executed
+
+`` deploy-visual-inspection-sample-for-katalon`タスクが何をやっているかというと、inspectus4katalon-sample-projectレポジトリのReleasesページ に `distributable.zip `` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
+
+### gradle driversタスク
+
+`gradle drivers` というコマンドを実行します。
+
+    kazurayam@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
+
+    $ gradle drivers
+
+    > Task :drivers
+    inspectus-0.8.2.jar
+    ExecutionProfilesLoader-1.2.1.jar
+    materialstore-0.14.3.jar
+    ashot-1.5.4.jar
+    commons-csv-1.9.0.jar
+    jsoup-1.14.3.jar
+    freemarker-2.3.31.jar
+    java-diff-utils-4.11.jar
+
+    BUILD SUCCESSFUL in 7s
+    1 actionable task: 1 executed
+
+このコマンがが完了すると、MyVisualInspectionProjectのルートフォルダの直下にある `Drivers` フォルダのなかにいくつかのjarファイルがダウンロードされて配置されます。
+
+    kazurayam@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
+    $ ls -la ./Drivers
+    total 2696
+    drwxr-xr-x 1 uraya 197609       0 12月 22 23:09 ./
+    drwxr-xr-x 1 uraya 197609       0 12月 22 22:54 ../
+    -rw-r--r-- 1 uraya 197609   54351 12月 22 23:09 AUTOIMPORTED_ashot-1.5.4.jar
+    -rw-r--r-- 1 uraya 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
+    -rw-r--r-- 1 uraya 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
+    -rw-r--r-- 1 uraya 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
+    -rw-r--r-- 1 uraya 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
+    -rw-r--r-- 1 uraya 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
+    -rw-r--r-- 1 uraya 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
+    -rw-r--r-- 1 uraya 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
+
+これらはVisual Inspectionを実行するのに必要な外部モジュールで、Katalon Studio本体のzipには同梱されていなかったものです。`materialstore` と `inspecuts` というモジュールがVisual Inspectionの実体です。どちらも [Maven Centralレポジトリ](https://mvnrepository.com/artifact/com.kazurayam) で公開しています。
+
+## Visual Inspectionのテストコードを実行してみる
+
+さてKatalon Studioを再起動しましょう。MyVisualInspectionProjectを開いてください。画面左側に `Test Cases` フォルダがある。そこを開くと `CURA`、`DucDuckGo`、 `MyAdmin` というフォルダがある。それらフォルダを開くと `main` という名前のTest Caseがあります。
+
+![sample test cases installed](https://kazurayam.github.io/inspectus4katalon-sample-project/images/SampleTestCasesInstalled.png)
+
+それら３つの `main` を各々開いてボタン ![green run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) を押して実行してください。自動化テストが走ります。
+
+`main` が走り終わるとプロジェクトのルート直下に `store` という名前のフォルダが作られます。そのなかに `index.html` ができています。
+
+[store/index just created](https://kazurayam.github.io/inspectus4katalon-sample-project/images/store_index_just_created.png)
+
+ただしKatalon Studioにはちょっと不具合があって、ルート直下に作られた `store` フォルダを直ちに表示してくれません。いったんMyVisualInspectionProjectを閉じてもう一度開いてください。そうすれば `store` フォルダが見えるはず。
+
+ダブルクリックすればブラウザで開きます。それこそが本記事の冒頭で紹介したサンプル
+
+-   [store/index](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
+
+にほかなりません。
+
+## 結論
+
+Webサイトの画面確認を自動化するツール Visual Inspection を紹介しました。読者がVisual Inspectionを応用して自分の興味あるWebサイトの画面確認を自動化するツールを構築することがきます。本記事では、環境を準備する手順とサンプルコードを動かす手順を説明した。読者が自分の仕事に役立つツールを構築するには、サンプルを参照しつつGroovy言語でプログラムコードを書く必要があります。本記事ではプログラミングの詳細までは説明しません。別の記事で述べようと思います。
