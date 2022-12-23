@@ -19,7 +19,7 @@
             -   <a href="#testcloudを使わない" id="toc-testcloudを使わない">TestCloudを使わない</a>
             -   <a href="#smart-waitを使わない" id="toc-smart-waitを使わない">Smart Waitを使わない</a>
             -   <a href="#log-viewerを軽量化する" id="toc-log-viewerを軽量化する">Log Viewerを軽量化する</a>
-        -   <a href="#katalon-studioで初めてのtest-caseを作って動かしてみる" id="toc-katalon-studioで初めてのtest-caseを作って動かしてみる">Katalon Studioで初めてのTest Caseを作って動かしてみる</a>
+        -   <a href="#初めてのtest-caseを作って動かしてみる" id="toc-初めてのtest-caseを作って動かしてみる">初めてのTest Caseを作って動かしてみる</a>
     -   <a href="#ビルドツール-gradle-を準備する" id="toc-ビルドツール-gradle-を準備する">ビルドツール Gradle を準備する</a>
         -   <a href="#git-for-windowsをインストールする" id="toc-git-for-windowsをインストールする">Git for Windowsをインストールする</a>
         -   <a href="#sdkmanをインストールする" id="toc-sdkmanをインストールする">SDKMAN!をインストールする</a>
@@ -39,7 +39,7 @@
 
 -   [Katalon StudioでVisual Testingを実現した](https://qiita.com/kazurayam/items/bcf72a03f50fc5db4373)
 
-この成果物にはいろいろ不満がありました。わたしはその後も開発を続けて、ようやく使い物になるツールに仕立てることができた。このツールを *Visual Inspection* と名付けました。ここでVisual Inspectionを紹介します。
+わたしは「Webサイトを画面確認する仕事を自動化したい」と企てたのですが、この時の成果物にはいろいろ不満がありました。わたしはその後も開発を続けました。そしてようやく使い物になるツールに仕立てることができた。このツールを *Visual Inspection* と名付けました。ここでVisual Inspectionを紹介します。読者が触ってみてくれることを希望します。
 
 ## Visual Inspectionが出力するレポートのサンプル
 
@@ -53,19 +53,19 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 ## サンプルの説明
 
-このレポートの見方をざっと説明しましょう。
+このレポートの見方を説明しましょう。
 
 ### 二つの画像の差分
 
-ひとつ目のサンプルの、あるWebページのスクリーンショットを撮り、数秒後にもう一度スクリーンショットを撮って、二つの画像を比較するという検査の結果です。違っているピクセルが赤色に塗られる。標的にしたWebページ <http://demoaut-mimic.kazurayam.com/> には秒単位の現在時刻が表示されるのですが、１回目と２回目の間に適当な時間差をおけば時刻が変わるから、差分画像の中に赤い塗りつぶしがわずかながら生じます。こんなふうに：
+あるWebページのスクリーンショットを撮り、数秒後にもう一度スクリーンショットを撮って、二つの画像を比較するという検査をしました。違っているピクセルが赤色に塗られる。標的にしたWebページ <http://demoaut-mimic.kazurayam.com/> には秒単位の現在時刻が表示されるのですが、１回目と２回目の間に適当な時間差をおけば時刻が変わるから、差分画像の中に赤い塗りつぶしがわずかながら生じます。こんなふうに：
 
 ![Left Diff Right](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Left-Diff-Right.png)
 
-あなたのWebサイトを標的としてVisual Inspectionを実施したら、どのページのどの箇所が赤くなるだろうか？ --- ぜひ自分で試してみてください。
+あなたのWebサイトを標的としてVisual Inspectionを実施したら、どのページのどの箇所が赤くなるでしょうか？
 
 ### 二つのテキストの差分
 
-標的にしたWebページ <http://demoaut-mimic.kazurayam.com/> のDiffに赤い塗り潰しを見つけて「おや？どうしてこうなったんだ」と気づいたら、あなたは次に、WebページのHTMLソースコードのどこがどのように違っているのか、確かめたくなるでしょう。その疑問に即答するために、WebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
+標的にしたWebページ <http://demoaut-mimic.kazurayam.com/> のスクリーンショットのなかに赤く塗りさされた箇所を見つけて「おや？何だこれは」と思ったら、あなたは次に、WebページのHTMLソースコードのどこがどのように違っていたのか、確かめたくなるでしょう。その疑問に即答するために、WebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
 
 ![HTMLsource diff](https://kazurayam.github.io/inspectus4katalon-sample-project/images/HTMLsource_diff.png)
 
@@ -73,15 +73,15 @@ HTMLソースコードだけでなく他のさまざまな形式のテキスト�
 
 ### スクリーンショットの一覧
 
-自分が運営するwebサイトのスクリーンショットをたくさん撮って一覧を作りたい、差分検査はとりあえず要らない。そういうシンプルな要求を満たすための機能もサポートしています。次のデモを見てください。検索サイト [DuckDuckGo](https://duckduckgo.com/?) をブラウザで開いて、キーワード `selenium` を指定してENTERし検索結果を見る。その過程で画面のスクリーンショットとHTMLソースを取得し保存する。最後に一覧をHTMLとして生成する。これだけのことをしたデモです。
+自分が運営するwebサイトのスクリーンショットを撮って一覧レポートを作りたい、ただし差分の検査はとりあえず要らない。そういうシンプルな要求を満たすための機能もサポートしています。次のデモを見てください。検索サイト [DuckDuckGo](https://duckduckgo.com/?) をブラウザで開いて、キーワード `selenium` を指定してENTERし検索結果を見る。その過程で画面のスクリーンショットとHTMLソースを取得し保存する。最後に一覧をHTMLとして生成する。それだけのことをしたサンプルです。
 
 -   [DuckDuckGoのスクリーンショット一覧のデモ](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20221213_080436.html)
 
-![DuckDuckGo small](images/DuckDuckGo_small.png)
+![DuckDuckGo small](https://kazurayam.github.io/inspectus4katalon-sample-project/images/DuckDuckGo_small.png)
 
 ## Katalon Studioを準備する
 
-前に紹介したサンプルを出力するプロジェクトをあなたのPCで動かしてみましょう。環境を準備することから始めましょう。あなたが Windows10 のPCを持っていてインターネットに接続可能であると前提します。ツール類を未だインストールしていないと前提して一から説明します。
+前に紹介した `store/index.html` を出力するプロジェクトをあなたのPCで動かしてみましょう。環境を準備することから始めましょう。あなたが Windows10 のPCを持っていてインターネットに接続可能であると前提します。Javaをはじめとするツール類をまったく持っていないと前提して最初から説明します。
 
 ### Katalon Studioをインストールする
 
@@ -93,13 +93,13 @@ HTMLソースコードだけでなく他のさまざまな形式のテキスト�
 
 "Katalon Studio - Platform Edition" はGUIつきフル機能搭載の製品で有償です。"Katalon Runtime Engine" はCI/CD環境用でコマンドラインでGUI無しに実行するためのバイナリで有償です。これら三種類の製品どれでも Visual Inspection を動かすことができますが、Visual Inspectionのために有償版は必要ありません。
 
-DOWNLOADボタンを押すと "Create a Katalon account" つまりKatalonユーザとしてあなた個人用のアカウントを登録しろと案内されます。
+Downloadボタンを押すと "Create a Katalon account" つまりKatalonユーザとしてあなた個人用のアカウントを登録しろと案内されます。
 
 ![Sign up Katalon Software Quality Management Platform](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Sign-up-Katalon-Software-Quality-Management-Platform.png)
 
-無償版を使う場合には Full name と Email と Password に適当な文字を入力すればOK。後で必要になるのでメモしておきましょう。別のデータベースと照合して認証するような手の込んだことはしていないようです。有償版を使う場合にはEmailアドレスについて一定の条件を満たすよう求められますがここでは述べません。
+無償版を使う場合には Full name と Email と Password に適当な文字を入力すればOK。後で必要になるのでメモしておきましょう。有償版を使う場合にはEmailアドレスについて一定の条件を満たすよう求められますがここでは述べません。
 
-Standalone EditionのzipファイルをPCにダウンロードしたらダブルクリックして `Katalon_Studio_Windows_64-x.x.x` フォルダを展開しましょう。どこに配置するかに注意が必要です。あなたのWindowsユーザがフルにWRITE権限を持っているフォルダの下に配置することが必要です。たとえば `C:\Users\あなたのWindowsユーザ名\Katalon_Studio_Windows_64-x.x.x` フォルダを作るのが良いでしょう。しかし `C:\Program Files` フォルダの下に置くとWRITE権限が足りなくてエラーが発生するかもしれない。避けるべきです。`C:\Users\あなたのWindowsユーザ名\Documents` フォルダはひょっとしたら OneDrive と連携して自動バックアップをとる構成になっているかもしれなくて、そこに大きなバイナリを置くのは避けたほうがいいでしょう。
+Standalone EditionのzipファイルをPCにダウンロードしたらダブルクリックして `Katalon_Studio_Windows_64-x.x.x` フォルダを展開しましょう。どこに配置するかに注意が必要です。あなたのWindowsユーザがフルにWRITE権限を持っているフォルダの下に配置することが必要です。たとえば `C:\Users\あなたのWindowsユーザ名\Katalon_Studio_Windows_64-x.x.x` フォルダを作るのが良いでしょう。しかし `C:\Program Files` フォルダの下に置くとWRITE権限が足りなくてエラーが発生するかもしれない。避けるべきです。`C:\Users\あなたのWindowsユーザ名\Documents` フォルダはひょっとしたら OneDrive と連携して自動バックアップをとる構成になっているかもしれない。そこに大きなバイナリを置くのは避けたほうがいいでしょう。
 
 ### Katalon StudioのGUIを起動してユーザー登録をする
 
@@ -107,29 +107,29 @@ Standalone EditionのzipファイルをPCにダウンロードしたらダブル
 
 ![katalon.exe](https://kazurayam.github.io/inspectus4katalon-sample-project/images/katalonexe.png)
 
-初めて起動したとき「SmartScanが」どうこうとか、「Defenderファイアウオールでブロックされています」とかセキュリティに絡む忠告をされるかもしれないが、あまり気にせず許可してしまいましょう。
+初めて起動したときWindowsが「SmartScanが」どうこうとか「Defenderファイアウオールでブロックされています」とかセキュリティに絡む忠告をするかもしれないがあまり気にせず許可してしまいましょう。
 
-Katalon Studioを起動した時、一度だけ、先ほど登録したKatalonユーザとしてのFull nameとEmailとPasswordの入力を求められます。先ほどメモした文字をタイプすればそれでおしまい。有償版だと自社が購入したライセンスの上限の範囲内にユーザ数が収まっているかどうかのチェックがこの段階で作動します。
+Katalon Studioを起動した時、一度だけ、先ほど登録したKatalonユーザとしてのFull nameとEmailとPasswordの入力を求められます。先ほどメモした文字をタイプすればそれでおしまい。有償版だと実働ユーザ数が購入済みライセンスの上限内に収まっているかどうかのチェックがこの段階で作動します。
 
 ### Katalon Studio全体にわたる設定をする
 
 #### Proxyを設定する
 
-あなたが会社で仕事で使うPCがプライベートな組織内ネットワークに収容されていて、インターネットにアクセスするのにイントラネットとインターネットの結節点としてのProxyサーバを通過しなければならない環境にあるかもしれない。その場合、Katalon Studioに自社のProxyサーバのアドレス等を設定してやる必要があります。下記のドキュメントを参照のこと。
+あなたが会社で仕事に使うPCがプライベートな組織内ネットワークに収容されていて、インターネットにアクセスするのにイントラネットとインターネットの結節点としてのProxyサーバを通過しなければならない環境にあるかもしれない。その場合、Katalon StudioにProxyサーバのIPアドレス等を設定してやる必要があります。下記のドキュメントを参照のこと。
 
 -   [Set Proxy Preferences in Katalon Studio](https://docs.katalon.com/docs/get-started/set-up-your-workspace/katalon-studio-preferences/set-proxy-preferences-in-katalon-studio)
 
 #### WebDriverをアップデートする
 
-Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するために WebDriver と呼ばれる外部モジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを同梱していますが、ブラウザが頻繁にバージョン・アップするのでどうしてもzipに格納されたWebDriverモジュールは古くなってしまいます。だからユーザーは自PC上でWebDriverを最新版に更新しなければなりません。この手間仕事を助けるためにKatalon Studioはツールバーに "Update WebDriver" というGUIメニューを備えています。これでWebDriverモジュールをt手早く更新することができます。操作については下記ドキュメントを参照のこと。
+Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するために WebDriver と呼ばれる外部モジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを同梱していますが、ブラウザが頻繁にバージョン・アップするのでどうしてもzipに格納されたWebDriverモジュールは古くなってしまいます。だからユーザーは適宜自PC上でWebDriverを最新版に更新しなければなりません。この手間仕事を助けるためにKatalon Studioはツールバーに "Update WebDriver" というGUIメニューを備えています。これを使ってWebDriverモジュールを手早く更新することができます。操作については下記ドキュメントを参照のこと。
 
 -   [Upgrade or downgradle WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
 
 #### Scrip viewを使う、Manual viewを使わない
 
-UIテストを実行する手順を記述したスクリプトのことをKatalon Studioの用語で Test Case といいます。Test Caseを編集するエディタが装備されているのですが、Test Caseエディタは二つの見た目を備えています。**Manual view** と **Script view** です。Manual viewはぶっちゃけプログラミングのできない人向けのGUIで、Script viewはテキストエディタです。
+UIテストを具体的に記述したGroovyスクリプトのことをKatalon Studioの用語で Test Case といいます。Test Caseを編集するエディタが装備されているのですが、Test Caseエディタは二つの見た目を備えています。**Manual view** と **Script view** です。Manual viewはぶっちゃけプログラミングのできない人向けのGUIで、Script viewはテキストエディタです。
 
-Visual Inspectionを実装するにはScript viewでGroovy言語でコードを書く必要があります。Manual viewは使いません。ところがKatalon Studioの初期設定ではTest Caseをエディタで開いた時にManual viewを優先して表示します。だからScript viewで開くように設定を変更しましょう。
+Visual Inspectionを実装するにはScript viewでGroovyコードを書く必要があります。Manual viewは使いません。ところがKatalon Studioの初期設定ではTest Caseをエディタで開いた時にManual viewを優先して表示します。切り替えるのが煩わしいので最初からScript viewで開くように設定を変更しましょう。
 
 Katalon Studio GUIのツールバー Window &gt; Katalon Studio Preferences &gt; Katalon &gt; Test Case
 
@@ -143,19 +143,19 @@ File &gt; New &gt; Project
 
 ![New Project](https://kazurayam.github.io/inspectus4katalon-sample-project/images/NewProject.png)
 
-ダイアログが開きます。プロジェクトの名前とプロジェクトを作るフォルダを指定します。
+ダイアログが開きます。プロジェクトの名前とプロジェクトをどのフォルダに格納するかを指定します。もちろんあなたの好きなプロジェクト名とフォルダを指定して構いません。
 
 ![New Project dialog](https://kazurayam.github.io/inspectus4katalon-sample-project/images/NewProject_dialog.png)
 
-これでOKすると `C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject` フォルダが作られ、そのなかに初期状態のフォルダとファイル群が自動生成されます。
+上記のように入力してOKすると `C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject` フォルダが作られ、そのなかに初期状態のフォルダとファイル群が自動生成されます。
 
 ### プロジェクトを設定する
 
-上記で作ったプロジェクトの属性をいくつかカスタマイズしておきます。
+新規に作ったプロジェクトの設定をいくつかカスタマイズしておきます。
 
 #### ブラウザの種類を選ぶ
 
-テストスクリプトがどのWebブラウザを開くかをテスト実行時に選択することができます。ただしデフォルトとしてどれを起動するかを設定しておくことができます。
+テスト・スクリプトがWebDriverを介してどのWebブラウザを開くかをテスト実行時に選択することができます。Chrome、FireFox、Edge、Safari…​。ただしブラウザを指定せずに ![run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) ボタンを押してデフォルトとして設定されたブラウザを開くこともできる。どのブラウザを起動するかを設定しておくことができます。
 
 Project &gt; Settings &gt; Execution
 
@@ -165,7 +165,7 @@ Project &gt; Settings &gt; Execution
 
 #### TestOpsを使わない
 
-Katalon社が提供する [TestOps](https://katalon.com/testops)というサービスがあります。Katalon StudioとTestOpsのサーバと通信させていろいろやる。デフォルトではTestOpsとの連携が ON になっています。Visual InspectionをするためにTest Opsとの連携は不要。テストの実行が遅くなるし。OFFにしましょう。
+Katalon社が提供する [TestOps](https://katalon.com/testops)というサービスがあります。PC上で動くKatalon Studioとインターネット上のサーバで動くTestOpsとを通信させていろいろやる。ただしテストの所要時間がちょっと延びる。デフォルトではTestOpsと連携するように設定されています。しかしVisual InspectionをするためにTest Opsとの連携は不要です。OFFにしましょう。
 
 Project &gt; Settings &gt; Katalon TestOps
 
@@ -181,7 +181,7 @@ Project &gt; Settings &gt; Katalon TestCloud
 
 #### Smart Waitを使わない
 
-Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitは場合によって悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過してまだ終わらないなんてことがたまに起きる。困ったことにSmart WaitがデフォルトでONになっています。ぜひOFFにしましょう。
+Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitはときどき悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過したのにまだ終わらないなんてことがたまに起きる。Smart WaitはデフォルトでONの設定になっています。ぜひOFFにしましょう。
 
 Project &gt; Settings &gt; Execution &gt; WebUI
 
@@ -189,25 +189,25 @@ Project &gt; Settings &gt; Execution &gt; WebUI
 
 #### Log Viewerを軽量化する
 
-Katalon StudioのGUIの下部にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくといいことがあります。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示しようとするのだが、画面表示の処理が重すぎてテストの開始から終了までの所要時間を長くする原因になる。だからLog Viewerに表示するログを絞り込むのが得策です。
+Katalon StudioのGUIの右下にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくべきです。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示する処理が重すぎてテスト開始から終了までの所要時間を長くする原因になる。LogViewerのせいで [本来なら１分で終わるテストが５分以上かかる](https://forum.katalon.com/t/log-viewer-slows-down-your-tests-how-to-prevent-it/60252) ことがKatalon Studioではザラです。だからLog Viewerを何とかして処理を軽くしておくべきです。
 
 ![Log Viewer](https://kazurayam.github.io/inspectus4katalon-sample-project/images/LogViewer.png)
 
-まずLog Viewerの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。![tree view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png) これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFして、テーブル形式の表示を選びましょう。Tree表示はCPU負荷が大きく処理遅延の原因になります。
+まずろぐ表示エリアの右上隅にボタンが並んでいるなかにこういうトグルボタンがある。![tree view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png) これを押した状態だと ログ表示部分が Tree 形式になります、ボタンを離した状態だと ログ表示部分がテーブル形式になります、このボタンをOFFして、テーブル形式の表示を選びましょう。Tree表示はCPU負荷が大きく処理遅延の原因になるので使うべきでありません。
 
-ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。ボタンのラベルが ALL、Info、Passed、Failed、Error、Warning、Not Run となっている。デフォルトでは ALLボタン がONになっています。ALLがONだと "START" "END" というログがたくさん出力される。このログは役に立たないし、あまりにたくさん出力されるのでCPUを圧迫します。ALLを必ずOFFにしましょう。
+ログ表示部をテーブル形式にすると、左側にボタンが並んで表示されます。All、Info、Passed、Failed、Error、Warning、Not Run とラベルされたボタンがあって、デフォルトでは Allボタン がONになっています。AllがONだと "START xxxx" "END xxxx" というログが大量に出力されます。このログは役に立たないし、あまりに多いので処理遅延の原因になります。Allを必ずOFFにしましょう。
 
-以上でKatalon Studioとプロジェクトの設定が出来ました。
+以上で `MyVisualInspectionProject` プロジェクトを設定することができました。
 
-### Katalon Studioで初めてのTest Caseを作って動かしてみる
+### 初めてのTest Caseを作って動かしてみる
 
-では　Katalon Studioのプロジェクトのなかにごく単純なTest Caseスクリプトを作って実行してみましょう。わたしは `Test Cases/sample/47news` を作りました。内容は下記の通り。
+では　Katalon Studioのプロジェクトにごく単純なTest Caseスクリプトをひとつ作って実行してみましょう。わたしは `Test Cases/sample/47news` を作りました。内容は下記の通り。
 
 1.  Webブラウザを開き
 
-2.  あるURLを表示して
+2.  或るURLを表示して
 
-3.  ちょっと待って
+3.  数秒待って
 
 4.  ブラウザを閉じる
 
@@ -328,23 +328,19 @@ SDKMAN!のコマンドについてはドキュメント [SDKMAN! usage](https://
 
 ## 自作のKatalonプロジェクトにVisual Inspectionを組み込む
 
-あなたが某webサイトを画面確認する仕事を自動化したいと思ったとします。Katalon Studioをインストールし、ビルドツール Gradle を動かす準備もできました。ではKatalon Studioでプロジェクトを作りましょう。
+Katalon Studioをインストールし、ビルドツール Gradle を動かす準備もできました。ではKatalon Studioでプロジェクトを作って画面確認を自動化しましょう。
 
-Katalonプロジェクトの作り方は前に説明しました。以下では `C:\Users\あなたのWindowsユーザ名\katalon-project` フォルダのなかに `MyVisualInspectionProject` という名前のプロジェクトを作ったと仮定して説明します。
+Katalonプロジェクトの作り方は前に説明しました。以下では `C:\Users\あなたのWindowsユーザ名\katalon-projects` フォルダのなかに `MyVisualInspectionProject` という名前のプロジェクトを作ったと仮定して説明します。
 
-`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成した。ただし実際のところKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし、書き換えてもKatalon Studio本体の動きには影響しません。
+`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成しました。ただし実はKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし書きかえてもKatalon Studio本体の動きには影響しません。
 
-build.gradleファイルをテキストエディタで下記のように書きかえて保存します。
+そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
 
     plugins {
       id 'com.kazurayam.inspectus4katalon' version "0.3.4"
     }
 
-`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
-
-Katalon Studioを一旦停止してください。
-
-そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。
+Katalon Studioを一旦停止してください。そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。
 
     $ cd ~/katalon-projects/MyVisualInspectionProject
 
@@ -354,12 +350,12 @@ Katalon Studioを一旦停止してください。
 
     $ gradle deploy-visual-inspection-sample-for-katalon
 
-すると次のようなメッセージが出力されコマンドか完了するはず。
+すると次のようなメッセージが出力されるはず。
 
     Starting a Gradle Daemon (subsequent builds will be faster)
 
     > Task :deploy-visual-inspection-sample-for-katalon
-    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\uraya\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
+    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
     ... Include/data/MyAdmin/targetList.csv
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment.rs
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Apply for hospital readmission.rs
@@ -404,11 +400,11 @@ Katalon Studioを一旦停止してください。
     BUILD SUCCESSFUL in 16s
     1 actionable task: 1 executed
 
-`` deploy-visual-inspection-sample-for-katalon`タスクが何をやっているかというと、inspectus4katalon-sample-projectレポジトリのReleasesページ に `distributable.zip `` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
+`deploy-visual-inspection-sample-for-katalon` タスクが何をやったか？ GitHub上にある inspectus4katalon-sample-projectレポジトリの [Releasesページ](https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4) に `distributable.zip` ファイルが添付されている。このzipのなかにVisual Inspectionのサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはzipファイルをダウンロードして解凍し、カレント・ディレクトリに上書きします。上記のメッセージはこの時copyされたファイルのパスを表示しています。
 
 ### gradle driversタスク
 
-`gradle drivers` というコマンドを実行します。
+もうひとつ、コマンドを実行します。
 
     kazurayam@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
 
@@ -427,39 +423,37 @@ Katalon Studioを一旦停止してください。
     BUILD SUCCESSFUL in 7s
     1 actionable task: 1 executed
 
-このコマンがが完了すると、MyVisualInspectionProjectのルートフォルダの直下にある `Drivers` フォルダのなかにいくつかのjarファイルがダウンロードされて配置されます。
+このコマンドが完了すると、MyVisualInspectionProjectのルートフォルダの直下にある `Drivers` フォルダのなかにいくつかのjarファイルが配置されます。確認してみましょう。
 
     kazurayam@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
     $ ls -la ./Drivers
     total 2696
-    drwxr-xr-x 1 uraya 197609       0 12月 22 23:09 ./
-    drwxr-xr-x 1 uraya 197609       0 12月 22 22:54 ../
-    -rw-r--r-- 1 uraya 197609   54351 12月 22 23:09 AUTOIMPORTED_ashot-1.5.4.jar
-    -rw-r--r-- 1 uraya 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
-    -rw-r--r-- 1 uraya 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
-    -rw-r--r-- 1 uraya 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
-    -rw-r--r-- 1 uraya 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
-    -rw-r--r-- 1 uraya 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
-    -rw-r--r-- 1 uraya 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
-    -rw-r--r-- 1 uraya 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
+    drwxr-xr-x 1 kazurayam 197609       0 12月 22 23:09 ./
+    drwxr-xr-x 1 kazurayam 197609       0 12月 22 22:54 ../
+    -rw-r--r-- 1 kazurayam 197609   54351 12月 22 23:09 AUTOIMPORTED_ashot-1.5.4.jar
+    -rw-r--r-- 1 kazurayam 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
+    -rw-r--r-- 1 kazurayam 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
+    -rw-r--r-- 1 kazurayam 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
+    -rw-r--r-- 1 kazurayam 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
+    -rw-r--r-- 1 kazurayam 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
+    -rw-r--r-- 1 kazurayam 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
+    -rw-r--r-- 1 kazurayam 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
 
-これらはVisual Inspectionを実行するのに必要な外部モジュールで、Katalon Studio本体のzipには同梱されていなかったものです。`materialstore` と `inspecuts` というモジュールがVisual Inspectionの実体です。どちらも [Maven Centralレポジトリ](https://mvnrepository.com/artifact/com.kazurayam) で公開しています。
+これらはVisual Inspectionを実行するのに必要な外部モジュールです。しかしKatalon Studio本体のzipには同梱されていなかったもので、正味追加しなければならないものです。 [`materialstore`](https://github.com/kazurayam/materialstore) と [`inspectus`](https://github.com/kazurayam/inspectus) というjarファイルがVisual Inspectionの実装コードを格納しています。どちらもkazurayamが開発して [Maven Centralレポジトリ](https://mvnrepository.com/artifact/com.kazurayam) で公開しています。
 
 ## Visual Inspectionのテストコードを実行してみる
 
-さてKatalon Studioを再起動しましょう。MyVisualInspectionProjectを開いてください。画面左側に `Test Cases` フォルダがある。そこを開くと `CURA`、`DucDuckGo`、 `MyAdmin` というフォルダがある。それらフォルダを開くと `main` という名前のTest Caseがあります。
+さてKatalon Studioを再起動しましょう。MyVisualInspectionProjectを開いてください。画面左側に `Test Cases` フォルダがある。そこを開くと `CURA`、`DuckDuckGo`、 `MyAdmin` というフォルダがある。それらフォルダを開くと各々に `main` という名前のTest Caseスクリプトがあります。
 
 ![sample test cases installed](https://kazurayam.github.io/inspectus4katalon-sample-project/images/SampleTestCasesInstalled.png)
 
-それら３つの `main` を各々開いてボタン ![green run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) を押して実行してください。自動化テストが走ります。
+`main` を開いてボタン ![green run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) を押せばスクリプトが実行されます。`main` が走り終わるとプロジェクトのルート直下に `store` という名前のフォルダが作られます。そのなかに `index.html` ができています。
 
-`main` が走り終わるとプロジェクトのルート直下に `store` という名前のフォルダが作られます。そのなかに `index.html` ができています。
+![store/index just created](https://kazurayam.github.io/inspectus4katalon-sample-project/images/store_index_just_created.png)
 
-[store/index just created](https://kazurayam.github.io/inspectus4katalon-sample-project/images/store_index_just_created.png)
+ただしKatalon Studioに不具合があって、プロジェクトのフォルダの直下に作られた `store` フォルダをただちに表示してくれません。いったんMyVisualInspectionProjectを閉じてもう一度開いてください。そうすれば `store` フォルダが見えるはず。
 
-ただしKatalon Studioにはちょっと不具合があって、ルート直下に作られた `store` フォルダを直ちに表示してくれません。いったんMyVisualInspectionProjectを閉じてもう一度開いてください。そうすれば `store` フォルダが見えるはず。
-
-ダブルクリックすればブラウザで開きます。それこそが本記事の冒頭で紹介したサンプル
+`index.html` をダブルクリックすればブラウザで開きます。それこそが本投稿の冒頭で紹介したサンプル
 
 -   [store/index](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
 
@@ -467,4 +461,4 @@ Katalon Studioを一旦停止してください。
 
 ## 結論
 
-Webサイトの画面確認を自動化するツール Visual Inspection を紹介しました。読者がVisual Inspectionを応用して自分の興味あるWebサイトの画面確認を自動化するツールを構築することがきます。本記事では、環境を準備する手順とサンプルコードを動かす手順を説明した。読者が自分の仕事に役立つツールを構築するには、サンプルを参照しつつGroovy言語でプログラムコードを書く必要があります。本記事ではプログラミングの詳細までは説明しません。別の記事で述べようと思います。
+わたしが開発したWebサイトの画面確認を自動化するツール Visual Inspection を紹介しました。読者がVisual Inspectionを応用して自分の興味あるWebサイトの画面確認を自動化するツールを構築することがきます。本投稿では、実行環境を作る手順とサンプルコードを説明しました。読者が自分の仕事に役立つツールを構築するには、対象となるWebサイトのスクリーンショットを撮る処理をGroovy言語で自作する必要があります。長くなるのでここではプログラミングの詳細を説明しません。別の投稿で述べようと思います。
