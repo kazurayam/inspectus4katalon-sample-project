@@ -328,23 +328,19 @@ SDKMAN!のコマンドについてはドキュメント [SDKMAN! usage](https://
 
 ## 自作のKatalonプロジェクトにVisual Inspectionを組み込む
 
-あなたが某webサイトを画面確認する仕事を自動化したいと思ったとします。Katalon Studioをインストールし、ビルドツール Gradle を動かす準備もできました。ではKatalon Studioでプロジェクトを作りましょう。
+Katalon Studioをインストールし、ビルドツール Gradle を動かす準備もできました。ではKatalon Studioでプロジェクトを作って画面確認を自動化しましょう。
 
-Katalonプロジェクトの作り方は前に説明しました。以下では `C:\Users\あなたのWindowsユーザ名\katalon-project` フォルダのなかに `MyVisualInspectionProject` という名前のプロジェクトを作ったと仮定して説明します。
+Katalonプロジェクトの作り方は前に説明しました。以下では `C:\Users\あなたのWindowsユーザ名\katalon-projects` フォルダのなかに `MyVisualInspectionProject` という名前のプロジェクトを作ったと仮定して説明します。
 
-`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成した。ただし実際のところKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし、書き換えてもKatalon Studio本体の動きには影響しません。
+`MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成しました。ただし実はKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし書きかえてもKatalon Studio本体の動きには影響しません。
 
-build.gradleファイルをテキストエディタで下記のように書きかえて保存します。
+そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
 
     plugins {
       id 'com.kazurayam.inspectus4katalon' version "0.3.4"
     }
 
-`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
-
-Katalon Studioを一旦停止してください。
-
-そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。
+Katalon Studioを一旦停止してください。そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。
 
     $ cd ~/katalon-projects/MyVisualInspectionProject
 
@@ -354,12 +350,12 @@ Katalon Studioを一旦停止してください。
 
     $ gradle deploy-visual-inspection-sample-for-katalon
 
-すると次のようなメッセージが出力されコマンドか完了するはず。
+すると次のようなメッセージが出力されるはず。
 
     Starting a Gradle Daemon (subsequent builds will be faster)
 
     > Task :deploy-visual-inspection-sample-for-katalon
-    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\uraya\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
+    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
     ... Include/data/MyAdmin/targetList.csv
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment.rs
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Apply for hospital readmission.rs
@@ -404,11 +400,11 @@ Katalon Studioを一旦停止してください。
     BUILD SUCCESSFUL in 16s
     1 actionable task: 1 executed
 
-`` deploy-visual-inspection-sample-for-katalon`タスクが何をやっているかというと、inspectus4katalon-sample-projectレポジトリのReleasesページ に `distributable.zip `` ファイルがある。そのなかにサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはこのzipファイルをダウンロードして解凍して、Katalonプロジェクトのなかに上書きします。上記のメッセージはここで展開されたファイルの名前を表示しています。
+`deploy-visual-inspection-sample-for-katalon` タスクが何をやったか？ GitHub上にある inspectus4katalon-sample-projectレポジトリの [Releasesページ](https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4) に `distributable.zip` ファイルが添付されている。このzipのなかにVisual Inspectionのサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはzipファイルをダウンロードして解凍し、カレント・ディレクトリに上書きします。上記のメッセージはこの時copyされたファイルのパスを表示しています。
 
 ### gradle driversタスク
 
-`gradle drivers` というコマンドを実行します。
+もうひとつ、コマンドを実行します。
 
     kazurayam@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
 
@@ -427,39 +423,37 @@ Katalon Studioを一旦停止してください。
     BUILD SUCCESSFUL in 7s
     1 actionable task: 1 executed
 
-このコマンがが完了すると、MyVisualInspectionProjectのルートフォルダの直下にある `Drivers` フォルダのなかにいくつかのjarファイルがダウンロードされて配置されます。
+このコマンドが完了すると、MyVisualInspectionProjectのルートフォルダの直下にある `Drivers` フォルダのなかにいくつかのjarファイルが配置されます。確認してみましょう。
 
     kazurayam@DESKTOP-VQERHGD MINGW64 ~/katalon-projects/MyVisualInspectionProject
     $ ls -la ./Drivers
     total 2696
-    drwxr-xr-x 1 uraya 197609       0 12月 22 23:09 ./
-    drwxr-xr-x 1 uraya 197609       0 12月 22 22:54 ../
-    -rw-r--r-- 1 uraya 197609   54351 12月 22 23:09 AUTOIMPORTED_ashot-1.5.4.jar
-    -rw-r--r-- 1 uraya 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
-    -rw-r--r-- 1 uraya 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
-    -rw-r--r-- 1 uraya 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
-    -rw-r--r-- 1 uraya 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
-    -rw-r--r-- 1 uraya 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
-    -rw-r--r-- 1 uraya 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
-    -rw-r--r-- 1 uraya 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
+    drwxr-xr-x 1 kazurayam 197609       0 12月 22 23:09 ./
+    drwxr-xr-x 1 kazurayam 197609       0 12月 22 22:54 ../
+    -rw-r--r-- 1 kazurayam 197609   54351 12月 22 23:09 AUTOIMPORTED_ashot-1.5.4.jar
+    -rw-r--r-- 1 kazurayam 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
+    -rw-r--r-- 1 kazurayam 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
+    -rw-r--r-- 1 kazurayam 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
+    -rw-r--r-- 1 kazurayam 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
+    -rw-r--r-- 1 kazurayam 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
+    -rw-r--r-- 1 kazurayam 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
+    -rw-r--r-- 1 kazurayam 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
 
-これらはVisual Inspectionを実行するのに必要な外部モジュールで、Katalon Studio本体のzipには同梱されていなかったものです。`materialstore` と `inspecuts` というモジュールがVisual Inspectionの実体です。どちらも [Maven Centralレポジトリ](https://mvnrepository.com/artifact/com.kazurayam) で公開しています。
+これらはVisual Inspectionを実行するのに必要な外部モジュールです。しかしKatalon Studio本体のzipには同梱されていなかったもので、正味追加しなければならないものです。 [`materialstore`](https://github.com/kazurayam/materialstore) と [`inspectus`](https://github.com/kazurayam/inspectus) というjarファイルがVisual Inspectionの実装コードを格納しています。どちらもkazurayamが開発して [Maven Centralレポジトリ](https://mvnrepository.com/artifact/com.kazurayam) で公開しています。
 
 ## Visual Inspectionのテストコードを実行してみる
 
-さてKatalon Studioを再起動しましょう。MyVisualInspectionProjectを開いてください。画面左側に `Test Cases` フォルダがある。そこを開くと `CURA`、`DucDuckGo`、 `MyAdmin` というフォルダがある。それらフォルダを開くと `main` という名前のTest Caseがあります。
+さてKatalon Studioを再起動しましょう。MyVisualInspectionProjectを開いてください。画面左側に `Test Cases` フォルダがある。そこを開くと `CURA`、`DuckDuckGo`、 `MyAdmin` というフォルダがある。それらフォルダを開くと各々に `main` という名前のTest Caseスクリプトがあります。
 
 ![sample test cases installed](https://kazurayam.github.io/inspectus4katalon-sample-project/images/SampleTestCasesInstalled.png)
 
-それら３つの `main` を各々開いてボタン ![green run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) を押して実行してください。自動化テストが走ります。
+`main` を開いてボタン ![green run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) を押せばスクリプトが実行されます。`main` が走り終わるとプロジェクトのルート直下に `store` という名前のフォルダが作られます。そのなかに `index.html` ができています。
 
-`main` が走り終わるとプロジェクトのルート直下に `store` という名前のフォルダが作られます。そのなかに `index.html` ができています。
+![store/index just created](https://kazurayam.github.io/inspectus4katalon-sample-project/images/store_index_just_created.png)
 
-[store/index just created](https://kazurayam.github.io/inspectus4katalon-sample-project/images/store_index_just_created.png)
+ただしKatalon Studioにはちょっと不具合があって、ルート直下に作られた `store` フォルダをただちには表示してくれません。いったんMyVisualInspectionProjectを閉じてもう一度開いてください。そうすれば `store` フォルダが見えるはず。
 
-ただしKatalon Studioにはちょっと不具合があって、ルート直下に作られた `store` フォルダを直ちに表示してくれません。いったんMyVisualInspectionProjectを閉じてもう一度開いてください。そうすれば `store` フォルダが見えるはず。
-
-ダブルクリックすればブラウザで開きます。それこそが本記事の冒頭で紹介したサンプル
+`index.html` をダブルクリックすればブラウザで開きます。それこそが本記事の冒頭で紹介したサンプル
 
 -   [store/index](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/index.html)
 
@@ -467,4 +461,4 @@ Katalon Studioを一旦停止してください。
 
 ## 結論
 
-Webサイトの画面確認を自動化するツール Visual Inspection を紹介しました。読者がVisual Inspectionを応用して自分の興味あるWebサイトの画面確認を自動化するツールを構築することがきます。本記事では、環境を準備する手順とサンプルコードを動かす手順を説明した。読者が自分の仕事に役立つツールを構築するには、サンプルを参照しつつGroovy言語でプログラムコードを書く必要があります。本記事ではプログラミングの詳細までは説明しません。別の記事で述べようと思います。
+わたしが開発したWebサイトの画面確認を自動化するツール Visual Inspection を紹介しました。読者がVisual Inspectionを応用して自分の興味あるWebサイトの画面確認を自動化するツールを構築することがきます。本記事では、実行環境を作る手順とサンプルコードを説明しました。読者が自分の仕事に役立つツールを構築するには、対象となるWebサイトのスクリーンショットを撮る処理をGroovy言語で自作する必要があります。長くなるのでここではプログラミングの詳細を説明しません。別の記事で述べようと思います。
