@@ -14,7 +14,7 @@ inspectus4katalon {
 }
  */
 
-task indexconv {
+task publishdocs {
   doLast {
     exec {
       workingDir './docs'
@@ -26,7 +26,7 @@ task indexconv {
     }
     exec {
       workingDir '.'
-      commandLine 'git', 'commit',  'update_docs'
+      commandLine 'git', 'commit', '-m', 'update_docs'
     }
   }
 }
