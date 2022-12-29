@@ -14,6 +14,22 @@ inspectus4katalon {
 }
  */
 
+task indexconv {
+  doLast {
+    exec {
+      workingDir './docs'
+      commandLine './indexconv.sh', '-t'
+    }
+    exec {
+      workingDir '.'
+      commandLine 'git', 'add', 'docs/'
+    }
+    exec {
+      workingDir '.'
+      commandLine 'git', 'commit',  'update_docs'
+    }
+  }
+}
 
 task distributable(type: Zip) {
     archiveName "distributable.zip"

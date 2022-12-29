@@ -34,7 +34,7 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Left-D
 
 === 二つのテキストの差分
 
-標的にしたWebページ link:http://demoaut-mimic.kazurayam.com/[] のスクリーンショットのなかに赤く塗りさされた箇所を見つけて「おや？何だこれは」と思ったら、あなたは次に、WebページのHTMLソースコードのどこがどのように違っていたのか、確かめたくなるでしょう。その疑問に即答するために、WebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
+標的にしたWebページ link:http://demoaut-mimic.kazurayam.com/[] のスクリーンショットのなかに赤いところを見つけて「おや？何だこれは」と思ったら、あなたは次に、WebページのHTMLソースコードのどこがどのように違っていたのか、確かめたくなるでしょう。その疑問に即答するために、WebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
 
 image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/HTMLsource_diff.png[]
 
@@ -155,7 +155,7 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/TestCl
 
 ==== Smart Waitを使わない
 
-Katalon Studioは link:https://katalon.com/resources-center/blog/handle-selenium-wait[Smart Wait] という小技を備えています。Smart Waitはときどき悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過したのにまだ終わらないなんてことがたまに起きる。Smart WaitはデフォルトでONの設定になっています。ぜひOFFにしましょう。
+Katalon Studioは link:https://katalon.com/resources-center/blog/handle-selenium-wait[Smart Wait] という小技を備えています。Smart Waitはときどき悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過したのにまだ終わらないなんてことがたまに起きる。Smart WaitはデフォルトでEnabledの設定になっています。ぜひDisabledにしましょう。
 
 Project > Settings > Execution > WebUI
 
@@ -164,7 +164,7 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/SmartW
 
 ==== Log Viewerを軽量化する
 
-Katalon StudioのGUIの右下にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくべきです。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示する処理が重すぎてテスト開始から終了までの所要時間を長くする原因になる。LogViewerのせいで link:https://forum.katalon.com/t/log-viewer-slows-down-your-tests-how-to-prevent-it/60252[本来なら１分で終わるテストが５分以上かかる] ことがKatalon Studioではザラです。だからLog Viewerを何とかして処理を軽くしておくべきです。
+Katalon StudioのGUIの右下にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくべきです。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示する処理が重すぎてテスト開始から終了までの所要時間を長くする原因になる。LogViewerのせいで link:https://forum.katalon.com/t/log-viewer-slows-down-your-tests-how-to-prevent-it/60252[本来なら１分で終わるテストが５分以上かかる] なんてことが発生しうる。だからLog Viewerを軽量化しておきましょう。
 
 image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/LogViewer.png[Log Viewer]
 
@@ -240,9 +240,8 @@ image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/git_ba
 
 SDKMAN!のページ　link:https://sdkman.io/[SDKMAN!] をみると、terminalでこのコマンドを実行しろ！と書いてあります。
 
-```
-curl -s "https://get.sdkman.io" | bash
-```
+
+`curl -s "https://get.sdkman.io" | bash`
 
 Git Bashのウインドウを開いてこのコマンドを実行してください。
 
@@ -266,18 +265,19 @@ SDKMAN!のコマンドについてはドキュメント link:https://sdkman.io/u
 ではSDKMAN!を使ってJavaをインストールしましょう。Git Bashのコマンドラインで下記のコマンドを実行します。
 
 [source, text]
----
+----
 $ sdk install java
----
+----
 
 だー〜っとメッセージが出力されて終了したらJavaの最新安定版がインストールされているはず。javaコマンドを動かしてみましょう。
 
-```
+[source, text]
+----
 $ java --verison
 openjdk 17.0.5 2022-10-18
 OpenJDK Runtime Environment Temurin-17.0.5+8 (build 17.0.5+8)
 OpenJDK 64-BIt Server VM Temurin-17.0.5+8 (build 17.0.5+8, mixed mode, sharing)
-```
+----
 
 こんな感じの応答があれば大丈夫。別バージョンでもかまいません。
 
@@ -286,9 +286,9 @@ OpenJDK 64-BIt Server VM Temurin-17.0.5+8 (build 17.0.5+8, mixed mode, sharing)
 続けてSDKMAN!を使ってGradleをインストールしましょう。Git Bashのコマンドラインで下記のコマンドを実行します。
 
 [source, text]
----
+----
 $ sdk install gradle
----
+----
 
 だー〜っとメッセージが出力されて終了したらGradleの最新安定版がインストールされているはず。gradleコマンドを動かしてみましょう。
 

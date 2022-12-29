@@ -65,7 +65,7 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 ### 二つのテキストの差分
 
-標的にしたWebページ <http://demoaut-mimic.kazurayam.com/> のスクリーンショットのなかに赤く塗りさされた箇所を見つけて「おや？何だこれは」と思ったら、あなたは次に、WebページのHTMLソースコードのどこがどのように違っていたのか、確かめたくなるでしょう。その疑問に即答するために、WebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
+標的にしたWebページ <http://demoaut-mimic.kazurayam.com/> のスクリーンショットのなかに赤いところを見つけて「おや？何だこれは」と思ったら、あなたは次に、WebページのHTMLソースコードのどこがどのように違っていたのか、確かめたくなるでしょう。その疑問に即答するために、WebページのHTMLソースをブラウザから取り出して記録として保存しています。下記の画像は二つのHTMLのdiffを表示している例です。
 
 ![HTMLsource diff](https://kazurayam.github.io/inspectus4katalon-sample-project/images/HTMLsource_diff.png)
 
@@ -181,7 +181,7 @@ Project &gt; Settings &gt; Katalon TestCloud
 
 #### Smart Waitを使わない
 
-Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitはときどき悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過したのにまだ終わらないなんてことがたまに起きる。Smart WaitはデフォルトでONの設定になっています。ぜひOFFにしましょう。
+Katalon Studioは [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait) という小技を備えています。Smart Waitはときどき悪さをします。本当なら３０秒で終わるはずのテストがSmart Waitのせいで２０分経過したのにまだ終わらないなんてことがたまに起きる。Smart WaitはデフォルトでEnabledの設定になっています。ぜひDisabledにしましょう。
 
 Project &gt; Settings &gt; Execution &gt; WebUI
 
@@ -189,7 +189,7 @@ Project &gt; Settings &gt; Execution &gt; WebUI
 
 #### Log Viewerを軽量化する
 
-Katalon StudioのGUIの右下にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくべきです。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示する処理が重すぎてテスト開始から終了までの所要時間を長くする原因になる。LogViewerのせいで [本来なら１分で終わるテストが５分以上かかる](https://forum.katalon.com/t/log-viewer-slows-down-your-tests-how-to-prevent-it/60252) ことがKatalon Studioではザラです。だからLog Viewerを何とかして処理を軽くしておくべきです。
+Katalon StudioのGUIの右下にログを表示するエリアがあります。Log Viewerというタブがある。ここを適切に設定しておくべきです。というのもKatalon Studioはテスト実行時にログを大量に吐き出すから。大量のログをLog Viewerに表示する処理が重すぎてテスト開始から終了までの所要時間を長くする原因になる。LogViewerのせいで [本来なら１分で終わるテストが５分以上かかる](https://forum.katalon.com/t/log-viewer-slows-down-your-tests-how-to-prevent-it/60252) なんてことが発生しうる。だからLog Viewerを軽量化しておきましょう。
 
 ![Log Viewer](https://kazurayam.github.io/inspectus4katalon-sample-project/images/LogViewer.png)
 
@@ -272,7 +272,7 @@ Gradleを使うために準備が必要です。道筋を先に説明しまし�
 
 SDKMAN!のページ　[SDKMAN!](https://sdkman.io/) をみると、terminalでこのコマンドを実行しろ！と書いてあります。
 
-    curl -s "https://get.sdkman.io" | bash
+`curl -s "https://get.sdkman.io" | bash`
 
 Git Bashのウインドウを開いてこのコマンドを実行してください。
 
@@ -292,9 +292,7 @@ SDKMAN!のコマンドについてはドキュメント [SDKMAN! usage](https://
 
 ではSDKMAN!を使ってJavaをインストールしましょう。Git Bashのコマンドラインで下記のコマンドを実行します。
 
-    ---
     $ sdk install java
-    ---
 
 だー〜っとメッセージが出力されて終了したらJavaの最新安定版がインストールされているはず。javaコマンドを動かしてみましょう。
 
@@ -309,9 +307,7 @@ SDKMAN!のコマンドについてはドキュメント [SDKMAN! usage](https://
 
 続けてSDKMAN!を使ってGradleをインストールしましょう。Git Bashのコマンドラインで下記のコマンドを実行します。
 
-    ---
     $ sdk install gradle
-    ---
 
 だー〜っとメッセージが出力されて終了したらGradleの最新安定版がインストールされているはず。gradleコマンドを動かしてみましょう。
 
