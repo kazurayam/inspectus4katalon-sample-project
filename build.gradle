@@ -41,5 +41,9 @@ task publishdocs {
       workingDir '.'
       commandLine 'git', 'commit', '-m', 'update the docs/'
     }
+    exec {
+      workingDir '.'
+      commandLine 'git', 'push'
+    }
   }
 }
