@@ -14,6 +14,19 @@ inspectus4katalon {
 }
  */
 
+
+
+task distributable(type: Zip) {
+    archiveName "distributable.zip"
+    destinationDir(file('build'))
+    from fileTree('.')
+    include 'Include/data/**/*'
+    include 'Object Repository/CURA/**/*'
+    include 'Profiles/**/*'
+    include 'Scripts/**/*'
+    include 'Test Cases/**/*'
+}
+
 task publishdocs {
   doLast {
     exec {
@@ -26,18 +39,7 @@ task publishdocs {
     }
     exec {
       workingDir '.'
-      commandLine 'git', 'commit', '-m', 'update_docs'
+      commandLine 'git', 'commit', '-m', 'update the docs/'
     }
   }
-}
-
-task distributable(type: Zip) {
-    archiveName "distributable.zip"
-    destinationDir(file('build'))
-    from fileTree('.')
-    include 'Include/data/**/*'
-    include 'Object Repository/CURA/**/*'
-    include 'Profiles/**/*'
-    include 'Scripts/**/*'
-    include 'Test Cases/**/*'
 }
