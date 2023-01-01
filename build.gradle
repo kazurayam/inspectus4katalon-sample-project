@@ -27,12 +27,17 @@ task distributable(type: Zip) {
     include 'Test Cases/**/*'
 }
 
-task publishdocs {
+task indexconv {
   doLast {
     exec {
       workingDir './docs'
       commandLine './indexconv.sh', '-t'
     }
+  }
+}
+
+task publishdocs {
+  doLast {
     exec {
       workingDir '.'
       commandLine 'git', 'add', 'docs/'
@@ -47,3 +52,4 @@ task publishdocs {
     }
   }
 }
+publishdocs.dependsOn indexconv
