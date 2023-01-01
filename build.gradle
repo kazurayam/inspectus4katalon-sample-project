@@ -15,6 +15,7 @@ inspectus4katalon {
  */
 
 
+
 task distributable(type: Zip) {
     archiveName "distributable.zip"
     destinationDir(file('build'))
@@ -25,3 +26,30 @@ task distributable(type: Zip) {
     include 'Scripts/**/*'
     include 'Test Cases/**/*'
 }
+
+task indexconv {
+  doLast {
+    exec {
+      workingDir './docs'
+      commandLine './indexconv.sh', '-t'
+    }
+  }
+}
+
+task publishdocs {
+  doLast {
+    exec {
+      workingDir '.'
+      commandLine 'git', 'add', 'docs/'
+    }
+    exec {
+      workingDir '.'
+      commandLine 'git', 'commit', '-m', 'update the docs/'
+    }
+    exec {
+      workingDir '.'
+      commandLine 'git', 'push'
+    }
+  }
+}
+publishdocs.dependsOn indexconv
