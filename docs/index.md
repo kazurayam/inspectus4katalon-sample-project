@@ -18,7 +18,7 @@
             -   <a href="#no-testops" id="toc-no-testops">No TestOps</a>
             -   <a href="#no-testcloud" id="toc-no-testcloud">No TestCloud</a>
             -   <a href="#disable-smart-wait" id="toc-disable-smart-wait">Disable Smart Wait</a>
-            -   <a href="#tune-log-viewer-light-weighted" id="toc-tune-log-viewer-light-weighted">tune Log Viewer light-weighted</a>
+            -   <a href="#tune-log-viewer-light-weighted" id="toc-tune-log-viewer-light-weighted">Tune Log Viewer light-weighted</a>
         -   <a href="#creating-your-first-test-case" id="toc-creating-your-first-test-case">Creating your first Test Case</a>
     -   <a href="#setting-up-gradle-build-tool" id="toc-setting-up-gradle-build-tool">Setting up Gradle build tool</a>
         -   <a href="#installing-git-for-windows" id="toc-installing-git-for-windows">Installing Git for Windows</a>
@@ -73,7 +73,7 @@ When you find some region painted red in the diff image, then you would be inter
 
 ![HTMLsource diff](https://kazurayam.github.io/inspectus4katalon-sample-project/images/HTMLsource_diff.png)
 
-Using Katalon Studio, you can download and save many kinds of texts out of the web; not only HTML source but also JSON, XML, CSV, .js, .css. Once saved, Visual Inspaction can create diff reports of any kind of those texts.
+Using Katalon Studio, you can download and save many kinds of texts out of the web; not only HTML source but also JSON, XML, CSV, .js, .css. Once saved, Visual Inspection can create diff reports of any kind of those texts.
 
 ### List of screenshots
 
@@ -87,7 +87,7 @@ I visited the [DuckDuckGo](https://duckduckgo.com/?) in a browser, typed a keywo
 
 ## Installing and setting up Katalon Studio
 
-Now I would tell you how to make a Katalon Studio project that produced the same output as shown above. Here I would assume that you have a Windows10 PC with connectivity to the Internet. I would assume have do not have Katalon Studio installed yet. I would assume you do not have any tools including Java SDK.
+Now I would tell you how to make a Katalon Studio project that can produce the same output as shown above. Here I would assume that you have a Windows10 PC with connectivity to the Internet. I would assume have do not have Katalon Studio installed yet. I would assume you do not have any tools including Java SDK installed yet.
 
 ### Installing Katalon Studio
 
@@ -99,13 +99,13 @@ You can download the distribution zip file of "Katalon Studio - Standalone Editi
 
 The Standalone Edition is free. You can run the "Visual Inspection" on this free version.
 
-When you click the "Download" button, a dialog will come and ask you to "Create a Katalon Account". There you are requested to create an account in the Katalon site.
+When you click the "Download" button, a dialog will come up to ask you to "Create a Katalon Account" for you personally.
 
 ![Sign up Katalon Software Quality Management Platform](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Sign-up-Katalon-Software-Quality-Management-Platform.png)
 
 Just type Full name, Email and Password of your choice. Write a memo of these as you will be asked to type them later again.
 
-You want to download the zip into your local PC, and unzip it. You will get a folder named `Katalon_Studio_Windows_64-x.x.x`. You need to locate it somewhere appropriate on your Windows10 PC. It is required to locate the folder in a folder of which you have a full permission to write. For example, it would be a good idea to locate it to `C:\Users\yourWindowsOSUsername\Katalon_Studio_Windows_64-x.x.x`. But it is not a good idea to locate it inside the `C:\Program Files\` folder, where you might not have sufficient WRITE permission. Also you shouldn’t locate it into the `C:\Users\yourWindowsOSUsername\Documents` folder as the `Documents` folder might be integrated with OneDrive and might be automatically backed up. It’s not a good idea to place large binaries into the OneDrive.
+You want to download the zip into your local PC, and unzip it. You will get a folder named `Katalon_Studio_Windows_64-x.x.x`. You need to locate it somewhere appropriate on your Windows10 PC. It is required to locate the folder in a ancestor folder which you have a full permission to write. For example, it would be a good idea to locate it to `C:\Users\yourWindowsOSUsername\Katalon_Studio_Windows_64-x.x.x`. But it is not a good idea to locate it inside the `C:\Program Files\` folder, where you might not have sufficient WRITE permission. Also you shouldn’t locate it into the `C:\Users\yourWindowsOSUsername\Documents` folder as the `Documents` folder might be integrated with OneDrive and might be automatically backed up. It’s not a good idea to place large binaries into the OneDrive.
 
 ### Launching Katalon Studio
 
@@ -113,27 +113,27 @@ The unzipped folder contains `katalon.exe`. You can launch Katalon Studio by dou
 
 ![katalon.exe](https://kazurayam.github.io/inspectus4katalon-sample-project/images/katalonexe.png)
 
-When you tried to lauche Katalon Studio for the first time, Windows may show some security advices saying "SmartScan warns you …​" or "you are blocked by Defender firewall…​". You do not mind these too seriouly. Just go on …​
+When you try to launch Katalon Studio for the first time, Windows may show some security advices saying "SmartScan warns you …​" or "you are blocked by Defender firewall…​". You do not mind these too seriouly. Just go on …​
 
-Once you launched Katalon Studio, it will request you to type the Full name, Email, Password that you registered into the Katalon web site. Just do so.
+Once you launched Katalon Studio, it will request you to type your Full name, Email, Password that you registered into the Katalon web site. Just do so.
 
 ### Configure Katalon Studio
 
 #### Proxy
 
-If your PC is hosted on an organizational private network which is connected to the Internet via Proxy server, you have to configure Katalon Studio of the IP Address of the Proxy etc so that Katalon Studio can communicate with the hosts in the Internet. Refer to the following document:
+If your PC is hosted on an organizational private network which is connected to the Internet via Proxy server, you have to configure Katalon Studio to let it know the IP Address of the Proxy etc so that Katalon Studio can communicate with the hosts in the Internet. Refer to the following document:
 
 -   [Set Proxy Preferences in Katalon Studio](https://docs.katalon.com/docs/get-started/set-up-your-workspace/katalon-studio-preferences/set-proxy-preferences-in-katalon-studio)
 
 #### Update WebDriver modules
 
-Katalon Studio runs on top of the [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) technology. Katalon Studio talks to the web browsers like Chrome, FireFox via external modules called "WebDriver". There are types of WebDriver for each types of web browsers. Whenever the web browsers are updated, the WebDriver modules will be updated accordingly. Katalon Studio’s distribution zip file bundles a set of WebDriver modules. As you are well aware of, the web browsers are so frequently updated that the bundled versions of WebDriver in the distribution zip inevitably get out of date. Therefore users have to upgrade the WebDriver modules on there own PC for themselves. This is a cumbersome but mandatory task. Katalon Studio offers a GUI menu "Update WebDriver". You can upgrade WebDriver modules easily using thie module. Please refer to the official documentation:
+Katalon Studio runs on top of the [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) technology. Katalon Studio talks to the web browsers like Chrome, FireFox via external modules called "WebDriver". There are types of WebDriver for each types of web browsers. Whenever the web browsers are updated, the WebDriver modules will be updated accordingly. Katalon Studio’s distribution zip file bundles a set of WebDriver modules. As you are well aware of, the web browsers are so frequently updated that the bundled versions of WebDriver in the distribution zip inevitably get out of date. Therefore users have to upgrade the WebDriver modules on there own PC for themselves. This is a cumbersome but mandatory task. Katalon Studio offers a GUI menu "Update WebDriver". You can upgrade WebDriver modules easily using this menu. Please refer to the official documentation:
 
 -   [Upgrade or downgrade WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
 
 #### Use Script view, not Manual view, in the Test Case editor
 
-You create Groovy scripts, which is called "Test Case" in Katalon term, to implement UI tests. Katalon Studio equips a built-in editor for Test Case, which has 2 view: Manual view and Script view. In order to implement "Visual Inspection" you need to use Script view rather than Manual view. However Katalon Studio’s initial setup chooses the Manual view ad default. You need to change the setup and choose the Script view.
+Users will create Groovy scripts, which is categorically called "Test Case" in Katalon term, to implement UI tests. Katalon Studio equips a built-in editor for Test Cases, which has 2 views: Manual view and Script view. In order to implement "Visual Inspection" you need to use Script view rather than Manual view. However Katalon Studio’s initial setup chooses the Manual view as default. You should change the setup and choose the Script view as default.
 
 You want to open "Toolbar Window &gt; Katalon Studio Preferences &gt; Test Case":
 
@@ -142,8 +142,6 @@ You want to open "Toolbar Window &gt; Katalon Studio Preferences &gt; Test Case"
 ### Create a project
 
 Now let’s create a project in "Katalon Studio - Standalone Edition".
-
-&gt;If you are using "Katalon Studio - Platform Edition" v8.5.x, you can not create a project in Katalon Studio. So the following instruction does not apply.
 
 File &gt; New &gt; Project
 
@@ -157,11 +155,11 @@ If you typed as above and clicked OK, then a folder `C:\Users\kazurayam\katalon-
 
 ### Setting up the project
 
-There are several setups to customize.
+There are several setups that I recommend you to follow.
 
 #### Choose type of browser as default
 
-You can choose which type of browser to use interactively when you run your Web UI tests. Chrome, FireFox, Edge, Safari. And you can specify the default choice which will be chosen by clicking the ![run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) button.
+You can choose which type of browser to use when you run ![run](https://kazurayam.github.io/inspectus4katalon-sample-project/images/run_katalon_test.png) your Web UI tests interactively. However, you can specify the default choice in the config.
 
 Project &gt; Settings &gt; Execution
 
@@ -171,7 +169,7 @@ In this example, I chose the Chrome Headless as default.
 
 #### No TestOps
 
-Katalon provides a service [TestOps](https://katalon.com/testops), which is not necessary to run Visual Inspection. So we will disable integrating it.
+Katalon provides a service [TestOps](https://katalon.com/testops), which is not necessary to run Visual Inspection. It may slow down your tests. So you can disable integrating it.
 
 Project &gt; Settings &gt; Katalon TestOps
 
@@ -179,7 +177,7 @@ Project &gt; Settings &gt; Katalon TestOps
 
 #### No TestCloud
 
-Katalon provides a service named "TestCloud", which is not necessary to run Visual Inspection. So we will disable integrating it.
+Katalon provides a service named "TestCloud", which is not necessary to run Visual Inspection. So you can disable integrating it.
 
 Project &gt; Settings &gt; Katalon TestCloud
 
@@ -187,13 +185,13 @@ Project &gt; Settings &gt; Katalon TestCloud
 
 #### Disable Smart Wait
 
-Katalon Studio equips a feature named [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait), which sometimes mal-functions. It sometimes slows down a test significantly. Unfortunately Smart Wait is enabled as default. You should disable it.
+Katalon Studio equips a optional feature named [Smart Wait](https://katalon.com/resources-center/blog/handle-selenium-wait), which sometimes mal-functions. It sometimes slows down a test significantly. Unfortunately Smart Wait is enabled as default. You should disable it.
 
 Project &gt; Settings &gt; Execution &gt; WebUI
 
 ![SmartWait](https://kazurayam.github.io/inspectus4katalon-sample-project/images/SmartWait.png)
 
-#### tune Log Viewer light-weighted
+#### Tune Log Viewer light-weighted
 
 In the right-bottom side there is a pane where you can see logs. There is a tab labeled "Log Viewer".
 
@@ -203,7 +201,7 @@ You should setup Log Viewer appropriately because Katalon Studio emits very verb
 
 Firstly, there in the right top of the pane, you can find a toggle button ![tree view](https://kazurayam.github.io/inspectus4katalon-sample-project/images/tree_view.png). If you toggle it on, the Log Viewer displays logs in Tree view. When toggle it off, the Log Viewer displays logs in Table view. You should choose the Table view. The Tree view consumes a lot of CPU and it makes your test slowed down.
 
-In the Table view, you can find a set of buttons labeled All, Info, Passed, Failed, Error, Warning, Not Run. As default, the All button is toggled ON. When the All button is ON, you will see a lot of "START xxxx" and "END xxxx" messages displayed. These logs are just useless. These logs consumes a lot of CPU and makes your test slowed down. You should toggle the All button OFF.
+In the Table view, you can find a set of buttons labeled All, Info, Passed, Failed, Error, Warning, Not Run. As default, the All button is toggled ON. When the All button is ON, you will see a lot of "START xxxx" and "END xxxx" messages displayed. These messages are just useless. These messages consumes a lot of CPU and makes your test slowed down. You should toggle the All button OFF.
 
 ### Creating your first Test Case
 
@@ -242,13 +240,13 @@ There is a sample project published on GitHub which implements Visual Inspection
 
 -   <https://github.com/kazurayam/inspectus4katalon-sample-project>
 
-You can bring the code set and required libraries into your own Katalon Studio project. In order to inject the resources, you need to install the build tool Gradle into your Windows PC. Let me explain what need to be done.
+You can bring the code set and required libraries injected into your own Katalon Studio project. In order to inject the resources, you need to install the build tool Gradle into your Windows PC. Let me explain what needs to be done.
 
 1.  You want to create a new project in Katalon Studio.
 
-2.  You want to utilize a custom Gradle plugin `inpsectus4katalon` which will help you importing resources from the sample project.
+2.  You want to utilize a custom Gradle plugin `inpsectus4katalon` which will help you injecting resources from the sample project.
 
-3.  You need to install the Gradle into your PC.
+3.  The plugin requires Gradle on your PC. So you need to install Gradle into your PC.
 
 4.  In order to run Gradle, you need Java Runtime Environment installed into your PC.
 
@@ -260,7 +258,7 @@ You can bring the code set and required libraries into your own Katalon Studio p
 
 8.  You want to launch "Git Bash", in which you would use curl command to install SDKMAN!. And then using the SDKMAN! you would install Java and Gradle.
 
-9.  Finally, you will create a file `build.gradle` in your Katalon project. You will write just a few lines, and run custom gradle tasks twice. The custom tasks will import the necessary libraries and sample codes automatically.
+9.  Finally, you will create a file `build.gradle` in your Katalon project. You will write just a few lines, and run custom gradle tasks twice. The custom tasks will inject the necessary libraries and sample codes automatically.
 
 That’s the way to go.
 
@@ -320,7 +318,7 @@ Now you are ready to use the Gradle build tool on your Windows10.
 
 ## Inject the resources required for Visual Inspection into your own Katalon project
 
-You have got Katalon Studio installed, have got Gradle ready to use. Now you are ready to make your own Katalon project cable to perform Visual Inspection.
+You have got Katalon Studio installed, have got Gradle ready to use. Now you are ready to make a Katalon project capable to perform Visual Inspection.
 
 Let me assume that you have created a Katalon Studio project in the folder `C:\Users\yourWindowsOSUsername\katalon-projects\MyVisualInspectionProject`.
 
@@ -332,7 +330,7 @@ Now you want to edit the `build.gradle` as follows:
       id 'com.kazurayam.inspectus4katalon' version "0.3.4"
     }
 
-Here you declare your build will use a custom Gradle plugin `com.kazurayam.inspectus4katalon`, which is publshed at the Gradle Plugin portal [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon).
+This code declares your build wants to use a custom Gradle plugin `com.kazurayam.inspectus4katalon`, which is published at the Gradle Plugin portal [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon).
 
 Now, please stop Katalon Studio. And open the window of Git Bash, change directory into the projects folder:
 
@@ -344,7 +342,7 @@ Now, we will import the sample codes of Visual Inspection into your project. Exe
 
     $ gradle deploy-visual-inspection-sample-for-katalon
 
-Then you will see the following messsages:
+Then you will see the following messages:
 
     Starting a Gradle Daemon (subsequent builds will be faster)
 
@@ -432,7 +430,7 @@ When this command finished, you will find in the `Drivers` folder several jar fi
     -rw-r--r-- 1 kazurayam 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
     -rw-r--r-- 1 kazurayam 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
 
-These are the jar files required to run the sample code of Visual Inspection. These were not bundled in Katalon Studio, so you needed to add them in the `Drivers` folder. The two jar files [`materialstore`](https://github.com/kazurayam/materialstore) and [`inspectus`](https://github.com/kazurayam/inspectus) are the core part of Visual Inspection implementation. kazurayam has developed them and published as Open Source at the [Maven Central repositoryレポジトリ](https://mvnrepository.com/artifact/com.kazurayam).
+These are the jar files required to run the sample code of Visual Inspection. These were not bundled in Katalon Studio, so you needed to add them in the `Drivers` folder. The two jar files [`materialstore`](https://github.com/kazurayam/materialstore) and [`inspectus`](https://github.com/kazurayam/inspectus) are the core part of Visual Inspection implementation. kazurayam has developed them and published as Open Source at the [Maven Central repository](https://mvnrepository.com/artifact/com.kazurayam).
 
 ## Let’s run the sample code of Visual Inspection
 
@@ -454,4 +452,4 @@ Please open `index.html` by double-clicking it. This is exactly what I showed yo
 
 I have presented my tool named "Visual Inspection" which enables me to automate verifying the UI of Web applications visually. This post explained how to prepare the environment and how to run the sample code. The custom Gradle plugin `com.kazurayam.inspectus4katalon` enables you to make your own Katalon projects capable of "Visual Inspection" quickly in an automated fashion.
 
-However, you are supposed to develop a Katalon Test Case that interact with your Application Under Test and take screenshots of pages and store the materials into the Materialstore database. It would require a bunch of explanations which would be long. I wouldn’t do it here. I would do it in another chance.
+However, you are supposed to develop Katalon Test Cases that interact with your Application Under Test and take screenshots of pages and store the materials into the tailored database named "store". I haven’t covered the programming how-to in this post. It would require a bunch of explanations which would be very long. I would do it in another chance.
