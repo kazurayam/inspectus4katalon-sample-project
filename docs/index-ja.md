@@ -123,7 +123,7 @@ Katalon Studioを起動した時、一度だけ、先ほど登録したKatalon�
 
 Katalon Studioは [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) を基盤としています。Katalon StudioがChromeやFireFoxなどのWebブラウザを遠隔操作するために WebDriver と呼ばれる外部モジュールを使います。WebDriverはChromeやFireFoxなどブラウザの種類ごとに別々のモジュールがあり、ブラウザがバージョン・アップするたびにWebDriverモジュールもバージョン・アップされます。Katalon Studioは配布用zipのなかにWebDriverモジュールを同梱していますが、ブラウザが頻繁にバージョン・アップするのでどうしてもzipに格納されたWebDriverモジュールは古くなってしまいます。だからユーザーは適宜自PC上でWebDriverを最新版に更新しなければなりません。この手間仕事を助けるためにKatalon Studioはツールバーに "Update WebDriver" というGUIメニューを備えています。これを使ってWebDriverモジュールを手早く更新することができます。操作については下記ドキュメントを参照のこと。
 
--   [Upgrade or downgradle WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
+-   [Upgrade or downgrade WebDrivers](https://docs.katalon.com/docs/legacy/katalon-studio-enterprise/test-design/web-test-design/handle-webdrivers/upgrade-or-downgrade-webdrivers)
 
 #### Scrip viewを使う、Manual viewを使わない
 
