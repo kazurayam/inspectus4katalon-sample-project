@@ -2,10 +2,10 @@ import java.nio.file.Path
 import java.nio.file.Paths
 
 import com.kazurayam.materialstore.base.manage.StoreCleaner
-import com.kazurayam.materialstore.core.filesystem.JobName
-import com.kazurayam.materialstore.core.filesystem.JobTimestamp
-import com.kazurayam.materialstore.core.filesystem.Store
-import com.kazurayam.materialstore.core.filesystem.Stores
+import com.kazurayam.materialstore.core.JobName
+import com.kazurayam.materialstore.core.JobTimestamp
+import com.kazurayam.materialstore.core.Store
+import com.kazurayam.materialstore.core.Stores
 import com.kms.katalon.core.configuration.RunConfiguration
 
 /**
