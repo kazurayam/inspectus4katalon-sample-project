@@ -3,7 +3,7 @@ import java.nio.file.Files
 import org.openqa.selenium.WebDriver
 
 import com.kazurayam.inspectus.materialize.selenium.WebPageMaterializingFunctions
-import com.kazurayam.materialstore.core.filesystem.Material
+import com.kazurayam.materialstore.core.Material
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
@@ -26,11 +26,11 @@ targetList.eachWithIndex { target, index ->
 	Map<String, String> attributes = ["step": String.format("%02d", index + 1)]
 	
 	Material screenshot = pmf.storeEntirePageScreenshot.accept(driver, target, attributes)
-	assert Files.exists(screenshot.toPath(store))
+	assert Files.exists(screenshot.toPath())
 	
 	// take and store the HTML source
 	Material html = pmf.storeHTMLSource.accept(driver, target, attributes)
-	assert Files.exists(html.toPath(store))
+	assert Files.exists(html.toPath())
 }
 
 WebUI.closeBrowser()

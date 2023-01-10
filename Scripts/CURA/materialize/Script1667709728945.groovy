@@ -10,7 +10,7 @@ import com.kazurayam.ks.globalvariable.ExecutionProfilesLoader
 
 import com.kazurayam.inspectus.materialize.selenium.WebPageMaterializingFunctions
 import com.kazurayam.inspectus.materialize.discovery.Target
-import com.kazurayam.materialstore.core.filesystem.Material
+import com.kazurayam.materialstore.core.Material
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 

@@ -327,7 +327,7 @@ In the `MyVisualInspectionProject` folder you would find a file named `build.gra
 Now you want to edit the `build.gradle` as follows:
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.3.4"
+      id 'com.kazurayam.inspectus4katalon' version "0.4.0"
     }
 
 This code declares your build wants to use a custom Gradle plugin `com.kazurayam.inspectus4katalon`, which is published at the Gradle Plugin portal [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon).
@@ -347,7 +347,7 @@ Then you will see the following messages:
     Starting a Gradle Daemon (subsequent builds will be faster)
 
     > Task :deploy-visual-inspection-sample-for-katalon
-    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
+    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.4.0/distributable.zip into C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
     ... Include/data/MyAdmin/targetList.csv
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment.rs
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Apply for hospital readmission.rs
@@ -387,14 +387,14 @@ Then you will see the following messages:
     ... Test Cases/MyAdmin/materialize.tc
     ... Test Cases/MyAdmin/processTargetList.tc
     ... Test Cases/MyAdmin/run_materialize.tc
-    deployed the sample project v0.3.4
+    deployed the sample project v0.4.0
 
     BUILD SUCCESSFUL in 16s
     1 actionable task: 1 executed
 
 What did the `deploy-visual-inspection-sample-for-katalon` task do?
 
-There is a repository named "inspectus4katalon-sample-project" which has the [Releases page](https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4). There you can find a file `distributable.zip` published and downloadable. In this zip file a full set of sample code of Visual Inspection is contained. The `deploy-visual-inspection-sample-for-katalon` task will download the zip file, unzip it, and overwrites the contents into the current directory. The above messages shows the paths of the files extracted out of the zip.
+There is a repository named "inspectus4katalon-sample-project" which has the [Releases page](https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.4.0). There you can find a file `distributable.zip` published and downloadable. In this zip file a full set of sample code of Visual Inspection is contained. The `deploy-visual-inspection-sample-for-katalon` task will download the zip file, unzip it, and overwrites the contents into the current directory. The above messages shows the paths of the files extracted out of the zip.
 
 ### gradle drivers task
 
@@ -403,9 +403,9 @@ You want to execute one more Gradle task.
     $ gradle drivers
 
     > Task :drivers
-    inspectus-0.8.2.jar
+    inspectus-0.9.0.jar
     ExecutionProfilesLoader-1.2.1.jar
-    materialstore-0.14.3.jar
+    materialstore-0.16.0.jar
     ashot-1.5.4.jar
     commons-csv-1.9.0.jar
     jsoup-1.14.3.jar
@@ -425,10 +425,10 @@ When this command finished, you will find in the `Drivers` folder several jar fi
     -rw-r--r-- 1 kazurayam 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
     -rw-r--r-- 1 kazurayam 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
     -rw-r--r-- 1 kazurayam 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
-    -rw-r--r-- 1 kazurayam 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
+    -rw-r--r-- 1 kazurayam 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.9.0.jar
     -rw-r--r-- 1 kazurayam 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
     -rw-r--r-- 1 kazurayam 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
-    -rw-r--r-- 1 kazurayam 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
+    -rw-r--r-- 1 kazurayam 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.16.0.jar
 
 These are the jar files required to run the sample code of Visual Inspection. These were not bundled in Katalon Studio, so you needed to add them in the `Drivers` folder. The two jar files [`materialstore`](https://github.com/kazurayam/materialstore) and [`inspectus`](https://github.com/kazurayam/inspectus) are the core part of Visual Inspection implementation. kazurayam has developed them and published as Open Source at the [Maven Central repository](https://mvnrepository.com/artifact/com.kazurayam).
 

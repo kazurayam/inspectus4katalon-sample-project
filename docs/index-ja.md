@@ -333,7 +333,7 @@ Katalonプロジェクトの作り方は前に説明しました。以下では 
 そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.3.4"
+      id 'com.kazurayam.inspectus4katalon' version "0.4.0"
     }
 
 Katalon Studioを一旦停止してください。そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。
@@ -351,7 +351,7 @@ Katalon Studioを一旦停止してください。そしてGit Bashのウイン�
     Starting a Gradle Daemon (subsequent builds will be faster)
 
     > Task :deploy-visual-inspection-sample-for-katalon
-    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.3.4/distributable.zip into C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
+    Downloading https://github.com/kazurayam/inspectus4katalon-sample-project/releases/download/0.4.0/distributable.zip into C:\Users\kazurayam\katalon-projects\MyVisualInspectionProject\build\tmp\distributable.zip
     ... Include/data/MyAdmin/targetList.csv
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment.rs
     ... Object Repository/CURA/Page_CURA Healthcare Service/appointment/input_Apply for hospital readmission.rs
@@ -391,12 +391,12 @@ Katalon Studioを一旦停止してください。そしてGit Bashのウイン�
     ... Test Cases/MyAdmin/materialize.tc
     ... Test Cases/MyAdmin/processTargetList.tc
     ... Test Cases/MyAdmin/run_materialize.tc
-    deployed the sample project v0.3.4
+    deployed the sample project v0.4.0
 
     BUILD SUCCESSFUL in 16s
     1 actionable task: 1 executed
 
-`deploy-visual-inspection-sample-for-katalon` タスクが何をやったか？ GitHub上にある inspectus4katalon-sample-projectレポジトリの [Releasesページ](https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.3.4) に `distributable.zip` ファイルが添付されている。このzipのなかにVisual Inspectionのサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはzipファイルをダウンロードして解凍し、カレント・ディレクトリに上書きします。上記のメッセージはこの時copyされたファイルのパスを表示しています。
+`deploy-visual-inspection-sample-for-katalon` タスクが何をやったか？ GitHub上にある inspectus4katalon-sample-projectレポジトリの [Releasesページ](https://github.com/kazurayam/inspectus4katalon-sample-project/releases/tag/0.4.0) に `distributable.zip` ファイルが添付されている。このzipのなかにVisual Inspectionのサンプルコード一式が格納されている。`deploy-visual-inspection-sample-for-katalon` タスクはzipファイルをダウンロードして解凍し、カレント・ディレクトリに上書きします。上記のメッセージはこの時copyされたファイルのパスを表示しています。
 
 ### gradle driversタスク
 
@@ -407,9 +407,9 @@ Katalon Studioを一旦停止してください。そしてGit Bashのウイン�
     $ gradle drivers
 
     > Task :drivers
-    inspectus-0.8.2.jar
+    inspectus-0.9.0.jar
     ExecutionProfilesLoader-1.2.1.jar
-    materialstore-0.14.3.jar
+    materialstore-0.16.0.jar
     ashot-1.5.4.jar
     commons-csv-1.9.0.jar
     jsoup-1.14.3.jar
@@ -430,10 +430,10 @@ Katalon Studioを一旦停止してください。そしてGit Bashのウイン�
     -rw-r--r-- 1 kazurayam 197609   51322 12月 22 23:09 AUTOIMPORTED_commons-csv-1.9.0.jar
     -rw-r--r-- 1 kazurayam 197609   89290 12月 22 23:09 AUTOIMPORTED_ExecutionProfilesLoader-1.2.1.jar
     -rw-r--r-- 1 kazurayam 197609 1715750 12月 22 23:09 AUTOIMPORTED_freemarker-2.3.31.jar
-    -rw-r--r-- 1 kazurayam 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.8.2.jar
+    -rw-r--r-- 1 kazurayam 197609   63826 12月 22 23:09 AUTOIMPORTED_inspectus-0.9.0.jar
     -rw-r--r-- 1 kazurayam 197609   69437 12月 22 23:09 AUTOIMPORTED_java-diff-utils-4.11.jar
     -rw-r--r-- 1 kazurayam 197609  423395 12月 22 23:09 AUTOIMPORTED_jsoup-1.14.3.jar
-    -rw-r--r-- 1 kazurayam 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.14.3.jar
+    -rw-r--r-- 1 kazurayam 197609  269269 12月 22 23:09 AUTOIMPORTED_materialstore-0.16.0.jar
 
 これらはVisual Inspectionを実行するのに必要な外部モジュールです。しかしKatalon Studio本体のzipには同梱されていなかったもので、正味追加しなければならないものです。 [`materialstore`](https://github.com/kazurayam/materialstore) と [`inspectus`](https://github.com/kazurayam/inspectus) というjarファイルがVisual Inspectionの実装コードを格納しています。どちらもkazurayamが開発して [Maven Centralレポジトリ](https://mvnrepository.com/artifact/com.kazurayam) で公開しています。
 

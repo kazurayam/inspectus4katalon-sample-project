@@ -5,11 +5,11 @@ import com.kazurayam.inspectus.core.Inspectus
 import com.kazurayam.inspectus.core.Intermediates
 import com.kazurayam.inspectus.core.Parameters
 import com.kazurayam.inspectus.katalon.KatalonShootings
-import com.kazurayam.materialstore.core.filesystem.JobName
-import com.kazurayam.materialstore.core.filesystem.JobTimestamp
-import com.kazurayam.materialstore.core.filesystem.SortKeys
-import com.kazurayam.materialstore.core.filesystem.Store
-import com.kazurayam.materialstore.core.filesystem.Stores
+import com.kazurayam.materialstore.core.JobName
+import com.kazurayam.materialstore.core.JobTimestamp
+import com.kazurayam.materialstore.core.SortKeys
+import com.kazurayam.materialstore.core.Store
+import com.kazurayam.materialstore.core.Stores
 import com.kms.katalon.core.configuration.RunConfiguration
 
 /**
