@@ -17,8 +17,8 @@ inspectus4katalon {
 
 
 task distributable(type: Zip) {
-    archiveName "distributable.zip"
-    destinationDir(file('build'))
+    archiveFileName = "distributable.zip"
+    destinationDirectory = file('build')
     from fileTree('.')
     include 'Include/data/**/*'
     include 'Object Repository/CURA/**/*'
