@@ -18,7 +18,7 @@ import internal.GlobalVariable
 
 void takeScreenshot(WebDriver driver, URL url, Map<String,String> attributes, WebPageMaterializingFunctions pmf) {
 	Target target = Target.builder(url).putAll(attributes).build()
-	Material screenshot = pmf.storeEntirePageScreenshot.accept(driver, target, [:])
+	Material screenshot = pmf.storeEntirePageScreenshotAsJpeg.accept(driver, target, [:])
 	Material html = pmf.storeHTMLSource.accept(driver, target, [:])
 }
 
