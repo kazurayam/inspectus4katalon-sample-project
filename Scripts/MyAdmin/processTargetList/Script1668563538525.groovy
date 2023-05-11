@@ -25,8 +25,13 @@ targetList.eachWithIndex { target, index ->
 	WebPageMaterializingFunctions pmf = new WebPageMaterializingFunctions(store, jobName, jobTimestamp)
 	Map<String, String> attributes = ["step": String.format("%02d", index + 1)]
 	
-	Material screenshot = pmf.storeEntirePageScreenshot.accept(driver, target, attributes)
-	assert Files.exists(screenshot.toPath())
+	// save as PNG
+	Material png = pmf.storeEntirePageScreenshot.accept(driver, target, attributes)
+	assert Files.exists(png.toPath())
+	
+	// save as JPEG
+	Material jpeg = pmf.storeEntirePageScreenshotAsJpeg.accept(driver, target, attributes)
+	assert Files.exists(jpeg.toPath())
 	
 	// take and store the HTML source
 	Material html = pmf.storeHTMLSource.accept(driver, target, attributes)
