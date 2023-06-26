@@ -1,19 +1,12 @@
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.4.5"
+  id 'com.kazurayam.inspectus4katalon' version "0.5.0"
 }
 
 // to run the plugin, execute
 // $ gradle drivers
 
 group = 'com.kazurayam'
-version = '0.4.5'
-
-/*
-inspectus4katalon {
-  inspectusVersion = "0.9.0"
-}
- */
-
+version = '0.5.0'
 
 
 task distributable(type: Zip) {

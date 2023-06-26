@@ -42,6 +42,7 @@ WebUI.navigateToUrl(GlobalVariable.URL)
 WebDriver driver = DriverFactory.getWebDriver()
 
 WebPageMaterializingFunctions pmf = new WebPageMaterializingFunctions(store, jobName, jobTimestamp)
+pmf.setScrollTimeout(1000)
 
 // -------- The top page is supposed to be open --------------------------------------
 WebUI.verifyElementPresent(findTestObject('CURA/Page_CURA Healthcare Service/top/a_Make Appointment'), 15)
