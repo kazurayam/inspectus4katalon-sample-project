@@ -1,35 +1,35 @@
--   <a href="#automated-visual-inspection" id="toc-automated-visual-inspection">Automated Visual Inspection</a>
-    -   <a href="#introduction" id="toc-introduction">Introduction</a>
-    -   <a href="#sample-output-from-the-visual-inspection" id="toc-sample-output-from-the-visual-inspection">Sample output from the Visual Inspection</a>
-    -   <a href="#explanation-of-the-sample-output" id="toc-explanation-of-the-sample-output">Explanation of the sample output</a>
-        -   <a href="#difference-report-between-2-screenshots" id="toc-difference-report-between-2-screenshots">Difference report between 2 screenshots</a>
-        -   <a href="#difference-report-between-2-html-source-texts" id="toc-difference-report-between-2-html-source-texts">Difference report between 2 HTML source texts</a>
-        -   <a href="#list-of-screenshots" id="toc-list-of-screenshots">List of screenshots</a>
-    -   <a href="#installing-and-setting-up-katalon-studio" id="toc-installing-and-setting-up-katalon-studio">Installing and setting up Katalon Studio</a>
-        -   <a href="#installing-katalon-studio" id="toc-installing-katalon-studio">Installing Katalon Studio</a>
-        -   <a href="#launching-katalon-studio" id="toc-launching-katalon-studio">Launching Katalon Studio</a>
-        -   <a href="#configure-katalon-studio" id="toc-configure-katalon-studio">Configure Katalon Studio</a>
-            -   <a href="#proxy" id="toc-proxy">Proxy</a>
-            -   <a href="#update-webdriver-modules" id="toc-update-webdriver-modules">Update WebDriver modules</a>
-            -   <a href="#use-script-view-not-manual-view-in-the-test-case-editor" id="toc-use-script-view-not-manual-view-in-the-test-case-editor">Use Script view, not Manual view, in the Test Case editor</a>
-        -   <a href="#create-a-project" id="toc-create-a-project">Create a project</a>
-        -   <a href="#setting-up-the-project" id="toc-setting-up-the-project">Setting up the project</a>
-            -   <a href="#choose-type-of-browser-as-default" id="toc-choose-type-of-browser-as-default">Choose type of browser as default</a>
-            -   <a href="#no-testops" id="toc-no-testops">No TestOps</a>
-            -   <a href="#no-testcloud" id="toc-no-testcloud">No TestCloud</a>
-            -   <a href="#disable-smart-wait" id="toc-disable-smart-wait">Disable Smart Wait</a>
-            -   <a href="#tune-log-viewer-light-weighted" id="toc-tune-log-viewer-light-weighted">Tune Log Viewer light-weighted</a>
-        -   <a href="#creating-your-first-test-case" id="toc-creating-your-first-test-case">Creating your first Test Case</a>
-    -   <a href="#setting-up-gradle-build-tool" id="toc-setting-up-gradle-build-tool">Setting up Gradle build tool</a>
-        -   <a href="#installing-git-for-windows" id="toc-installing-git-for-windows">Installing Git for Windows</a>
-        -   <a href="#installing-sdkman" id="toc-installing-sdkman">Installing SDKMAN!</a>
-        -   <a href="#installing-java" id="toc-installing-java">Installing Java</a>
-        -   <a href="#installing-gradle" id="toc-installing-gradle">Installing Gradle</a>
-    -   <a href="#inject-the-resources-required-for-visual-inspection-into-your-own-katalon-project" id="toc-inject-the-resources-required-for-visual-inspection-into-your-own-katalon-project">Inject the resources required for Visual Inspection into your own Katalon project</a>
-        -   <a href="#gradle-deploy-visual-inspection-sample-for-katalon" id="toc-gradle-deploy-visual-inspection-sample-for-katalon">gradle deploy-visual-inspection-sample-for-katalon</a>
-        -   <a href="#gradle-drivers-task" id="toc-gradle-drivers-task">gradle drivers task</a>
-    -   <a href="#lets-run-the-sample-code-of-visual-inspection" id="toc-lets-run-the-sample-code-of-visual-inspection">Let’s run the sample code of Visual Inspection</a>
-    -   <a href="#conclusion" id="toc-conclusion">Conclusion</a>
+-   [Automated Visual Inspection](#automated-visual-inspection)
+    -   [Introduction](#introduction)
+    -   [Sample output from the Visual Inspection](#sample-output-from-the-visual-inspection)
+    -   [Explanation of the sample output](#explanation-of-the-sample-output)
+        -   [Difference report between 2 screenshots](#difference-report-between-2-screenshots)
+        -   [Difference report between 2 HTML source texts](#difference-report-between-2-html-source-texts)
+        -   [List of screenshots](#list-of-screenshots)
+    -   [Installing and setting up Katalon Studio](#installing-and-setting-up-katalon-studio)
+        -   [Installing Katalon Studio](#installing-katalon-studio)
+        -   [Launching Katalon Studio](#launching-katalon-studio)
+        -   [Configure Katalon Studio](#configure-katalon-studio)
+            -   [Proxy](#proxy)
+            -   [Update WebDriver modules](#update-webdriver-modules)
+            -   [Use Script view, not Manual view, in the Test Case editor](#use-script-view-not-manual-view-in-the-test-case-editor)
+        -   [Create a project](#create-a-project)
+        -   [Setting up the project](#setting-up-the-project)
+            -   [Choose type of browser as default](#choose-type-of-browser-as-default)
+            -   [No TestOps](#no-testops)
+            -   [No TestCloud](#no-testcloud)
+            -   [Disable Smart Wait](#disable-smart-wait)
+            -   [Tune Log Viewer light-weighted](#tune-log-viewer-light-weighted)
+        -   [Creating your first Test Case](#creating-your-first-test-case)
+    -   [Setting up Gradle build tool](#setting-up-gradle-build-tool)
+        -   [Installing Git for Windows](#installing-git-for-windows)
+        -   [Installing SDKMAN!](#installing-sdkman)
+        -   [Installing Java](#installing-java)
+        -   [Installing Gradle](#installing-gradle)
+    -   [Inject the resources required for Visual Inspection into your own Katalon project](#inject-the-resources-required-for-visual-inspection-into-your-own-katalon-project)
+        -   [gradle deploy-visual-inspection-sample-for-katalon](#gradle-deploy-visual-inspection-sample-for-katalon)
+        -   [gradle drivers task](#gradle-drivers-task)
+    -   [Let’s run the sample code of Visual Inspection](#lets-run-the-sample-code-of-visual-inspection)
+    -   [Conclusion](#conclusion)
 
 # Automated Visual Inspection
 
@@ -55,7 +55,7 @@ What sort of output does my Visual Inspection produces? Here is a sample. Click 
 
 Here is a video that shows how you can retrieve the pages of the sample output:
 
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe>
 
 ## Explanation of the sample output
 
@@ -230,7 +230,7 @@ Here is a video which shows how I operated Katalon Studio to run the test.
 
 <https://youtu.be/4jT6pgDmxmc>
 
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe>
 
 Now you have got Katalon Studio installed, up and running on your Windows PC.
 
@@ -327,7 +327,7 @@ In the `MyVisualInspectionProject` folder you would find a file named `build.gra
 Now you want to edit the `build.gradle` as follows:
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.4.0"
+      id 'com.kazurayam.inspectus4katalon' version "0.5.0"
     }
 
 This code declares your build wants to use a custom Gradle plugin `com.kazurayam.inspectus4katalon`, which is published at the Gradle Plugin portal [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon).

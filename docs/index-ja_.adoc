@@ -321,7 +321,7 @@ Katalonプロジェクトの作り方は前に説明しました。以下では 
 [source, text]
 ----
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.4.0"
+  id 'com.kazurayam.inspectus4katalon' version "0.5.0"
 }
 ----
 
