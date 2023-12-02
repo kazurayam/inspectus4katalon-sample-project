@@ -1,12 +1,12 @@
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.4.5"
+  id 'com.kazurayam.inspectus4katalon' version "0.5.2"
 }
 
 // to run the plugin, execute
 // $ gradle drivers
 
 group = 'com.kazurayam'
-version = '0.4.5'
+version = '0.5.2'
 
 /*
 inspectus4katalon {

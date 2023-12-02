@@ -1,36 +1,3 @@
--   [Automated Visual Inspection](#automated-visual-inspection)
-    -   [Introduction](#introduction)
-    -   [Sample output from the Visual Inspection](#sample-output-from-the-visual-inspection)
-    -   [Explanation of the sample output](#explanation-of-the-sample-output)
-        -   [Difference report between 2 screenshots](#difference-report-between-2-screenshots)
-        -   [Difference report between 2 HTML source texts](#difference-report-between-2-html-source-texts)
-        -   [List of screenshots](#list-of-screenshots)
-    -   [Installing and setting up Katalon Studio](#installing-and-setting-up-katalon-studio)
-        -   [Installing Katalon Studio](#installing-katalon-studio)
-        -   [Launching Katalon Studio](#launching-katalon-studio)
-        -   [Configure Katalon Studio](#configure-katalon-studio)
-            -   [Proxy](#proxy)
-            -   [Update WebDriver modules](#update-webdriver-modules)
-            -   [Use Script view, not Manual view, in the Test Case editor](#use-script-view-not-manual-view-in-the-test-case-editor)
-        -   [Create a project](#create-a-project)
-        -   [Setting up the project](#setting-up-the-project)
-            -   [Choose type of browser as default](#choose-type-of-browser-as-default)
-            -   [No TestOps](#no-testops)
-            -   [No TestCloud](#no-testcloud)
-            -   [Disable Smart Wait](#disable-smart-wait)
-            -   [Tune Log Viewer light-weighted](#tune-log-viewer-light-weighted)
-        -   [Creating your first Test Case](#creating-your-first-test-case)
-    -   [Setting up Gradle build tool](#setting-up-gradle-build-tool)
-        -   [Installing Git for Windows](#installing-git-for-windows)
-        -   [Installing SDKMAN!](#installing-sdkman)
-        -   [Installing Java](#installing-java)
-        -   [Installing Gradle](#installing-gradle)
-    -   [Inject the resources required for Visual Inspection into your own Katalon project](#inject-the-resources-required-for-visual-inspection-into-your-own-katalon-project)
-        -   [gradle deploy-visual-inspection-sample-for-katalon](#gradle-deploy-visual-inspection-sample-for-katalon)
-        -   [gradle drivers task](#gradle-drivers-task)
-    -   [Let’s run the sample code of Visual Inspection](#lets-run-the-sample-code-of-visual-inspection)
-    -   [Conclusion](#conclusion)
-
 # Automated Visual Inspection
 
 -   @author kazurayam
@@ -327,7 +294,7 @@ In the `MyVisualInspectionProject` folder you would find a file named `build.gra
 Now you want to edit the `build.gradle` as follows:
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.5.0"
+      id 'com.kazurayam.inspectus4katalon' version "0.5.2"
     }
 
 This code declares your build wants to use a custom Gradle plugin `com.kazurayam.inspectus4katalon`, which is published at the Gradle Plugin portal [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon).
