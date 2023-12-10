@@ -1,3 +1,6 @@
+- Table of contents
+{:toc}
+
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
 ## はじめに
@@ -42,7 +45,7 @@ HTMLソースコードだけでなく他のさまざまな形式のテキスト�
 
 自分が運営するwebサイトのスクリーンショットを撮って一覧レポートを作りたい、ただし差分の検査はとりあえず要らない。そういうシンプルな要求を満たすための機能もサポートしています。次のデモを見てください。検索サイト [DuckDuckGo](https://duckduckgo.com/?) をブラウザで開いて、キーワード `selenium` を指定してENTERし検索結果を見る。その過程で画面のスクリーンショットとHTMLソースを取得し保存する。最後に一覧をHTMLとして生成する。それだけのことをしたサンプルです。
 
--   [DuckDuckGoのスクリーンショット一覧のデモ](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20221213_080436.html)
+-   [DuckDuckGoのスクリーンショット一覧のデモ](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20231210_183232.html)
 
 ![DuckDuckGo small](https://kazurayam.github.io/inspectus4katalon-sample-project/images/DuckDuckGo_small.png)
 
@@ -297,10 +300,10 @@ Katalonプロジェクトの作り方は前に説明しました。以下では 
 
 `MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成しました。ただし実はKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし書きかえてもKatalon Studio本体の動きには影響しません。
 
-そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
+そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。2023年12月現在の最新バージョンは 0.5.4 です。こんご、新しいバージョンがリリースされていたら最新バージョンを指定してください。
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.5.0"
+      id 'com.kazurayam.inspectus4katalon' version "0.5.4"
     }
 
 Katalon Studioを一旦停止してください。そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。

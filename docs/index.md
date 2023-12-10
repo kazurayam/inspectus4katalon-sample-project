@@ -1,3 +1,6 @@
+- Table of contents
+{:toc}
+
 # Automated Visual Inspection
 
 -   @author kazurayam
@@ -46,11 +49,56 @@ Using Katalon Studio, you can download and save many kinds of texts out of the w
 
 The sample output includes a simple list of screenshots without diff. Please look at the following link:
 
--   [list of screenshots of DuckDuckGo](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20221213_080436.html)
+-   [list of screenshots of DuckDuckGo](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20231210_183232.html)
 
 ![DuckDuckGo small](https://kazurayam.github.io/inspectus4katalon-sample-project/images/DuckDuckGo_small.png)
 
 I visited the [DuckDuckGo](https://duckduckgo.com/?) in a browser, typed a keyword `selenium` and hit ENTER to get a list of search results. I took screenshots and saved HTML sources. And finally I made the list of materials.
+
+### Comparing HTML elements between the production and the development environment
+
+Selenium WebDriver provides a basic support of capturing screenshot of web pages. See [Guru99 article](https://www.guru99.com/take-screenshot-selenium-webdriver.html) for how to. The [AShot](https://github.com/pazone/ashot/tree/ashot-1.5.4) library extends it to take screenshots of arbitrary HTML elements (such as `<div>`, `<table>`,`<img>`, `<svg>`). Taking screenshot is just a start. I want to take 2 screenshots and compare them to find the difference. I want to compile a report of the source images and the diff image for a lot of targets. The Inspectus library provides the framework to enable such visual inspection of HTML elements. Let me show you an example.
+
+My target URL is the following 2:
+
+-   <https://kazurayam.github.io/myApple/>
+
+-   <https://kazurayam.github.io/myApple-alt/>
+
+Please visit these 2 sites and have a look. You would find them quite similar, but has small differences --- the image of apples are transformed: resized and rotated. Now I want to compare the apple images in these 2 web sites programatically.
+
+The following is the procedure:
+
+1.  Please follow the [insturuction](https://kazurayam.github.io/inspectus4katalon-sample-project/index#installing-and-setting-up-katalon-studio) to setup Katalon Studio and Gradle.
+
+2.  Download the zip of the sample project from the [Release](https://github.com/kazurayam/inspectus4katalon-sample-project/releases) page.
+
+3.  In the commandline, run
+
+<!-- -->
+
+    $ cd <sample project dir>
+    $ gradle drivers
+
+1.  open "Test Cases/AppleTwinsDiff", and run it
+
+2.  In the `<projectDir>/store` directory, the test case will create an HTML named `AppleTwinsDiff-yyyyMMdd_hhmmss.html`. It will look, for example, like this:
+
+    -   <https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/AppleTwinsDiff-20231210_183345.html>
+
+![AppleTwinsDiff top](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_top.png)
+
+Please click the button labeled "Show Diff in Modal. Then you will see the following page:
+
+![AppleTwinsDiff diff](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_diff.png)
+
+This page shows a "carousel". By clicking the left side or the right side of the page you can slide the page into "the left and "the right":
+
+![AppleTwinsDiff left](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_left.png)
+
+![AppleTwinsDiff right](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_right.png)
+
+You can easily see that the left apple and the right apple look similar but different. The diff image shows the different piccels.
 
 ## Installing and setting up Katalon Studio
 
@@ -294,7 +342,7 @@ In the `MyVisualInspectionProject` folder you would find a file named `build.gra
 Now you want to edit the `build.gradle` as follows:
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.5.2"
+      id 'com.kazurayam.inspectus4katalon' version "0.5.4"
     }
 
 This code declares your build wants to use a custom Gradle plugin `com.kazurayam.inspectus4katalon`, which is published at the Gradle Plugin portal [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon).

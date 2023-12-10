@@ -44,7 +44,7 @@ HTMLソースコードだけでなく他のさまざまな形式のテキスト�
 
 自分が運営するwebサイトのスクリーンショットを撮って一覧レポートを作りたい、ただし差分の検査はとりあえず要らない。そういうシンプルな要求を満たすための機能もサポートしています。次のデモを見てください。検索サイト link:https://duckduckgo.com/?[DuckDuckGo] をブラウザで開いて、キーワード `selenium` を指定してENTERし検索結果を見る。その過程で画面のスクリーンショットとHTMLソースを取得し保存する。最後に一覧をHTMLとして生成する。それだけのことをしたサンプルです。
 
-* link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20221213_080436.html[DuckDuckGoのスクリーンショット一覧のデモ]
+* link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20231210_183232.html[DuckDuckGoのスクリーンショット一覧のデモ]
 
 image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/DuckDuckGo_small.png[]
 

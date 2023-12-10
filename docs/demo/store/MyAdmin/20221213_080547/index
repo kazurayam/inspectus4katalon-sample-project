@@ -1,6 +1,0 @@
-74e4a1c3b26c112495f8013c9cbf370f8078111e	html	{"description":"my favorite proverb", "step":"03", "URL.host":"devadmin.kazurayam.com", "URL.path":"/proverbs.html", "URL.port":"80", "URL.protocol":"http"}
-83fc345304d0254e1d799176b43f478faab0005b	png	{"description":"my favorite proverb", "step":"03", "URL.host":"devadmin.kazurayam.com", "URL.path":"/proverbs.html", "URL.port":"80", "URL.protocol":"http"}
-161599eb7e32dc884767da83734006c883dc1a56	html	{"description":"my repositories", "step":"02", "URL.host":"devadmin.kazurayam.com", "URL.path":"/repositories.html", "URL.port":"80", "URL.protocol":"http"}
-33c8dcc0004dd5d49db58d81eb56997aec00a119	png	{"description":"my repositories", "step":"02", "URL.host":"devadmin.kazurayam.com", "URL.path":"/repositories.html", "URL.port":"80", "URL.protocol":"http"}
-b40c162a8ff66ae7c3c158eb16e6f42ecc242f83	html	{"description":"the top page", "step":"01", "URL.host":"devadmin.kazurayam.com", "URL.path":"/index.html", "URL.port":"80", "URL.protocol":"http"}
-81750bc29881a1bc27c3e1511087d5a73290b712	png	{"description":"the top page", "step":"01", "URL.host":"devadmin.kazurayam.com", "URL.path":"/index.html", "URL.port":"80", "URL.protocol":"http"}
