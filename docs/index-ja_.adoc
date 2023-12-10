@@ -315,13 +315,13 @@ Katalonプロジェクトの作り方は前に説明しました。以下では 
 
 `MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成しました。ただし実はKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし書きかえてもKatalon Studio本体の動きには影響しません。
 
-そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 link:https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon[Gradle Plugin Portal] で公開しています。
+そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 link:https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon[Gradle Plugin Portal] で公開しています。2023年12月現在の最新バージョンは 0.5.4 です。こんご、新しいバージョンがリリースされていたら最新バージョンを指定してください。
 
 
 [source, text]
 ----
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.5.0"
+  id 'com.kazurayam.inspectus4katalon' version "0.5.4"
 }
 ----
 

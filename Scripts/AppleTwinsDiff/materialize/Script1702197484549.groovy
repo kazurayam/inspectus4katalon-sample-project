@@ -28,7 +28,7 @@ List<Target> targetList = getTargetList(executionProfile)
 
 WebUI.comment("targetList.size()=" + targetList.size())
 
-WebUI.callTestCase(findTestCase("Test Cases/MyAdmin/processTargetList"),
+WebUI.callTestCase(findTestCase("Test Cases/AppleTwinsDiff/processTargetList"),
 						[
 							"store": store,
 							"jobName": jobName,
@@ -37,8 +37,8 @@ WebUI.callTestCase(findTestCase("Test Cases/MyAdmin/processTargetList"),
 						])
 
 /**
- * look at the Execution Profile to find a CSV file 
- * where list of multiple target URLs are written  
+ * look at the Execution Profile to find a CSV file
+ * where list of multiple target URLs are written
  */
 List<Target> getTargetList(String executionProfile) {
 	
@@ -49,15 +49,16 @@ List<Target> getTargetList(String executionProfile) {
 	WebUI.comment("GlobalVariable.URL_PREFIX=" + GlobalVariable.URL_PREFIX)
 	WebUI.comment("GlobalVariable.SITEMAP=" + GlobalVariable.SITEMAP)
 	
-	// identify the URL of the top page
-	Target topPage = Target.builder(GlobalVariable.URL_PREFIX).build()
+	// identify the sitemap file
+	Path sitemapFile = Paths.get(RunConfiguration.getProjectDir()).resolve(GlobalVariable.SITEMAP)
 	
-	// identify the target CSV file
-	Path jsonFile = Paths.get(RunConfiguration.getProjectDir()).resolve(GlobalVariable.SITEMAP)
+	// create the variable bindings
+	Map<String, String> bindings = new HashMap<>()
+	bindings.put("URL_PREFIX", GlobalVariable.URL_PREFIX)
 	
 	// create an instance of Sitemap
 	SitemapLoader loader = new SitemapLoader()
-	Sitemap sitemap = loader.loadSitemapJson(jsonFile, ["URL_PREFIX": GlobalVariable.URL_PREFIX])
+	Sitemap sitemap = loader.loadSitemapJson(sitemapFile, bindings)
 	
 	WebUI.comment("sitemap.size()=" + sitemap.size())
 	assert sitemap.size() > 0

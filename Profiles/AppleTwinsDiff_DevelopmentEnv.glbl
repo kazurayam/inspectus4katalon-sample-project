@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalVariableEntities>
    <description></description>
-   <name>MyAdmin_ProductionEnv</name>
+   <name>AppleTwinsDiff_DevelopmentEnv</name>
    <tag></tag>
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'http://myadmin.kazurayam.com'</initValue>
+      <initValue>'https://kazurayam.github.io/myApple-alt'</initValue>
       <name>URL_PREFIX</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Include/data/MyAdmin/sitemap.json'</initValue>
+      <initValue>'Include/data/MyApple/sitemap.json'</initValue>
       <name>SITEMAP</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

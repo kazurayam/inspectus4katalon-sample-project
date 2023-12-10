@@ -10,6 +10,7 @@ import com.kazurayam.materialstore.core.JobTimestamp
 import com.kazurayam.materialstore.core.SortKeys
 import com.kazurayam.materialstore.core.Store
 import com.kazurayam.materialstore.core.Stores
+import com.kazurayam.materialstore.core.metadata.IgnoreMetadataKeys;
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.util.KeywordUtil
 
@@ -35,6 +36,9 @@ Parameters p =
 		.baselinePriorTo(jobTimestamp)  // compare to the last run's result
 		// .baselinePriorTo(jobTimestamp.minusHours(3))        // compare to the previous result before 3 hours from now
 		// .baselinePriorTo(new JobTimestamp("20221203_000000")) //
+		.ignoreMetadataKeys(
+			new IgnoreMetadataKeys.Builder()
+					.ignoreKeys("URL.protocol", "URL.port").build())
 		.sortKeys(sortKeys)
 		.threshold(1.0)   // ignore differences less than 1.0%
 		.build();

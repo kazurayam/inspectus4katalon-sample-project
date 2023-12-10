@@ -318,7 +318,7 @@ Now you want to edit the `build.gradle` as follows:
 [source, text]
 ----
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.5.2"
+  id 'com.kazurayam.inspectus4katalon' version "0.5.4"
 }
 ----
 
