@@ -57,15 +57,19 @@ I visited the [DuckDuckGo](https://duckduckgo.com/?) in a browser, typed a keywo
 
 ### Comparing HTML elements between the production and the development environment
 
-Selenium WebDriver provides a basic support of capturing screenshot of web pages. See [Guru99 article](https://www.guru99.com/take-screenshot-selenium-webdriver.html) for how to. The [AShot](https://github.com/pazone/ashot/tree/ashot-1.5.4) library extends it to take screenshots of arbitrary HTML elements (such as `<div>`, `<table>`,`<img>`, `<svg>`). Taking screenshot is just a start. I want to take 2 screenshots and compare them to find the difference. I want to compile a report of the source images and the diff image for a lot of targets. The Inspectus library provides the framework to enable such visual inspection of HTML elements. Let me show you an example.
+Selenium WebDriver provides a basic support of capturing screenshot of web pages. See [Guru99 article](https://www.guru99.com/take-screenshot-selenium-webdriver.html) for how to. The [AShot](https://github.com/pazone/ashot/tree/ashot-1.5.4) library extends it to take screenshots of arbitrary HTML elements (such as `<div>`, `<table>`,`<img>`, `<svg>`). But taking screenshot is just the start of fatigues. I want to take 2 screenshots and compare them to find the difference. I want to compile a report of the source images and the diff image for a lot of targets. The Inspectus library provides the framework to enable such visual inspection of HTML elements. Let me show you an example.
 
-My target URL is the following 2:
+I would use the following 2 URLs as target to inspect:
 
 -   <https://kazurayam.github.io/myApple/>
 
 -   <https://kazurayam.github.io/myApple-alt/>
 
-Please visit these 2 sites and have a look. You would find them quite similar, but has small differences --- the image of apples are transformed: resized and rotated. Now I want to compare the apple images in these 2 web sites programatically.
+Please visit these 2 sites and have a look. You would find them quite similar. The pages show a variation of an apple image. image:
+
+![Apple I bit](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Apple_I_bit.png)
+
+But there are small differences --- the image of apples are transformed: resized and rotated. Now I want to compare the apple images in these 2 web sites programatically.
 
 The following is the procedure:
 
