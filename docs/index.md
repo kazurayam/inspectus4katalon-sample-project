@@ -61,7 +61,7 @@ Selenium WebDriver provides a basic support of capturing screenshot of web pages
 
 My Inspectus library provides the framework to enable such visual inspection of HTML elements. Let me show you an example.
 
-I would use the following 2 URLs as target to inspect:
+I would use the following 2 URLs as testbed:
 
 -   <https://kazurayam.github.io/myApple/>
 
@@ -104,7 +104,7 @@ This page shows a "carousel". By clicking the left side or the right side of the
 
 ![AppleTwinsDiff right](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_right.png)
 
-The left apple and the right apple look similar but actually different. The diff image shows the different piccels painted in red.
+The left apple and the right apple look similar but different. Can you see how? Yes, it’s rotated. diff image shows the different pixels painted in red.
 
 ## Installing and setting up Katalon Studio
 
