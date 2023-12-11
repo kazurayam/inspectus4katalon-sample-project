@@ -1,12 +1,12 @@
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.4.5"
+  id 'com.kazurayam.inspectus4katalon' version "0.5.4"
 }
 
 // to run the plugin, execute
 // $ gradle drivers
 
 group = 'com.kazurayam'
-version = '0.4.5'
+version = '0.5.3'
 
 /*
 inspectus4katalon {
@@ -27,29 +27,17 @@ task distributable(type: Zip) {
     include 'Test Cases/**/*'
 }
 
-task indexconv {
-  doLast {
-    exec {
-      workingDir './docs'
-      commandLine './indexconv.sh', '-t'
-    }
-  }
-}
 
-task publishdocs {
-  doLast {
-    exec {
-      workingDir '.'
-      commandLine 'git', 'add', 'docs/'
+
+/**
+ * translate docs/index_.adoc to docs/index.md
+ * with instruction to Jekyll Blog to generate TOC
+ */
+task indextoc {
+    doLast {
+        exec {
+            workingDir './docs'
+            commandLine './adoc2md.sh', '-t', '-v', project.version
+        }
     }
-    exec {
-      workingDir '.'
-      commandLine 'git', 'commit', '-m', 'update the docs/'
-    }
-    exec {
-      workingDir '.'
-      commandLine 'git', 'push'
-    }
-  }
 }
-publishdocs.dependsOn indexconv

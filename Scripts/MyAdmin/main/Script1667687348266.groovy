@@ -11,6 +11,7 @@ import com.kazurayam.materialstore.core.JobTimestamp
 import com.kazurayam.materialstore.core.SortKeys
 import com.kazurayam.materialstore.core.Store
 import com.kazurayam.materialstore.core.Stores
+import com.kazurayam.materialstore.core.metadata.IgnoreMetadataKeys;
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.util.KeywordUtil
 
@@ -33,6 +34,11 @@ Parameters p =
 		.backup(backup)
 		.jobName(jobName)
 		.jobTimestamp(jobTimestamp)
+		.ignoreMetadataKeys(
+			new IgnoreMetadataKeys.Builder()
+					.ignoreKeys("URL.host", "URL.path",
+							"URL.protocol", "URL.port",
+							"image-width", "image-height").build())
 		.sortKeys(sortKeys)
 		.threshold(3.0)    // ignore differences less than 3.0%
 		.build();

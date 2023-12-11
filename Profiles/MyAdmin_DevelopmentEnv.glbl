@@ -6,12 +6,12 @@
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'http://devadmin.kazurayam.com/'</initValue>
-      <name>topPageURL</name>
+      <initValue>'http://devadmin.kazurayam.com'</initValue>
+      <name>URL_PREFIX</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Include/data/MyAdmin/targetList.csv'</initValue>
-      <name>CSV</name>
+      <initValue>'Include/data/MyAdmin/sitemap.json'</initValue>
+      <name>SITEMAP</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

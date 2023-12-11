@@ -1,6 +1,0 @@
-3477afdca87358c697b9b479cbc8ed4e6bc05a21	html	{"label":"blank search page", "step":"01", "URL.host":"duckduckgo.com", "URL.path":"/"}
-a297efff9393fbc896d06ce80bed419b6bef963f	png	{"label":"blank search page", "step":"01", "URL.host":"duckduckgo.com", "URL.path":"/"}
-1d201c5bbbbcfe5a41efbe886a34143261e6afd7	html	{"label":"result page", "q":"Selenium", "step":"03", "URL.host":"duckduckgo.com", "URL.path":"/"}
-a27103cafc3daf1f5229784f1f365e5d014f43f6	png	{"label":"result page", "q":"Selenium", "step":"03", "URL.host":"duckduckgo.com", "URL.path":"/"}
-fcd3655bb62ce1f7f62395c621f44535ffb322c7	html	{"label":"search page with query", "step":"02", "URL.host":"duckduckgo.com", "URL.path":"/"}
-a2c25d986cdfc06faba8f45aa46c1daf31ae5d73	png	{"label":"search page with query", "step":"02", "URL.host":"duckduckgo.com", "URL.path":"/"}

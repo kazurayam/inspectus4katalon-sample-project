@@ -1,35 +1,5 @@
--   [Visual Inspection : Webサイトの画面確認を自動化しよう](#visual-inspection-webサイトの画面確認を自動化しよう)
-    -   [はじめに](#はじめに)
-    -   [Visual Inspectionが出力するレポートのサンプル](#visual-inspectionが出力するレポートのサンプル)
-    -   [サンプルの説明](#サンプルの説明)
-        -   [二つの画像の差分](#二つの画像の差分)
-        -   [二つのテキストの差分](#二つのテキストの差分)
-        -   [スクリーンショットの一覧](#スクリーンショットの一覧)
-    -   [Katalon Studioを準備する](#katalon-studioを準備する)
-        -   [Katalon Studioをインストールする](#katalon-studioをインストールする)
-        -   [Katalon StudioのGUIを起動してユーザー登録をする](#katalon-studioのguiを起動してユーザー登録をする)
-        -   [Katalon Studio全体にわたる設定をする](#katalon-studio全体にわたる設定をする)
-            -   [Proxyを設定する](#proxyを設定する)
-            -   [WebDriverをアップデートする](#webdriverをアップデートする)
-            -   [Scrip viewを使う、Manual viewを使わない](#scrip-viewを使うmanual-viewを使わない)
-        -   [プロジェクトを作る](#プロジェクトを作る)
-        -   [プロジェクトを設定する](#プロジェクトを設定する)
-            -   [ブラウザの種類を選ぶ](#ブラウザの種類を選ぶ)
-            -   [TestOpsを使わない](#testopsを使わない)
-            -   [TestCloudを使わない](#testcloudを使わない)
-            -   [Smart Waitを使わない](#smart-waitを使わない)
-            -   [Log Viewerを軽量化する](#log-viewerを軽量化する)
-        -   [初めてのTest Caseを作って動かしてみる](#初めてのtest-caseを作って動かしてみる)
-    -   [ビルドツール Gradle を準備する](#ビルドツール-gradle-を準備する)
-        -   [Git for Windowsをインストールする](#git-for-windowsをインストールする)
-        -   [SDKMAN!をインストールする](#sdkmanをインストールする)
-        -   [Javaをインストールする](#javaをインストールする)
-        -   [Gradleをインストールする](#gradleをインストールする)
-    -   [自作のKatalonプロジェクトにVisual Inspectionを組み込む](#自作のkatalonプロジェクトにvisual-inspectionを組み込む)
-        -   [gradle deploy-visual-inspection-sample-for-katalonタスク](#gradle-deploy-visual-inspection-sample-for-katalonタスク)
-        -   [gradle driversタスク](#gradle-driversタスク)
-    -   [Visual Inspectionのテストコードを実行してみる](#visual-inspectionのテストコードを実行してみる)
-    -   [結論](#結論)
+- Table of contents
+{:toc}
 
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
@@ -75,7 +45,7 @@ HTMLソースコードだけでなく他のさまざまな形式のテキスト�
 
 自分が運営するwebサイトのスクリーンショットを撮って一覧レポートを作りたい、ただし差分の検査はとりあえず要らない。そういうシンプルな要求を満たすための機能もサポートしています。次のデモを見てください。検索サイト [DuckDuckGo](https://duckduckgo.com/?) をブラウザで開いて、キーワード `selenium` を指定してENTERし検索結果を見る。その過程で画面のスクリーンショットとHTMLソースを取得し保存する。最後に一覧をHTMLとして生成する。それだけのことをしたサンプルです。
 
--   [DuckDuckGoのスクリーンショット一覧のデモ](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20221213_080436.html)
+-   [DuckDuckGoのスクリーンショット一覧のデモ](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20231210_183232.html)
 
 ![DuckDuckGo small](https://kazurayam.github.io/inspectus4katalon-sample-project/images/DuckDuckGo_small.png)
 
@@ -330,10 +300,10 @@ Katalonプロジェクトの作り方は前に説明しました。以下では 
 
 `MyVisualInspectionProject` フォルダの直下に `build.gradle` ファイルがあるはずです。あなたがプロジェクトを最初に作ったときにKatalon Studioが build.gradle を自動生成しました。ただし実はKatalon Studio(現時点のバージョンは8.5.x)はbuild.gradleファイルをまったく利用していません。削除してもかまわないし書きかえてもKatalon Studio本体の動きには影響しません。
 
-そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。
+そこでbuild.gradleファイルを下記のように書きかえて保存します。`com.kazurayam.inspectus4katalon` はkazurayamが開発したカスタムGradleプラグインです。 [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon) で公開しています。2023年12月現在の最新バージョンは 0.5.4 です。こんご、新しいバージョンがリリースされていたら最新バージョンを指定してください。
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.5.0"
+      id 'com.kazurayam.inspectus4katalon' version "0.5.4"
     }
 
 Katalon Studioを一旦停止してください。そしてGit Bashのウインドウを開いてKatalonプロジェクトのフォルダに移動します。

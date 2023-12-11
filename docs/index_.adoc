@@ -48,11 +48,57 @@ Using Katalon Studio, you can download and save many kinds of texts out of the w
 
 The sample output includes a simple list of screenshots without diff. Please look at the following link:
 
-* link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20221213_080436.html[list of screenshots of DuckDuckGo]
+* link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20231210_183232.html[list of screenshots of DuckDuckGo]
 
 image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/DuckDuckGo_small.png[]
 
 I visited the link:https://duckduckgo.com/?[DuckDuckGo] in a browser, typed a keyword `selenium` and hit ENTER to get a list of search results. I took screenshots and saved HTML sources. And finally I made the list of materials.
+
+=== Comparing HTML elements between the production and the development environment
+
+Selenium WebDriver provides a basic support of capturing screenshot of web pages. See link:https://www.guru99.com/take-screenshot-selenium-webdriver.html[Guru99 article] for how to. The link:https://github.com/pazone/ashot/tree/ashot-1.5.4[AShot] library extends it to take screenshots of arbitrary HTML elements (such as `<div>`, `<table>`,`<img>`, `<svg>`). But taking screenshot is just the start of fatigues. I want to take 2 screenshots and compare them to find the difference. I want to compile a report of the source images and the diff image for a lot of targets. I want my test to fail if the image difference exceeds the degree I set. For example, if the image difference is greater than 5%, the test should fail. 
+
+My Inspectus library provides the framework to enable such visual inspection of HTML elements. Let me show you an example.
+
+I would use the following 2 URLs as testbed:
+
+- https://kazurayam.github.io/myApple/
+- https://kazurayam.github.io/myApple-alt/
+
+Please visit these 2 sites and have a look. You would find them quite similar. The pages show a variations of an apple image, like this:
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/Apple_I_bit.png[]
+
+There are small differences in the pages --- the apple is transformed: resized, rotated. I want to compare these silightly different apple images in this pair of web sites programatically.
+
+The following is the procedure:
+
+1. You need Java, Katalon Studio, Gradle installed. Please follow the link:https://kazurayam.github.io/inspectus4katalon-sample-project/index#installing-and-setting-up-katalon-studio[instruction].
+2. Download the zip of the sample project from the link:https://github.com/kazurayam/inspectus4katalon-sample-project/releases[Release] page.
+3. In the commandline, run
+[source]
+----
+$ cd <sample project dir>
+$ gradle drivers
+----
+4. open "Test Cases/AppleTwinsDiff", and run it
+5. In the `<projectDir>/store` directory, the test case will create an HTML named `AppleTwinsDiff-yyyyMMdd_hhmmss.html`. It will look, for example, like this:
+
+- link:https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/AppleTwinsDiff-20231210_183345.html[]
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_top.png[]
+
+Please click the button labelled **Show Diff in Modal**. Then you will see the following Diff page:
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_diff.png[]
+
+This page shows a "carousel". By clicking the left side or the right side of the page you can slide the page into the Left and the Right:
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_left.png[]
+
+image:https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_right.png[]
+
+The left apple and the right apple look similar but different. Can you see how? Yes, it's rotated. diff image shows the different pixels painted in red.
 
 == Installing and setting up Katalon Studio
 
@@ -318,7 +364,7 @@ Now you want to edit the `build.gradle` as follows:
 [source, text]
 ----
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.5.0"
+  id 'com.kazurayam.inspectus4katalon' version "0.5.4"
 }
 ----
 

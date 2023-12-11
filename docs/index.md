@@ -1,35 +1,5 @@
--   [Automated Visual Inspection](#automated-visual-inspection)
-    -   [Introduction](#introduction)
-    -   [Sample output from the Visual Inspection](#sample-output-from-the-visual-inspection)
-    -   [Explanation of the sample output](#explanation-of-the-sample-output)
-        -   [Difference report between 2 screenshots](#difference-report-between-2-screenshots)
-        -   [Difference report between 2 HTML source texts](#difference-report-between-2-html-source-texts)
-        -   [List of screenshots](#list-of-screenshots)
-    -   [Installing and setting up Katalon Studio](#installing-and-setting-up-katalon-studio)
-        -   [Installing Katalon Studio](#installing-katalon-studio)
-        -   [Launching Katalon Studio](#launching-katalon-studio)
-        -   [Configure Katalon Studio](#configure-katalon-studio)
-            -   [Proxy](#proxy)
-            -   [Update WebDriver modules](#update-webdriver-modules)
-            -   [Use Script view, not Manual view, in the Test Case editor](#use-script-view-not-manual-view-in-the-test-case-editor)
-        -   [Create a project](#create-a-project)
-        -   [Setting up the project](#setting-up-the-project)
-            -   [Choose type of browser as default](#choose-type-of-browser-as-default)
-            -   [No TestOps](#no-testops)
-            -   [No TestCloud](#no-testcloud)
-            -   [Disable Smart Wait](#disable-smart-wait)
-            -   [Tune Log Viewer light-weighted](#tune-log-viewer-light-weighted)
-        -   [Creating your first Test Case](#creating-your-first-test-case)
-    -   [Setting up Gradle build tool](#setting-up-gradle-build-tool)
-        -   [Installing Git for Windows](#installing-git-for-windows)
-        -   [Installing SDKMAN!](#installing-sdkman)
-        -   [Installing Java](#installing-java)
-        -   [Installing Gradle](#installing-gradle)
-    -   [Inject the resources required for Visual Inspection into your own Katalon project](#inject-the-resources-required-for-visual-inspection-into-your-own-katalon-project)
-        -   [gradle deploy-visual-inspection-sample-for-katalon](#gradle-deploy-visual-inspection-sample-for-katalon)
-        -   [gradle drivers task](#gradle-drivers-task)
-    -   [Let’s run the sample code of Visual Inspection](#lets-run-the-sample-code-of-visual-inspection)
-    -   [Conclusion](#conclusion)
+- Table of contents
+{:toc}
 
 # Automated Visual Inspection
 
@@ -79,11 +49,62 @@ Using Katalon Studio, you can download and save many kinds of texts out of the w
 
 The sample output includes a simple list of screenshots without diff. Please look at the following link:
 
--   [list of screenshots of DuckDuckGo](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20221213_080436.html)
+-   [list of screenshots of DuckDuckGo](https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/DuckDuckGo-20231210_183232.html)
 
 ![DuckDuckGo small](https://kazurayam.github.io/inspectus4katalon-sample-project/images/DuckDuckGo_small.png)
 
 I visited the [DuckDuckGo](https://duckduckgo.com/?) in a browser, typed a keyword `selenium` and hit ENTER to get a list of search results. I took screenshots and saved HTML sources. And finally I made the list of materials.
+
+### Comparing HTML elements between the production and the development environment
+
+Selenium WebDriver provides a basic support of capturing screenshot of web pages. See [Guru99 article](https://www.guru99.com/take-screenshot-selenium-webdriver.html) for how to. The [AShot](https://github.com/pazone/ashot/tree/ashot-1.5.4) library extends it to take screenshots of arbitrary HTML elements (such as `<div>`, `<table>`,`<img>`, `<svg>`). But taking screenshot is just the start of fatigues. I want to take 2 screenshots and compare them to find the difference. I want to compile a report of the source images and the diff image for a lot of targets. I want my test to fail if the image difference exceeds the degree I set. For example, if the image difference is greater than 5%, the test should fail.
+
+My Inspectus library provides the framework to enable such visual inspection of HTML elements. Let me show you an example.
+
+I would use the following 2 URLs as testbed:
+
+-   <https://kazurayam.github.io/myApple/>
+
+-   <https://kazurayam.github.io/myApple-alt/>
+
+Please visit these 2 sites and have a look. You would find them quite similar. The pages show a variations of an apple image, like this:
+
+![Apple I bit](https://kazurayam.github.io/inspectus4katalon-sample-project/images/Apple_I_bit.png)
+
+There are small differences in the pages --- the apple is transformed: resized, rotated. I want to compare these silightly different apple images in this pair of web sites programatically.
+
+The following is the procedure:
+
+1.  You need Java, Katalon Studio, Gradle installed. Please follow the [instruction](https://kazurayam.github.io/inspectus4katalon-sample-project/index#installing-and-setting-up-katalon-studio).
+
+2.  Download the zip of the sample project from the [Release](https://github.com/kazurayam/inspectus4katalon-sample-project/releases) page.
+
+3.  In the commandline, run
+
+<!-- -->
+
+    $ cd <sample project dir>
+    $ gradle drivers
+
+1.  open "Test Cases/AppleTwinsDiff", and run it
+
+2.  In the `<projectDir>/store` directory, the test case will create an HTML named `AppleTwinsDiff-yyyyMMdd_hhmmss.html`. It will look, for example, like this:
+
+    -   <https://kazurayam.github.io/inspectus4katalon-sample-project/demo/store/AppleTwinsDiff-20231210_183345.html>
+
+![AppleTwinsDiff top](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_top.png)
+
+Please click the button labelled **Show Diff in Modal**. Then you will see the following Diff page:
+
+![AppleTwinsDiff diff](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_diff.png)
+
+This page shows a "carousel". By clicking the left side or the right side of the page you can slide the page into the Left and the Right:
+
+![AppleTwinsDiff left](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_left.png)
+
+![AppleTwinsDiff right](https://kazurayam.github.io/inspectus4katalon-sample-project/images/AppleTwinsDiff_right.png)
+
+The left apple and the right apple look similar but different. Can you see how? Yes, it’s rotated. diff image shows the different pixels painted in red.
 
 ## Installing and setting up Katalon Studio
 
@@ -327,7 +348,7 @@ In the `MyVisualInspectionProject` folder you would find a file named `build.gra
 Now you want to edit the `build.gradle` as follows:
 
     plugins {
-      id 'com.kazurayam.inspectus4katalon' version "0.5.0"
+      id 'com.kazurayam.inspectus4katalon' version "0.5.4"
     }
 
 This code declares your build wants to use a custom Gradle plugin `com.kazurayam.inspectus4katalon`, which is published at the Gradle Plugin portal [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.kazurayam.inspectus4katalon).
