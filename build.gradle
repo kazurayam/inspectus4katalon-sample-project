@@ -1,5 +1,5 @@
 plugins {
-  id 'com.kazurayam.inspectus4katalon' version "0.5.4"
+  id 'com.kazurayam.inspectus4katalon' version "0.6.0"
 }
 
 // to run the plugin, execute
