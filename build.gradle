@@ -6,11 +6,11 @@ plugins {
 // $ gradle drivers
 
 group = 'com.kazurayam'
-version = '0.5.3'
+version = '0.6.0'
 
 /*
 inspectus4katalon {
-  inspectusVersion = "0.9.0"
+  inspectusVersion = "0.12.3"
 }
  */
 
