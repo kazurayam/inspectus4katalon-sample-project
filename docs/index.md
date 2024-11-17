@@ -1,6 +1,3 @@
-- Table of contents
-{:toc}
-
 # Automated Visual Inspection
 
 -   @author kazurayam
@@ -25,7 +22,7 @@ What sort of output does my Visual Inspection produces? Here is a sample. Click 
 
 Here is a video that shows how you can retrieve the pages of the sample output:
 
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ## Explanation of the sample output
 
@@ -251,7 +248,7 @@ Here is a video which shows how I operated Katalon Studio to run the test.
 
 <https://youtu.be/4jT6pgDmxmc>
 
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 Now you have got Katalon Studio installed, up and running on your Windows PC.
 

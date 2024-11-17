@@ -1,6 +1,3 @@
-- Table of contents
-{:toc}
-
 # Visual Inspection : Webサイトの画面確認を自動化しよう
 
 ## はじめに
@@ -19,7 +16,7 @@ Visual Inspectionを実行するとどういう出力が得られるのか？サ
 
 このサンプルをブラウザで開きあちこち眺める様子を動画にしてみました。
 
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pxZRS5-rigM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ## サンプルの説明
 
@@ -196,7 +193,7 @@ Katalon StudioのGUIの右下にログを表示するエリアがあります。
 
 <https://youtu.be/4jT6pgDmxmc>
 
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/4jT6pgDmxmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 以上で、Katalon Studioでプロジェクトを作りテストスクリプトを作って動かすことができました。
 

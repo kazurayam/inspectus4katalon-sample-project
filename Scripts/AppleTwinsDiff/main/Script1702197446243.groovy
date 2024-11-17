@@ -1,3 +1,4 @@
+import java.awt.Color
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -5,18 +6,16 @@ import com.kazurayam.inspectus.core.Environment
 import com.kazurayam.inspectus.core.Inspectus
 import com.kazurayam.inspectus.core.Intermediates
 import com.kazurayam.inspectus.core.Parameters
-import com.kazurayam.materialstore.base.reduce.zipper.DiffColor
 import com.kazurayam.inspectus.katalon.KatalonTwinsDiff
-import com.kazurayam.materialstore.core.metadata.IgnoreMetadataKeys
+import com.kazurayam.materialstore.core.DiffColor
 import com.kazurayam.materialstore.core.JobName
 import com.kazurayam.materialstore.core.JobTimestamp
 import com.kazurayam.materialstore.core.SortKeys
 import com.kazurayam.materialstore.core.Store
 import com.kazurayam.materialstore.core.Stores
+import com.kazurayam.materialstore.core.metadata.IgnoreMetadataKeys
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.util.KeywordUtil
-
-import java.awt.Color
 
 /**
  * Test Cases/AppleTwinsDiff/main
