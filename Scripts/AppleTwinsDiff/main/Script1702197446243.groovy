@@ -5,6 +5,7 @@ import com.kazurayam.inspectus.core.Environment
 import com.kazurayam.inspectus.core.Inspectus
 import com.kazurayam.inspectus.core.Intermediates
 import com.kazurayam.inspectus.core.Parameters
+import com.kazurayam.materialstore.base.reduce.zipper.DiffColor
 import com.kazurayam.inspectus.katalon.KatalonTwinsDiff
 import com.kazurayam.materialstore.core.metadata.IgnoreMetadataKeys
 import com.kazurayam.materialstore.core.JobName
@@ -14,6 +15,8 @@ import com.kazurayam.materialstore.core.Store
 import com.kazurayam.materialstore.core.Stores
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.util.KeywordUtil
+
+import java.awt.Color
 
 /**
  * Test Cases/AppleTwinsDiff/main
@@ -39,6 +42,7 @@ Parameters p =
 			.build())
 		.sortKeys(sortKeys)
 		.threshold(3.0)    // ignore differences less than 3.0%
+		.withDiffColor(new DiffColor(Color.GREEN))
 		.build();
 
 Inspectus inspectus =
