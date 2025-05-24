@@ -89,7 +89,7 @@ WebUI.setText(findTestObject('CURA/Page_CURA Healthcare Service/appointment/text
 // take the screenshot and the page source, save them into the store
 takeScreenshot(driver, new URL(driver.getCurrentUrl()), ["step": "02", "profile": "ProductionEnv"], pmf)
 
-// we navigate to the next page (summpary)
+// we navigate to the next page (summary)
 WebUI.click(findTestObject('CURA/Page_CURA Healthcare Service/appointment/button_Book Appointment'))
 
 

@@ -1,0 +1,4 @@
+3368d7fab1a57d11974ee0612b5a12957cd63fda	jpeg	{"image-height":"1627", "image-width":"1024", "profile":"ProductionEnv", "step":"02", "URL.fragment":"appointment", "URL.host":"katalon-demo-cura.herokuapp.com", "URL.path":"/", "URL.port":"80", "URL.protocol":"https"}
+5e5a1d412415cf3e0f7fb56e703722f2a1a6d7f5	jpeg	{"image-height":"973", "image-width":"1024", "profile":"ProductionEnv", "step":"01", "URL.host":"demoaut-mimic.kazurayam.com", "URL.path":"/", "URL.port":"80", "URL.protocol":"http"}
+a339ec04c4b7b0b704f6aff03717b784417dfa16	html	{"profile":"ProductionEnv", "step":"01", "URL.host":"demoaut-mimic.kazurayam.com", "URL.path":"/", "URL.port":"80", "URL.protocol":"http"}
+28b5d6e9824b97e66de2df514ed69e3e3e117aba	html	{"profile":"ProductionEnv", "step":"02", "URL.fragment":"appointment", "URL.host":"katalon-demo-cura.herokuapp.com", "URL.path":"/", "URL.port":"80", "URL.protocol":"https"}
